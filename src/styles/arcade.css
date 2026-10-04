@@ -1,0 +1,187 @@
+/* The Family Arcade look, from familyarcade.eu (home.css tokens).
+   Gulp Rounded is a Latin subset of M PLUS Rounded 1c Black, SIL OFL 1.1:
+   see src/assets/fonts/OFL.txt. */
+@font-face {
+  font-family: "Gulp Rounded";
+  src: url("../assets/fonts/gulp-rounded.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+
+:root {
+  --fa-night: #0c1322;
+  --fa-gold: #ffd76a;
+  --fa-pink: #ff7ec0;
+  --fa-teal: #34e0c8;
+  --fa-violet: #a78bfa;
+  --fa-purple: #6a2ee0;
+  --fa-round: "Gulp Rounded", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --sl-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sl-text-body: 1.0625rem; /* 17px */
+  --sl-line-height: 1.7;
+  --sl-content-width: 46rem;
+  --sl-text-h1: 2.4rem;
+}
+@media (min-width: 50em) {
+  :root { --sl-text-body: 1.125rem; } /* 18px */
+}
+
+/* Dark is the default: night blue with gold and teal accents. */
+:root,
+:root[data-theme="dark"] {
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eef1fa;
+  --sl-color-gray-2: #c9cfe2;
+  --sl-color-gray-3: #a3abc6;
+  --sl-color-gray-4: #6b7391;
+  --sl-color-gray-5: #2c3552;
+  --sl-color-gray-6: #172037;
+  --sl-color-gray-7: #111a2e;
+  --sl-color-black: #0c1322;
+  --sl-color-accent-low: #3a2a78;
+  --sl-color-accent: #8f6bf0;
+  --sl-color-accent-high: #ffd76a;
+  --sl-color-text-accent: #ffd76a;
+  --sl-color-bg-nav: #0f1830;
+  --sl-color-bg-sidebar: #0f1830;
+  --sl-color-hairline-light: #2c3552;
+  --sl-color-hairline-shade: #0a0f1c;
+  --sl-color-hairline: #2c3552;
+  --fa-link: #7cf0de;
+  --fa-card: #121c36;
+  --fa-focus: #ffe066;
+  --fa-stripe: rgba(106, 46, 224, 0.07);
+}
+
+:root[data-theme="light"] {
+  --sl-color-white: #1c1440;
+  --sl-color-gray-1: #2a2350;
+  --sl-color-gray-2: #3a3560;
+  --sl-color-gray-3: #4d5470;
+  --sl-color-gray-4: #6b7391;
+  --sl-color-gray-5: #cfc3e3;
+  --sl-color-gray-6: #ece6f7;
+  --sl-color-gray-7: #f6f1fb;
+  --sl-color-black: #fffaf0;
+  --sl-color-accent-low: #e5dcfb;
+  --sl-color-accent: #6a2ee0;
+  --sl-color-accent-high: #4d1fae;
+  --sl-color-text-accent: #5a2fb0;
+  --sl-color-bg-nav: #fffaf0;
+  --sl-color-bg-sidebar: #f6f1fb;
+  --sl-color-hairline-light: #cfc3e3;
+  --sl-color-hairline-shade: #e5dcfb;
+  --sl-color-hairline: #cfc3e3;
+  --fa-link: #0b6f63;
+  --fa-card: #ffffff;
+  --fa-focus: #6a2ee0;
+  --fa-stripe: rgba(106, 46, 224, 0.05);
+}
+
+/* Dusk stripes behind everything, like the arcade wall. */
+body {
+  background-color: var(--sl-color-black);
+  background-image: repeating-linear-gradient(90deg, var(--fa-stripe) 0 48px, transparent 48px 96px);
+  background-attachment: fixed;
+}
+:root[data-theme="dark"] body {
+  background-image:
+    linear-gradient(180deg, rgba(106, 46, 224, 0.22), transparent 340px),
+    repeating-linear-gradient(90deg, var(--fa-stripe) 0 48px, transparent 48px 96px);
+}
+
+h1, h2, h3, h4,
+.hero h1,
+.sl-markdown-content :is(h1, h2, h3, h4) {
+  font-family: var(--fa-round);
+  font-weight: 900;
+  letter-spacing: 0.005em;
+}
+h1 { color: var(--sl-color-white); }
+:root[data-theme="dark"] .sl-markdown-content h2 { color: var(--fa-gold); }
+
+/* Links in the content: teal in dark, deep teal in light, underlined for non-colour cue. */
+.sl-markdown-content a:not(.sl-link-button):not(.fa-card) {
+  color: var(--fa-link);
+  text-underline-offset: 0.2em;
+}
+
+/* Visible focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--fa-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* A rainbow stripe over the header, like the arcade cards. */
+header.header {
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, #ff4d5e, #ff9f1c, #ffd23f, #35d07f, #2ec4ff, #9b5cff) 1;
+}
+
+/* Content images look like the arcade cards. */
+.sl-markdown-content img {
+  border-radius: 14px;
+  border: 1px solid var(--sl-color-hairline);
+}
+
+/* Buttons */
+.sl-link-button.primary {
+  background: linear-gradient(180deg, #ffe98a, #ffd23f);
+  color: #2a1f4a;
+  border-color: #f0a800;
+  font-family: var(--fa-round);
+  font-weight: 900;
+}
+.sl-link-button.primary:hover { background: linear-gradient(180deg, #fff3b0, #ffdf66); color: #2a1f4a; }
+
+/* Landing cards */
+.fa-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  margin-top: 1.5rem;
+}
+.fa-card {
+  display: block;
+  position: relative;
+  padding: 1.4rem 1.25rem 1.25rem;
+  background: var(--fa-card);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--sl-color-gray-2);
+  overflow: hidden;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+}
+.fa-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, #ff4d5e, #ff9f1c, #ffd23f, #35d07f, #2ec4ff, #9b5cff);
+}
+.fa-card:hover { border-color: var(--fa-gold); }
+.fa-card h2 {
+  margin: 0 0 0.4rem;
+  font-family: var(--fa-round);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--fa-gold);
+  border: 0;
+}
+:root[data-theme="light"] .fa-card h2 { color: #4d1fae; }
+.fa-card p { margin: 0; font-size: 1rem; line-height: 1.5; }
+.fa-card .fa-go { display: inline-block; margin-top: 0.8rem; font-weight: 700; color: var(--fa-link); }
+.fa-card.play::before { background: linear-gradient(90deg, #ffd23f, #ff9f1c); }
+.fa-card.make::before { background: linear-gradient(90deg, #34e0c8, #2ec4ff); }
+.fa-card.parents::before { background: linear-gradient(90deg, #ff7ec0, #a78bfa); }
+
+/* The splash hero: roomy but not huge on a phone. */
+.hero h1 { font-size: clamp(2rem, 6vw, 3.4rem); color: var(--sl-color-white); }
+.hero .tagline { color: var(--sl-color-gray-2); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fa-card { transition: transform 0.15s ease, border-color 0.15s ease; }
+  .fa-card:hover { transform: translateY(-3px); }
+}
