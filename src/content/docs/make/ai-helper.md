@@ -1,7 +1,8 @@
 ---
-title: Meet your AI helper
+title: Connect Claude to your game
 description: Connect Claude Code on the web to your game, once.
 sidebar:
+  label: Connect Claude
   order: 3
 ---
 
@@ -9,7 +10,7 @@ Claude Code is Claude working on code. You do not need to install anything
 when you use it on the web. It works on a copy of your game in the cloud. It
 asks before it changes your real game.
 
-## Connect it, once
+## Connecting Claude (one time)
 
 Your repository is your game's home on GitHub. It contains the game's code
 and files.
@@ -24,7 +25,7 @@ You can also use the Claude app on an iPad or phone. Open the **Code** tab.
 You can follow a session started on the computer and merge its change from
 the tablet.
 
-## What Claude knows already
+## Rules Claude already knows
 
 The starter contains a file called `CLAUDE.md`, the rules for AI helpers.
 Claude reads it before changing anything, so it already knows:
@@ -36,4 +37,4 @@ Claude reads it before changing anything, so it already knows:
 
 You do not need to repeat any of that. Talk about the game.
 
-Next: [Your first change](/make/first-change/).
+Next: [Make your first change](/make/first-change/).

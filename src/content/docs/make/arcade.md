@@ -1,7 +1,8 @@
 ---
-title: Put it in the arcade
+title: Add your game to the arcade
 description: Add your game, and your cousins' games, to the family arcade on each device.
 sidebar:
+  label: Add it to the arcade
   order: 7
 ---
 

@@ -1,7 +1,8 @@
 ---
-title: Play together
+title: Play your game with friends
 description: Up to four players, on their own devices, in different homes, with a 4-letter code.
 sidebar:
+  label: Play with friends
   order: 6
 ---
 
@@ -19,12 +20,12 @@ Up to four devices can play together. Different homes and different
 countries are fine. A few strict networks, including some school and office
 networks, block it. Home wifi and mobile data work.
 
-## On one computer, to test
+## Testing on one computer
 
 Open the game in two browser windows. Make one window private so each window
 has its own player. Use one window as the host and the other as the guest.
 
-## Making your own game work together
+## Adding play together to your own game
 
 Tell Claude what playing together means in your game:
 
@@ -35,4 +36,4 @@ Tell Claude what playing together means in your game:
 The device that made the code runs the game. The other devices send what
 their players do. Claude knows how to set this up from the starter's rules.
 
-Next: [Put it in the arcade](/make/arcade/).
+Next: [Add your game to the arcade](/make/arcade/).

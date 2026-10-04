@@ -1,7 +1,8 @@
 ---
-title: Before you start
+title: What you need to make a game
 description: What a grown-up and a child need to make a game together, and how long it takes.
 sidebar:
+  label: What you need
   order: 1
 ---
 
@@ -34,14 +35,14 @@ it. Anyone under 18 needs a parent's permission. GitHub Copilot Free is for
 people aged 13 or older.
 :::
 
-## The steps
+## Steps to your first game
 
-1. [Your own copy](/make/copy/): copy the starter and put it on the web.
-2. [Meet your AI helper](/make/ai-helper/): connect Claude to your game.
-3. [Your first change](/make/first-change/): ask for a change, accept it, then
+1. [Copy the game starter and publish it](/make/copy/): copy the starter and put it on the web.
+2. [Connect Claude to your game](/make/ai-helper/): connect Claude to your game.
+3. [Make your first change](/make/first-change/): ask for a change, accept it, then
    play.
-4. [Make it your own](/make/your-game/): your idea, one step at a time.
-5. [Play together](/make/together/): with family and friends, in other homes too.
-6. [Put it in the arcade](/make/arcade/): your tile on the family's devices.
+4. [Turn the sample into your own game](/make/your-game/): your idea, one step at a time.
+5. [Play your game with friends](/make/together/): with family and friends, in other homes too.
+6. [Add your game to the arcade](/make/arcade/): your tile on the family's devices.
 
-If something goes wrong: [When something breaks](/make/stuck/).
+If something goes wrong: [Fix common problems](/make/stuck/).

@@ -1,5 +1,5 @@
 ---
-title: Rules every game keeps
+title: Rules every game follows
 description: What every game made from the starter promises the children who play it.
 sidebar:
   order: 2

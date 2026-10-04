@@ -1,5 +1,5 @@
 ---
-title: Your first change
+title: Make your first change
 description: Ask, merge, play. The loop every change follows.
 sidebar:
   order: 4
@@ -34,4 +34,4 @@ Say so before you merge: "The pink is too pale, make it brighter." Claude
 changes it on the same branch, and you merge once it is right.
 :::
 
-Next: [Make it your own](/make/your-game/).
+Next: [Turn the sample into your own game](/make/your-game/).

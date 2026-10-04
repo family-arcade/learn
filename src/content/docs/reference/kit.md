@@ -1,7 +1,8 @@
 ---
-title: The kit
+title: Arcade kit reference
 description: The arcade kit's API, for grown-ups who read code and for AI helpers.
 sidebar:
+  label: Arcade kit
   order: 1
 ---
 
@@ -13,7 +14,7 @@ Leave the folder itself unchanged so it can be updated.
 import { arcade } from './arcade';
 ```
 
-## Who is playing
+## The current player
 
 ```ts
 arcade.player();                         // { name, colour: '#rrggbb' } or null
@@ -25,7 +26,7 @@ When the arcade opens a game, it hands over the player in the link. See [How
 it works](/how-it-works/#opening-a-friends-game-from-the-arcade). The kit reads
 the player before your code runs, so `arcade.player()` already has them.
 
-## Saving
+## Saving progress
 
 ```ts
 arcade.save('best', 12);                 // any JSON value, per player, per game
@@ -39,7 +40,7 @@ one web address (`<name>.github.io`). The kit therefore keys every save by the
 game's `id` from `public/arcade.json`. Keep the `id` stable, or the game
 forgets its saves.
 
-## Playing together
+## Play together
 
 The quickest way is the kit's own panel. It has **Play together**, **Make a
 code**, **I have a code**, who is here and **Leave**.
@@ -72,7 +73,7 @@ room.leave();
   scores, not pictures.
 - Every message is checked when it arrives. Anything else is dropped.
 
-## Back to the arcade
+## Returning to the arcade
 
 ```ts
 arcade.cameFromArcade();   // true if the arcade opened this game, in this tab

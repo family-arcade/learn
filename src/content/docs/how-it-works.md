@@ -1,6 +1,8 @@
 ---
-title: How it works
+title: How the Family Arcade works
 description: The arcade, the players, playing together, and how a family's own game joins in.
+sidebar:
+  label: How the arcade works
 ---
 
 There are three parts. **The arcade** is where you play. **The game starter**
@@ -9,7 +11,7 @@ each game that connects it to the arcade and to other players.
 
 ![The arcade's home page: game tiles, the welcome card and Play together](../../assets/screens/arcade-landing-new.webp)
 
-## The arcade
+## The arcade at familyarcade.eu
 
 [familyarcade.eu](https://familyarcade.eu) is a web app. Open it in a browser
 on a phone, tablet or computer. On an iPad, you can add it to the home screen.
@@ -27,7 +29,7 @@ Then it works like an app, even offline.
 The arcade's own games are made by one family in one codebase. Everyone
 else's games are made from the starter.
 
-## Playing together, between homes
+## Playing together across homes
 
 Two devices connect with a four-letter code:
 
@@ -45,7 +47,7 @@ some school and office networks, block it.
 The device that made the code runs the game. The others send what their
 player does and get back what happens.
 
-## A family's own game
+## How a family's game is made and published
 
 ![Star Catch, the starter's sample game, with two players](../../assets/screens/06-host-playing-together.webp)
 
@@ -67,7 +69,7 @@ player does and get back what happens.
 Nothing in this needs our server. Your game lives in your GitHub account. The
 arcade only remembers its link on your device.
 
-## The kit
+## The arcade kit inside each game
 
 Every game made from the starter has a small folder, `src/arcade/`, called
 the kit. It is the only part of a game that knows about the arcade:
@@ -78,7 +80,7 @@ the kit. It is the only part of a game that knows about the arcade:
 - **playing together**: making and joining codes, up to four devices;
 - **back to the arcade**: a button that returns to where you came from.
 
-The details are in [The kit](/reference/kit/).
+The details are in [Arcade kit reference](/reference/kit/).
 
 ## Opening a friend's game from the arcade
 
@@ -93,7 +95,7 @@ The part after `#` never leaves the browser. Websites do not receive it. The
 game reads the name and colour, removes them from the address bar and shows
 "← Arcade" so you can go back.
 
-## Where things are hosted
+## Hosting locations
 
 | What | Where |
 |---|---|
@@ -103,7 +105,7 @@ game reads the name and colour, removes them from the address bar and shows
 | The starter's code | GitHub |
 | Players and saves | the browser on each device |
 
-## What comes later
+## Planned features
 
 - **Accounts for parents**, so a family's players and saves follow them
   across devices.

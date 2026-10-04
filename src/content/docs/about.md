@@ -1,6 +1,8 @@
 ---
-title: About
+title: About the Family Arcade
 description: Who makes the Family Arcade, and why.
+sidebar:
+  label: About
 ---
 
 The Family Arcade started on a family holiday. A dad, his daughters and his

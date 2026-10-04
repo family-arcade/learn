@@ -1,7 +1,8 @@
 ---
-title: Your own copy
+title: Copy the game starter and publish it
 description: Copy the game starter on GitHub and put it on the web, in about ten minutes.
 sidebar:
+  label: Copy the game starter
   order: 2
 ---
 
@@ -45,4 +46,4 @@ Bookmark your game's address. On a phone or tablet, add it to the home
 screen.
 :::
 
-Next: [Meet your AI helper](/make/ai-helper/).
+Next: [Connect Claude to your game](/make/ai-helper/).

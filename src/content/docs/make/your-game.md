@@ -1,7 +1,8 @@
 ---
-title: Make it your own
+title: Turn the sample into your own game
 description: From a one-line idea to your own game, one small step at a time.
 sidebar:
+  label: Make your own game
   order: 5
 ---
 
@@ -16,7 +17,7 @@ A few changes to Star Catch will teach you how Claude works:
 
 > Add a level 2 where the apples fall faster.
 
-## Then your own idea, in one sentence
+## Describe your own game in one sentence
 
 > Make a new game: you are a dragon flying through clouds, collecting gems,
 > and you must not touch the thunderclouds. Keep play together working.
@@ -24,7 +25,7 @@ A few changes to Star Catch will teach you how Claude works:
 Claude will build a first version. It will not be perfect. Play it, then say
 what to change.
 
-## Good habits
+## Tips for working with Claude
 
 - **One thing at a time.** "Make the dragon slower" works better than a long
   list of wishes.
@@ -37,13 +38,13 @@ what to change.
 - **Keep the old version** if you are unsure. Ask: "Try a version where the
   camera follows the dragon, on a new branch, and don't merge it yet."
 
-## Pictures and sounds
+## Adding pictures and sounds
 
 Claude can draw shapes, characters and backgrounds in code. These load fast.
 If the child draws something on paper, photograph it and give it to Claude:
 "Make the dragon look like this drawing." Every picture, sound and font must
 be inside the game. Nothing is loaded from other websites.
 
-More starting points: [Ideas and prompts](/ideas/).
+More starting points: [Game ideas and prompts](/ideas/).
 
-Next: [Play together](/make/together/).
+Next: [Play your game with friends](/make/together/).

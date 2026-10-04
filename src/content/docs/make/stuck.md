@@ -1,5 +1,5 @@
 ---
-title: When something breaks
+title: Fix common problems
 description: What to do when the game, the publishing or Claude gets stuck.
 sidebar:
   order: 8
@@ -45,7 +45,7 @@ Every merged change is kept. Ask Claude:
 
 Or on GitHub, open the pull request you merged and click **Revert**.
 
-## Still stuck?
+## Getting more help
 
 Ask Claude to explain, in simple words, what it thinks is wrong. If it seems
-to be the starter itself, tell us. See [About](/about/) for how to reach us.
+to be the starter itself, tell us. See [About the Family Arcade](/about/) for how to reach us.

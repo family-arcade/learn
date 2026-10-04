@@ -10,7 +10,7 @@ free, has no ads and is not a business.
 
 This page covers what you will want to know before your child uses it.
 
-## What it keeps about your child
+## Data stored about your child
 
 **A player name and scores, on your device only.** When your child makes a
 player, the browser on that phone, tablet or computer saves the name, tickets,
@@ -25,7 +25,7 @@ Because players live on each device, the same child on two devices is two
 separate players. Syncing players across a family's devices needs accounts.
 Those accounts are planned for later. A parent will run them, never a child.
 
-## Who your child can play with
+## Playing with others
 
 **Only people who have your code.** To play together, one device shows four
 letters. The other devices type those letters in. There is no public list of
@@ -48,7 +48,7 @@ Anyone with the four letters can join while the game is open. Treat them like
 a house key: family and friends only.
 :::
 
-## Games from friends
+## Games made by other families
 
 Families can make their own games. They can add each other's games to the
 arcade by link. Those games live on the other family's own website (usually
@@ -65,7 +65,7 @@ GitHub Pages), not on ours.
 
 Only add games from people you know.
 
-## Ages and accounts
+## Age limits and accounts
 
 Playing in the arcade needs no account at any age.
 
@@ -84,7 +84,7 @@ Claude. Codex in ChatGPT is in the free plan for now. It is for people aged
 13 or older, with a parent's permission if they are under 18. GitHub Copilot
 Free is for people aged 13 or older.
 
-## What it costs
+## Costs
 
 | | |
 |---|---|
@@ -110,7 +110,7 @@ few hours. That is a natural break.
 
 Start with [Make a game](/make/).
 
-## What does not exist yet
+## Not built yet
 
 We say what is true today and mark what is not:
 
@@ -120,7 +120,7 @@ We say what is true today and mark what is not:
 - a gallery of games from families you do not know (with checks before
   anything is listed).
 
-## Questions
+## Contact
 
 If something here is unclear or you think something is wrong, tell us. We
-will fix it. See [About](/about/) for how to reach us.
+will fix it. See [About the Family Arcade](/about/) for how to reach us.

@@ -1,6 +1,8 @@
 ---
-title: Ideas and prompts
+title: Game ideas and prompts for Claude
 description: Game ideas and ready-to-copy asks for Claude, from first changes to whole new games.
+sidebar:
+  label: Game ideas and prompts
 ---
 
 Copy any prompt into Claude. Change the words to make it yours.
@@ -57,7 +59,7 @@ Add "Keep play together working" to any prompt so friends can join.
 
 > Draw the background in code: hills, a few trees and a big moon.
 
-## Asking for help
+## Asking Claude for help
 
 > Explain in simple words how the game decides who wins.
 
