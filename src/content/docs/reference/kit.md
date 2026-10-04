@@ -5,9 +5,9 @@ sidebar:
   order: 1
 ---
 
-The kit lives in `src/arcade/` in every game made from the starter. It is
-the only part of a game that knows about the arcade. Import `arcade` from it;
-leave the folder itself unchanged, so it can be updated.
+The kit lives in `src/arcade/` in every game made from the starter. It is the
+only part of a game that knows about the arcade. Import `arcade` from it.
+Leave the folder itself unchanged so it can be updated.
 
 ```ts
 import { arcade } from './arcade';
@@ -21,9 +21,9 @@ await arcade.ui.ensurePlayer(document.body);   // shows "Who's playing?" if nobo
 arcade.setPlayer({ name: 'Klara', colour: '#e0405f' });
 ```
 
-When the arcade opens a game, it hands over the player in the link (see
-[How it works](/how-it-works/#opening-a-friends-game-from-the-arcade)); the kit
-reads it before your code runs, so `arcade.player()` already has them.
+When the arcade opens a game, it hands over the player in the link. See [How
+it works](/how-it-works/#opening-a-friends-game-from-the-arcade). The kit reads
+the player before your code runs, so `arcade.player()` already has them.
 
 ## Saving
 
@@ -33,16 +33,16 @@ arcade.load<number>('best');             // 12, or undefined if never saved
 arcade.save('best', undefined);          // removes it
 ```
 
-Saves stay in the browser. Up to 100 KB per game in all; `save` throws a
-clear error above that. Every game on one GitHub account shares one web
-address (`<name>.github.io`), so the kit keys every save by the game's `id`
-from `public/arcade.json`: keep the `id` stable, or the game forgets its
-saves.
+Saves stay in the browser. Each game can use up to 100 KB in all. `save`
+throws a clear error above that limit. Every game on one GitHub account shares
+one web address (`<name>.github.io`). The kit therefore keys every save by the
+game's `id` from `public/arcade.json`. Keep the `id` stable, or the game
+forgets its saves.
 
 ## Playing together
 
-The quickest way is the kit's own panel: **Play together**, **Make a code**,
-**I have a code**, who is here, **Leave**.
+The quickest way is the kit's own panel. It has **Play together**, **Make a
+code**, **I have a code**, who is here and **Leave**.
 
 ```ts
 const panel = arcade.ui.togetherPanel(container);
@@ -66,11 +66,11 @@ room.leave();
 ```
 
 - Up to 4 devices: a host and up to 3 guests.
-- **The host runs the game.** Guests send what their player does; the host
+- **The host runs the game.** Guests send what their player does. The host
   sends back what happens. That keeps everyone's game the same.
 - Messages are plain JSON objects, at most 16 KB each. Send positions and
   scores, not pictures.
-- Every message is checked when it arrives; anything else is dropped.
+- Every message is checked when it arrives. Anything else is dropped.
 
 ## Back to the arcade
 
@@ -93,5 +93,5 @@ arcade.backToArcade();     // go back; does nothing otherwise
 ```
 
 The arcade reads `title` and `colour` when a family adds the game. White text
-on `colour` must reach a 4.5:1 contrast; a test checks it. `id` is small
+on `colour` must reach a 4.5:1 contrast. A test checks it. `id` is small
 letters, numbers and dashes.

@@ -3,7 +3,7 @@ title: Ideas and prompts
 description: Game ideas and ready-to-copy asks for Claude, from first changes to whole new games.
 ---
 
-Copy any of these into Claude, then change the words to make them yours.
+Copy any prompt into Claude. Change the words to make it yours.
 
 ## First changes to Star Catch
 
@@ -30,9 +30,9 @@ Copy any of these into Claude, then change the words to make them yours.
 > keys before the battery runs out.
 
 > Make a new game: everyone builds a tower from falling blocks at the same
-> time; the tallest tower when the music stops wins.
+> time. The tallest tower when the music stops wins.
 
-Add "Keep play together working" to any of them, so friends can join.
+Add "Keep play together working" to any prompt so friends can join.
 
 ## Making it feel better
 
@@ -50,8 +50,7 @@ Add "Keep play together working" to any of them, so friends can join.
 
 ## Sounds and pictures
 
-> Make a happy "pling" when you catch something, made in code, and a mute
-> button.
+> Make a happy "pling" in code when you catch something. Add a mute button.
 
 > Here is a photo of my drawing of the dragon. Make the dragon in the game
 > look like this, with the same colours.

@@ -5,21 +5,24 @@ sidebar:
   order: 3
 ---
 
-Claude Code is Claude working on code. On the web it needs nothing installed:
-it works on a copy of your game in the cloud and asks you before anything
-changes for real.
+Claude Code is Claude working on code. You do not need to install anything
+when you use it on the web. It works on a copy of your game in the cloud. It
+asks before it changes your real game.
 
 ## Connect it, once
 
-1. Open **[claude.ai/code](https://claude.ai/code)** and sign in.
-2. Click **Sign in with GitHub** and allow it.
-3. When asked, install the **Claude** GitHub app and choose your game's
-   repository (only that one is fine).
-4. Back in Claude, pick your repository.
+Your repository is your game's home on GitHub. It contains the game's code
+and files.
 
-You can also use the Claude app on an iPad or phone: open the **Code** tab.
-A session started on the computer can be followed and merged from the
-tablet.
+1. Open **[claude.ai/code](https://claude.ai/code)** and sign in.
+2. Click **Sign in with GitHub** and allow the connection.
+3. When asked, install the **Claude** GitHub app. Choose your game's
+   repository. Choosing only that repository is fine.
+4. Go back to Claude and pick your repository.
+
+You can also use the Claude app on an iPad or phone. Open the **Code** tab.
+You can follow a session started on the computer and merge its change from
+the tablet.
 
 ## What Claude knows already
 

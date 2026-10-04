@@ -7,24 +7,26 @@ sidebar:
 
 ## Make your copy
 
-1. Sign in to GitHub and open the
+1. Sign in to GitHub. Then open the
    **[game starter](https://github.com/family-arcade/arcade-game-starter)**.
 2. Click the green **Use this template** button, then **Create a new
-   repository**.
+   repository**. A repository is your game's home on GitHub. It contains the
+   game's code and files.
 3. Give your game a name, in small letters with dashes instead of spaces:
    `dragon-dash`. You can change it later.
 4. Choose **Public**, then click **Create repository**.
 
-That is your game's home on GitHub. Everything about it lives here.
+You now have your own repository for the game.
 
 ## Put it on the web
 
-1. In your new repository, open **Settings** (the tab with the cog), then
+1. In your new repository, open **Settings**, the tab with the cog. Then open
    **Pages** in the list on the left.
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Open the **Actions** tab, click **Deploy to GitHub Pages** on the left,
-   then **Run workflow**, and **Run workflow** again.
-4. Wait for the dot to turn green: a minute or two.
+3. Open the **Actions** tab. Click **Deploy to GitHub Pages** on the left.
+   Then click **Run workflow**, and click **Run workflow** again. A workflow
+   is the set of steps GitHub follows to publish your game.
+4. Wait a minute or two for the dot to turn green.
 
 Your game is now at:
 
@@ -32,8 +34,9 @@ Your game is now at:
 https://<your-github-name>.github.io/<game-name>/
 ```
 
-Open it. That is **Star Catch**, the sample game: catch the falling stars,
-first to 10 wins. Play a round against the computer.
+Open it. You should see **Star Catch**, the sample game. Catch the falling
+stars. The first player to catch 10 stars wins. Play a round against the
+computer.
 
 ![Star Catch at the end of a round](../../../assets/screens/11-round-over.webp)
 
