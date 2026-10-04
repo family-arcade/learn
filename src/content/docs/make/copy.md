@@ -39,8 +39,6 @@ Open it. You should see **Star Catch**, the sample game. Catch the falling
 stars. The first player to catch 10 stars wins. Play a round against the
 computer.
 
-![Star Catch at the end of a round](../../../assets/screens/11-round-over.webp)
-
 :::tip
 Bookmark your game's address. On a phone or tablet, add it to the home
 screen.

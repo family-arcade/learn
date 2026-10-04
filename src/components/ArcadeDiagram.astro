@@ -1,0 +1,140 @@
+---
+// Diagrams for "How the Family Arcade works", drawn inline so nothing loads
+// from elsewhere and they follow the site's light and dark themes. Narrow on
+// purpose (360 wide) so the text stays readable on a phone.
+interface Props {
+	which: 'parts' | 'together';
+}
+const { which } = Astro.props;
+---
+
+{
+	which === 'parts' ? (
+		<figure class="fa-diagram">
+			<svg viewBox="0 0 360 318" role="img" aria-labelledby="dp-t dp-d">
+				<title id="dp-t">Where the Family Arcade's parts live</title>
+				<desc id="dp-d">
+					The server familyarcade.eu in Germany sends the arcade's files to your tablet or phone once. A friend's game
+					lives on their own GitHub Pages and is opened by link. Players, tickets and saves stay on your device, in the
+					browser.
+				</desc>
+				<defs>
+					<marker id="dp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+						<path d="M0,0 L10,5 L0,10 z" class="head" />
+					</marker>
+				</defs>
+
+				<rect x="6" y="6" width="166" height="86" rx="12" class="box" />
+				<text x="89" y="34" class="t">familyarcade.eu</text>
+				<text x="89" y="56" class="s">A server in Germany</text>
+				<text x="89" y="76" class="s">Sends the arcade once</text>
+
+				<rect x="188" y="6" width="166" height="86" rx="12" class="box" />
+				<text x="271" y="34" class="t">A friend's game</text>
+				<text x="271" y="56" class="s">On their GitHub Pages</text>
+				<text x="271" y="76" class="s">Opens when you tap it</text>
+
+				<path d="M89,96 C89,140 140,150 150,196" class="line" marker-end="url(#dp-arrow)" />
+				<path d="M271,96 C271,140 220,150 210,196" class="line" marker-end="url(#dp-arrow)" />
+
+				<rect x="40" y="200" width="280" height="112" rx="14" class="box you" />
+				<text x="180" y="230" class="t">Your tablet or phone</text>
+				<text x="180" y="256" class="s">Players, tickets and saves</text>
+				<text x="180" y="276" class="s">stay here, in the browser</text>
+				<text x="180" y="298" class="s dim">Works offline after the first visit</text>
+			</svg>
+		</figure>
+	) : (
+		<figure class="fa-diagram">
+			<svg viewBox="0 0 360 300" role="img" aria-labelledby="dt-t dt-d">
+				<title id="dt-t">Playing together across homes</title>
+				<desc id="dt-d">
+					A free matchmaking service, PeerJS, introduces your tablet and your cousin's tablet with the 4-letter code.
+					After that, the game's moves travel directly between the two devices, not through any server.
+				</desc>
+				<defs>
+					<marker id="dt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+						<path d="M0,0 L10,5 L0,10 z" class="head" />
+					</marker>
+				</defs>
+
+				<rect x="80" y="6" width="200" height="86" rx="12" class="box" />
+				<text x="180" y="34" class="t">Matchmaking</text>
+				<text x="180" y="56" class="s">PeerJS, free and public</text>
+				<text x="180" y="76" class="s">Introduces, with the code</text>
+
+				<path d="M118,96 L70,180" class="line dashed" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
+				<path d="M242,96 L290,180" class="line dashed" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
+				<text x="180" y="132" class="l">"Hello, ABCD"</text>
+
+				<rect x="6" y="184" width="132" height="76" rx="12" class="box you" />
+				<text x="72" y="214" class="t">Your tablet</text>
+				<text x="72" y="238" class="s">Home 1</text>
+
+				<rect x="222" y="184" width="132" height="76" rx="12" class="box you" />
+				<text x="288" y="214" class="t">Cousin's tablet</text>
+				<text x="288" y="238" class="s">Home 2</text>
+
+				<path d="M144,222 L216,222" class="line strong" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
+				<text x="180" y="286" class="l">The game travels directly between them</text>
+			</svg>
+		</figure>
+	)
+}
+
+<style>
+	.fa-diagram {
+		margin: 1.5rem auto;
+		max-width: 460px;
+	}
+	.fa-diagram svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		overflow: visible;
+	}
+	.box {
+		fill: var(--sl-color-gray-6);
+		stroke: var(--sl-color-gray-4);
+		stroke-width: 1.5;
+	}
+	.you {
+		stroke: #ffd76a;
+		stroke-width: 2.5;
+	}
+	text {
+		text-anchor: middle;
+		font-family: var(--sl-font);
+	}
+	.t {
+		fill: var(--sl-color-white);
+		font-size: 16px;
+		font-weight: 700;
+	}
+	.s {
+		fill: var(--sl-color-gray-2);
+		font-size: 14px;
+	}
+	.dim {
+		fill: var(--sl-color-gray-3);
+	}
+	.l {
+		fill: var(--sl-color-text-accent);
+		font-size: 14px;
+		font-weight: 600;
+	}
+	.line {
+		fill: none;
+		stroke: var(--sl-color-text-accent);
+		stroke-width: 2;
+	}
+	.dashed {
+		stroke-dasharray: 5 5;
+	}
+	.strong {
+		stroke-width: 4;
+	}
+	.head {
+		fill: var(--sl-color-text-accent);
+	}
+</style>

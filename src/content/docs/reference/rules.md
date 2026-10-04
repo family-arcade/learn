@@ -8,7 +8,7 @@ sidebar:
 Every game made from the starter keeps these rules. Claude knows them from
 the starter's `CLAUDE.md`. This page is for grown-ups.
 
-1. **Nothing from other websites.** There are no ads, trackers or analytics.
+1. **Nothing from other websites.** There are no ads and no tracking.
    The game loads no pictures, sounds, fonts or code from somewhere else.
    Everything it needs is inside it. The only connection out is playing
    together.

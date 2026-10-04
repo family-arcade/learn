@@ -19,7 +19,7 @@ address, birthday or photo. Clearing the site's data in the browser erases
 it.
 
 **Nothing on our server.** The server only hands out the arcade's files. It
-keeps no log of who visited and runs no analytics, ads or trackers.
+keeps no log of who visited. There are no ads and no tracking.
 
 Because players live on each device, the same child on two devices is two
 separate players. Syncing players across a family's devices needs accounts.

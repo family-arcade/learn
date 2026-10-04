@@ -14,8 +14,6 @@ phone, tablet or computer. Then:
 3. Everyone else taps **I have a code**, types the letters and taps **Join**.
 4. The person who made the code taps **Start**.
 
-![The code a host shares, with the players who joined](../../../assets/screens/04-host-code.webp)
-
 Up to four devices can play together. Different homes and different
 countries are fine. A few strict networks, including some school and office
 networks, block it. Home wifi and mobile data work.

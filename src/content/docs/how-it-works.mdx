@@ -5,13 +5,17 @@ sidebar:
   label: How the arcade works
 ---
 
+import ArcadeDiagram from '../../components/ArcadeDiagram.astro';
+
 There are three parts. **The arcade** is where you play. **The game starter**
 is a template a family copies to make a game. **The kit** is a small part of
 each game that connects it to the arcade and to other players.
 
-![The arcade's home page: game tiles, the welcome card and Play together](../../assets/screens/arcade-landing-new.webp)
+<ArcadeDiagram which="parts" />
 
 ## The arcade at familyarcade.eu
+
+![The arcade's home page: game tiles, the welcome card and Play together](../../assets/screens/arcade-landing-new.webp)
 
 [familyarcade.eu](https://familyarcade.eu) is a web app. Open it in a browser
 on a phone, tablet or computer. On an iPad, you can add it to the home screen.
@@ -33,6 +37,8 @@ else's games are made from the starter.
 
 Two devices connect with a four-letter code:
 
+<ArcadeDiagram which="together" />
+
 1. One device asks a free matchmaking service called PeerJS to hold the code.
 2. The other devices type the code. PeerJS introduces the devices to each
    other.
@@ -48,8 +54,6 @@ The device that made the code runs the game. The others send what their
 player does and get back what happens.
 
 ## How a family's game is made and published
-
-![Star Catch, the starter's sample game, with two players](../../assets/screens/06-host-playing-together.webp)
 
 1. **Copy the starter.** On GitHub, the
    [game starter](https://github.com/family-arcade/arcade-game-starter) is a
