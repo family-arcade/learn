@@ -13,7 +13,7 @@ The family also wanted to play with cousins in other homes.
 This guide and the game starter help other families do the same. Make a game
 with your children, then play each other's games.
 
-It is a family project, not a business. There are no ads, tracking or
+It is a family project, not a business. There are no ads, no tracking and no
 accounts to sell.
 
 ## Open source

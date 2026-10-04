@@ -23,7 +23,7 @@ keeps no log of who visited. There are no ads and no tracking.
 
 Because players live on each device, the same child on two devices is two
 separate players. Syncing players across a family's devices needs accounts.
-Those accounts are planned for later. A parent will run them, never a child.
+Those accounts may come one day. A parent would run them, never a child.
 
 ## Playing with others
 
@@ -43,7 +43,7 @@ games.
 The camera and microphone stay off until someone taps them. The browser asks
 for permission first. Nothing is recorded.
 
-:::tip[Share codes in person or by message to people you know]
+:::tip[Share codes with people you know]
 Anyone with the four letters can join while the game is open. Treat them like
 a house key: family and friends only.
 :::
@@ -51,8 +51,8 @@ a house key: family and friends only.
 ## Games made by other families
 
 Families can make their own games. They can add each other's games to the
-arcade by link. Those games live on the other family's own website (usually
-GitHub Pages), not on ours.
+arcade by link. Those games live on the other family's own website, not on ours. Most use
+GitHub Pages, GitHub's free web hosting.
 
 - Opening one hands the game your child's player name and colour inside the
   link. That part of a link stays in the browser. It is never sent to a
@@ -78,15 +78,21 @@ Making a game needs two accounts. Both have age limits:
 
 For younger children, the accounts are yours and you build together. Your
 child has the ideas and plays. You type and press the buttons. That is also
-the best way to do it. Teenagers can use a free [GitHub](https://github.com)
-account. They can use Codex in ChatGPT or GitHub Copilot Free instead of
-Claude. Codex in ChatGPT is in the free plan for now. It is for people aged
-13 or older, with a parent's permission if they are under 18. GitHub Copilot
-Free is for people aged 13 or older.
+the best way to do it.
+
+Teenagers can use a free [GitHub](https://github.com) account. Instead of
+Claude, they can use one of these AI helpers:
+
+| AI helper | Minimum age |
+|---|---|
+| Codex in ChatGPT | 13, with a parent's permission if under 18 |
+| GitHub Copilot Free | 13 |
+
+Codex in ChatGPT is in the free plan for now.
 
 ## Costs
 
-| | |
+| What | Cost |
 |---|---|
 | Playing the arcade | free |
 | GitHub and its web hosting | free |
@@ -117,8 +123,8 @@ We say what is true today and mark what is not:
 - a grown-up lock on video calls;
 - a play-time limit;
 - accounts for parents, to keep a family's players in sync across devices;
-- a gallery of games from families you do not know (with checks before
-  anything is listed).
+- a gallery of games from families you do not know, with checks before
+  anything is listed.
 
 ## Contact
 

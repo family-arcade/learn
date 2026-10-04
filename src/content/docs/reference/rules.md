@@ -26,7 +26,7 @@ the starter's `CLAUDE.md`. This page is for grown-ups.
 8. **Tested before it is published.** Every change runs the tests and the
    build. If either fails, nothing goes live.
 
-:::caution[What is enforced, and what is not]
+:::caution[Enforced and not enforced]
 Rule 8 is enforced. GitHub will not publish a game whose tests fail. The
 other rules are what Claude is told and what the starter does. Nobody checks
 another family's game. That is why the arcade says: only add games from

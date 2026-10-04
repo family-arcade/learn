@@ -23,7 +23,7 @@ arcade.setPlayer({ name: 'Klara', colour: '#e0405f' });
 ```
 
 When the arcade opens a game, it hands over the player in the link. See [How
-it works](/how-it-works/#opening-a-friends-game-from-the-arcade). The kit reads
+the Family Arcade works](/how-it-works/#opening-a-friends-game). The kit reads
 the player before your code runs, so `arcade.player()` already has them.
 
 ## Saving progress
@@ -80,7 +80,9 @@ arcade.cameFromArcade();   // true if the arcade opened this game, in this tab
 arcade.backToArcade();     // go back; does nothing otherwise
 ```
 
-## The game's card: `public/arcade.json`
+## Game card file
+
+The game's card is the file `public/arcade.json`.
 
 ```json
 {

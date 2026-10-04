@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import ArcadeDiagram from '../../components/ArcadeDiagram.astro';
+import GhIcon from '../../components/GhIcon.astro';
 
 The Family Arcade is a set of browser games your family plays, on its own
 devices, together or alone. This page starts with the arcade itself, then
@@ -50,11 +51,11 @@ some school and office networks, block it.
 The device that made the code runs the game. The others send what their
 player does and get back what happens.
 
-## How a family's game is made and published
+## Making and sharing a game
 
 1. **Copy the starter.** On GitHub, the
    [game starter](https://github.com/family-arcade/arcade-game-starter) is a
-   template. Choose **Use this template** to make your own copy. It starts
+   template. Choose <GhIcon name="repo-template" />**Use this template** to make your own copy. It starts
    as an empty home page for your game, with Play together already working.
 2. **Build with an AI helper.** Claude Code reads the starter's rules and
    writes the code you describe. Claude leaves each change for you to merge.
@@ -70,20 +71,20 @@ player does and get back what happens.
 Nothing in this needs our server. Your game lives in your GitHub account. The
 arcade only remembers its link on your device.
 
-## The arcade kit inside each game
+## Arcade kit in each game
 
 Every game made from the starter has a small folder, `src/arcade/`, called
 the kit. It is the only part of a game that knows about the arcade:
 
-- **who is playing**: the arcade hands over the player's name and colour when
-  it opens a game, or the game asks "Who's playing?";
-- **saving**: scores and progress stay in the browser, per player and game;
-- **playing together**: making and joining codes, up to four devices;
-- **back to the arcade**: a button that returns to where you came from.
+- **Who is playing.** The arcade hands over the player's name and colour when
+  it opens a game. If it does not, the game asks "Who's playing?".
+- **Saving.** Scores and progress stay in the browser, per player and game.
+- **Playing together.** Making and joining codes, for up to four devices.
+- **Back to the arcade.** A button that returns to where you came from.
 
 The details are in [Arcade kit reference](/reference/kit/).
 
-## Opening a friend's game from the arcade
+## Opening a friend's game
 
 <ArcadeDiagram which="friend" />
 
@@ -108,7 +109,7 @@ game reads the name and colour, removes them from the address bar and shows
 | The starter's code | GitHub |
 | Players and saves | the browser on each device |
 
-## Planned features
+## Features that may come
 
 - **Accounts for parents**, so a family's players and saves follow them
   across devices.

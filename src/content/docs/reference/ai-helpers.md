@@ -6,7 +6,8 @@ sidebar:
   order: 3
 ---
 
-The starter carries its rules for AI helpers in two files. They have the same
+A repository is a game's home on GitHub. It contains the game's files. The
+starter carries its rules for AI helpers in two files. They have the same
 content:
 
 - `CLAUDE.md`, which Claude Code reads automatically;
@@ -16,9 +17,8 @@ They explain the game's layout, [the kit](/reference/kit/), and the
 [rules every game follows](/reference/rules/). They also explain how to test
 and build, and how to try play together on one computer.
 
-A repository is a game's home on GitHub. It contains the game's files. If you
-use an assistant that reads neither file, start every session with this
-request:
+If you use an assistant that reads neither file, start every session with
+this request:
 
 > Read AGENTS.md in this repository and follow it for everything you change.
 
