@@ -1,0 +1,64 @@
+---
+title: Start from the template
+description: Make your game's own repository from the game starter and put it on the web, in about ten minutes.
+sidebar:
+  label: Start from the template
+  order: 2
+---
+
+import GhIcon from '../../../components/GhIcon.astro';
+
+## Make your game's repository
+
+1. Sign in to GitHub. Then open the
+   **[game starter](https://github.com/family-arcade/arcade-game-starter)**.
+2. Click the green **Use this template** button, then **Create a new
+   repository**. A repository is your game's home on GitHub. It holds the
+   game's code and files.
+3. Give your game a name, in small letters with dashes instead of spaces:
+   `dragon-dash`. You can change it later.
+4. Choose **Public**, then click **Create repository**.
+
+:::note[Why public]
+GitHub puts your game on the web for free only from a **public**
+repository. Public means anyone can read the game's code. Your family's
+players and saves are not in it: they stay on each device.
+
+- **To keep the code private,** GitHub's paid Pro plan can publish from a
+  private repository. The game's page is still public: anyone with the link
+  can play it.
+- **Private games for a family** may come to the Family Arcade one day,
+  possibly as a paid option. They are not available yet.
+:::
+
+## Put it on the web
+
+1. In your new repository, click <GhIcon name="gear" />**Settings**, the
+   tab with the cog, at the top.
+2. In the list on the left, click **Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Publish the game for the first time:
+   1. Click the <GhIcon name="play" />**Actions** tab at the top.
+   2. On the left, click **Deploy to GitHub Pages**.
+   3. On the right, click **Run workflow**. A small box opens.
+   4. In that box, click the green **Run workflow** button.
+5. Wait a minute or two. When the dot next to the run turns green, your
+   game is on the web.
+
+Your game is now at:
+
+```
+https://<your-github-name>.github.io/<game-name>/
+```
+
+Open it. You should see your game's empty home page: its name, who is
+playing, and a **Play together** button. It is empty because you have not
+asked for a game yet. Try **Play together** on two devices to check it
+works.
+
+:::tip
+Bookmark your game's address. On a phone or tablet, add it to the home
+screen.
+:::
+
+Next: [Connect Claude to your game](/make/ai-helper/).

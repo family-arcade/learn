@@ -37,7 +37,7 @@ people aged 13 or older.
 
 ## Steps to your first game
 
-1. [Copy the game starter and publish it](/make/copy/): your game's own web
+1. [Start from the template](/make/copy/): your game's own web
    address, in ten minutes.
 2. [Connect Claude to your game](/make/ai-helper/): once, on the web.
 3. [Ask for your first game](/make/first-change/): one sentence, then ask,
