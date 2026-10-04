@@ -108,13 +108,33 @@ Codex in ChatGPT is in the free plan for now.
 A long building session can hit the AI plan's usage limit. It resets after a
 few hours. That is a natural break.
 
+## Keeping the first game small
+
+A game that works is the biggest motivator. When your child sees their own
+idea move on the screen a few minutes after saying it, they want to make it
+better. That feeling carries the rest of the session.
+
+A small first game also keeps things going:
+
+- **Quick to see.** In our tests, Claude made a basic first game in four to
+  six minutes. A big first request takes much longer, and a child's
+  attention may not wait.
+- **Easy to follow.** With one thing to do, your child understands the whole
+  game and can say what to change next.
+- **Easy to fix.** When something breaks, a small game has few places to
+  look, so Claude finds the problem faster.
+- **Lighter on your plan.** Bigger requests use more of your Claude plan.
+
+The game grows from there, two or three changes at a time, each one your
+child's choice.
+
 ## Helping your child make a game
 
 - **Let them decide.** Let your child choose what the game is about, what to
   change next and whether it is fun. You type, read Claude's answers aloud if
   needed and press merge, which means accepting the change.
-- **Expect a basic first game.** The first version is simple on purpose. It
-  gets better with each round of changes.
+- **Expect a basic first game.** It gets better with each round of changes.
+  [Why it starts small](#keeping-the-first-game-small).
 - **Play after every merge.** Two or three changes at a time, played straight
   away, beat big plans. "What should we change next?" is the whole loop.
 - **Words, not code.** Your child says how it should feel. "Make it bouncier"
