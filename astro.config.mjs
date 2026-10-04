@@ -20,7 +20,13 @@ export default defineConfig({
       ],
       components: {
         SiteTitle: "./src/components/SiteTitle.astro",
+        // A page's sections sit under it in the left sidebar; no right column.
+        Sidebar: "./src/components/Sidebar.astro",
+        PageSidebar: "./src/components/PageSidebar.astro",
+        TwoColumnContent: "./src/components/TwoColumnContent.astro",
       },
+      // Sections listed in the sidebar: a page's h2 headings.
+      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
       customCss: ["./src/styles/arcade.css"],
       sidebar: [
         { label: "For parents", slug: "parents" },

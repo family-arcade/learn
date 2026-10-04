@@ -1,0 +1,195 @@
+---
+// Starlight's SidebarSublist, plus the current page's sections, open under
+// its link. The markup and styles follow Starlight's own so the sidebar
+// looks the same everywhere else.
+import { Badge, Icon } from '@astrojs/starlight/components';
+import SidebarRestorePoint from '@astrojs/starlight/components/SidebarRestorePoint.astro';
+import type { StarlightRouteData } from '@astrojs/starlight/route-data';
+
+type Entry = StarlightRouteData['sidebar'][number];
+type Section = { slug: string; text: string };
+
+interface Props {
+	sublist: Entry[];
+	sections: Section[];
+	nested?: boolean;
+}
+
+const { sublist, sections, nested } = Astro.props;
+
+function hasCurrent(entry: Entry): boolean {
+	return entry.type === 'link' ? entry.isCurrent : entry.entries.some(hasCurrent);
+}
+---
+
+<ul class:list={{ 'top-level': !nested }}>
+	{
+		sublist.map((entry) => (
+			<li>
+				{entry.type === 'link' ? (
+					<>
+						<a
+							href={entry.href}
+							aria-current={entry.isCurrent ? 'page' : undefined}
+							class:list={[{ large: !nested }, entry.attrs.class]}
+							{...entry.attrs}
+						>
+							<span>{entry.label}</span>
+							{entry.badge && <Badge variant={entry.badge.variant} class={entry.badge.class} text={entry.badge.text} />}
+						</a>
+						{entry.isCurrent && sections.length > 0 && (
+							<ul class="sections" aria-label={`Sections of ${entry.label}`}>
+								{sections.map((section) => (
+									<li>
+										<a href={`#${section.slug}`} data-section={section.slug}>
+											{section.text}
+										</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</>
+				) : (
+					<details open={hasCurrent(entry) || !entry.collapsed}>
+						<summary>
+							<span class="group-label">
+								<span class="large">{entry.label}</span>
+								{entry.badge && <Badge variant={entry.badge.variant} class={entry.badge.class} text={entry.badge.text} />}
+							</span>
+							<Icon name="right-caret" class="caret" size="1.25rem" />
+						</summary>
+						<SidebarRestorePoint />
+						<Astro.self sublist={entry.entries} sections={sections} nested />
+					</details>
+				)}
+			</li>
+		))
+	}
+</ul>
+
+<script>
+	// Mark the section being read, as the right-hand column used to.
+	const links = [...document.querySelectorAll<HTMLAnchorElement>('.sections a[data-section]')];
+	const targets = links
+		.map((link) => document.getElementById(link.dataset.section ?? ''))
+		.filter((el): el is HTMLElement => el !== null);
+	if (links.length > 0 && targets.length > 0 && 'IntersectionObserver' in window) {
+		const mark = (slug: string) => {
+			for (const link of links) {
+				if (link.dataset.section === slug) link.setAttribute('aria-current', 'location');
+				else link.removeAttribute('aria-current');
+			}
+		};
+		const seen = new Map<string, boolean>();
+		const observer = new IntersectionObserver(
+			(records) => {
+				for (const r of records) seen.set(r.target.id, r.isIntersecting);
+				const first = targets.find((t) => seen.get(t.id));
+				if (first) mark(first.id);
+			},
+			{ rootMargin: '0px 0px -60% 0px' },
+		);
+		for (const t of targets) observer.observe(t);
+	}
+</script>
+
+<style>
+	@layer starlight.core {
+		ul {
+			--sl-sidebar-item-padding-inline: 0.5rem;
+			list-style: none;
+			padding: 0;
+		}
+		li {
+			overflow-wrap: anywhere;
+		}
+		ul ul li {
+			margin-inline-start: var(--sl-sidebar-item-padding-inline);
+			border-inline-start: 1px solid var(--sl-color-hairline-light);
+			padding-inline-start: var(--sl-sidebar-item-padding-inline);
+		}
+		.large {
+			font-size: var(--sl-text-lg);
+			font-weight: 600;
+			color: var(--sl-color-white);
+		}
+		.top-level > li + li {
+			margin-top: 0.75rem;
+		}
+		summary {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.2em var(--sl-sidebar-item-padding-inline);
+			line-height: 1.4;
+			cursor: pointer;
+			user-select: none;
+		}
+		summary::marker,
+		summary::-webkit-details-marker {
+			display: none;
+		}
+		.caret {
+			transition: transform 0.2s ease-in-out;
+			flex-shrink: 0;
+		}
+		:global([dir='rtl']) .caret {
+			transform: rotateZ(180deg);
+		}
+		[open] > summary .caret {
+			transform: rotateZ(90deg);
+		}
+		a {
+			display: block;
+			border-radius: 0.25rem;
+			text-decoration: none;
+			color: var(--sl-color-gray-2);
+			padding: 0.3em var(--sl-sidebar-item-padding-inline);
+			line-height: 1.4;
+		}
+		a:hover,
+		a:focus {
+			color: var(--sl-color-white);
+		}
+		[aria-current='page'],
+		[aria-current='page']:hover,
+		[aria-current='page']:focus {
+			font-weight: 600;
+			color: var(--sl-color-text-invert);
+			background-color: var(--sl-color-text-accent);
+		}
+		a > *:not(:last-child),
+		.group-label > *:not(:last-child) {
+			margin-inline-end: 0.25em;
+		}
+		@media (min-width: 50rem) {
+			.top-level > li + li {
+				margin-top: 0.5rem;
+			}
+			.large {
+				font-size: var(--sl-text-base);
+			}
+			a {
+				font-size: var(--sl-text-sm);
+			}
+		}
+	}
+
+	/* The current page's sections: one step in, quieter than pages. */
+	.sections {
+		margin-block: 0.25rem 0.4rem;
+	}
+	.sections a {
+		color: var(--sl-color-gray-3);
+		padding-block: 0.2em;
+	}
+	.sections a[aria-current='location'] {
+		color: var(--sl-color-white);
+		font-weight: 600;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.sections a {
+			transition: color 120ms ease-out;
+		}
+	}
+</style>

@@ -1,0 +1,12 @@
+---
+// One column: the page, without the space Starlight keeps for the
+// right-hand "On this page" column (its sections are in the left sidebar).
+---
+
+<div class="main-pane"><slot /></div>
+
+<style>
+	.main-pane {
+		isolation: isolate;
+	}
+</style>
