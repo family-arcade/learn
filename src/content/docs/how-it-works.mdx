@@ -7,9 +7,9 @@ sidebar:
 
 import ArcadeDiagram from '../../components/ArcadeDiagram.astro';
 
-There are three parts. **The arcade** is where you play. **The game starter**
-is a template a family copies to make a game. **The kit** is a small part of
-each game that connects it to the arcade and to other players.
+The Family Arcade is a set of browser games your family plays, on its own
+devices, together or alone. This page starts with the arcade itself, then
+playing together, then how families make their own games and share them.
 
 <ArcadeDiagram which="parts" />
 
@@ -27,11 +27,8 @@ Then it works like an app, even offline.
   few players on one device, some for one player per device.
 - **Play together** links phones and tablets with four letters. A game can
   invite the others. Up to four devices can connect.
-- **From friends** shows games that other families made. Add each game with
-  its link.
 
-The arcade's own games are made by one family in one codebase. Everyone
-else's games are made from the starter.
+The arcade's games are made by one family, and they come with the arcade.
 
 ## Playing together across homes
 
@@ -87,6 +84,8 @@ the kit. It is the only part of a game that knows about the arcade:
 The details are in [Arcade kit reference](/reference/kit/).
 
 ## Opening a friend's game from the arcade
+
+<ArcadeDiagram which="friend" />
 
 When you tap a friend's game, the arcade opens its website. It puts the player
 information in the link after a `#`:
