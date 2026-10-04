@@ -244,3 +244,18 @@ site-search kbd * { font-size: 0.875rem; }
 @media (max-width: 30em) {
   :root { --sl-text-h1: 1.9rem; }
 }
+
+/* The home hero has no image: its text takes the full width, so the title
+   stays on one line on a tablet and up. */
+.hero {
+  grid-template-columns: 100%;
+}
+.hero .copy > h1 {
+  max-width: none;
+}
+
+/* Cards in a row start at the same height (Starlight spaces siblings in
+   content with a top margin). */
+.fa-cards > * {
+  margin-top: 0;
+}

@@ -1,33 +1,83 @@
 ---
 title: Make games with your kids
-description: Make games with your kids. Play them together.
+description: Families make their own browser games with an AI helper, then play them together across homes. A free guide for parents and children.
 template: splash
 hero:
-  title: Make games with your kids. Play them together.
-  tagline: The Family Arcade is a place for games your family makes and plays. Learn how the arcade works and how to make your own game.
+  title: Make games with your kids.
+  tagline: Your child dreams up a game. An AI helper writes the code. In an afternoon it is on the web, and cousins and friends can play it with you from their own homes.
   actions:
-    - text: Make a game
+    - text: Make your first game
       link: /make/
       icon: right-arrow
-    - text: Play now
-      link: https://familyarcade.eu
+    - text: For parents
+      link: /parents/
       variant: minimal
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
+<div class="fa-cards">
+  <div class="fa-card make">
+    <h2>Your child designs it</h2>
+    <p>They decide what the game is, how it looks and whether it is fun. You type and press the buttons. The AI writes the code.</p>
+  </div>
+  <div class="fa-card play">
+    <h2>Learning by making</h2>
+    <p>Children learn how games work by changing one thing, playing it, and changing the next. No coding needed to start.</p>
+  </div>
+  <div class="fa-card parents">
+    <h2>Play together, anywhere</h2>
+    <p>Send the link to cousins and friends. Up to four devices play together with a 4-letter code, from different homes.</p>
+  </div>
+</div>
+
+## A first game in an afternoon
+
+<Steps>
+
+1. **Start from the template.** Your game gets its own web address in about
+   ten minutes. [How](/make/copy/)
+
+2. **Ask for your game in one sentence.** For example: "Make a game where you
+   are a dragon collecting gems in the clouds." [How](/make/first-change/)
+
+3. **Improve it one small step at a time.** Play after every change and say
+   what to change next. [How](/make/your-game/)
+
+4. **Play it with family and friends,** and add it to the
+   [Family Arcade](https://familyarcade.eu) on every device.
+   [How](/make/together/)
+
+</Steps>
+
+## Getting started needs three things
+
+- **An hour,** and a computer for the first time.
+- **A free GitHub account.** It keeps your game's code and puts it on the
+  web. It is the grown-up's account for children under 13.
+- **An AI helper.** This guide uses Claude Code, part of a paid Claude plan
+  held by a grown-up. [Free options for teenagers](/make/) are listed too.
+
+## Safe by design
+
+- **No ads and no tracking,** in the arcade and in every game made from the
+  starter.
+- **Only people with your code** can play with your child. There is no chat
+  and no public list of players.
+- **Players and saves stay on your device.** There are no accounts to sign up
+  for.
+
+[Everything parents should know](/parents/)
+
 <div class="fa-cards">
   <a class="fa-card play" href="https://familyarcade.eu">
-    <h2>Play</h2>
-    <p>Open the arcade and pick a game.</p>
+    <h2>Play the arcade</h2>
+    <p>The family's own games, and the games you add from friends.</p>
     <span class="fa-go">familyarcade.eu</span>
   </a>
-  <a class="fa-card make" href="/make/">
-    <h2>Make a game</h2>
-    <p>A parent, a child and an AI helper, step by step.</p>
-    <span class="fa-go">Start here</span>
-  </a>
-  <a class="fa-card parents" href="/parents/">
-    <h2>For parents</h2>
-    <p>What it is, what it keeps private, and how to help.</p>
-    <span class="fa-go">Read this first</span>
+  <a class="fa-card make" href="/how-it-works/">
+    <h2>How the arcade works</h2>
+    <p>The arcade, playing together, and how a family's game joins in.</p>
+    <span class="fa-go">Read the overview</span>
   </a>
 </div>
