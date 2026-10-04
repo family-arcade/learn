@@ -24,6 +24,7 @@ accounts to sell.
 
 ## Contact
 
-Open an issue on the
-[game starter](https://github.com/family-arcade/arcade-game-starter/issues) if
-you find a mistake or get stuck. You can also show us a game you made.
+Write to [mario@knyflores.com](mailto:mario@knyflores.com) if you find a
+mistake, get stuck, or want to show us a game you made. If you use GitHub,
+you can also open an issue on the
+[game starter](https://github.com/family-arcade/arcade-game-starter/issues).

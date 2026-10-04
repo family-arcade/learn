@@ -122,5 +122,5 @@ We say what is true today and mark what is not:
 
 ## Contact
 
-If something here is unclear or you think something is wrong, tell us. We
-will fix it. See [About the Family Arcade](/about/) for how to reach us.
+If something here is unclear or you think something is wrong, write to
+[mario@knyflores.com](mailto:mario@knyflores.com). We will fix it.
