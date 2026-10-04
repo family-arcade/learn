@@ -37,4 +37,4 @@ Claude reads it before changing anything, so it already knows:
 
 You do not need to repeat any of that. Talk about the game.
 
-Next: [Make your first change](/make/first-change/).
+Next: [Ask for your first game](/make/first-change/).

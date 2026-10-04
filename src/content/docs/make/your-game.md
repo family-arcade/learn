@@ -1,29 +1,22 @@
 ---
-title: Turn the sample into your own game
-description: From a one-line idea to your own game, one small step at a time.
+title: Improve your game one step at a time
+description: From the first version to a game you love, one small ask at a time.
 sidebar:
-  label: Make your own game
+  label: Improve your game
   order: 5
 ---
 
-## Change the sample game first
+The first version will not be perfect. Play it, then change one thing at a
+time.
 
-A few changes to Star Catch will teach you how Claude works:
+## Next asks to try
 
-> Change the stars into apples, and the players into hungry caterpillars.
+> The dragon should flap its wings and bob a little while it flies.
 
-> When you catch 5 in a row, play a happy sound and show a little burst of
-> sparkles.
+> When you collect 5 gems in a row, play a happy sound and show a little burst
+> of sparkles.
 
-> Add a level 2 where the apples fall faster.
-
-## Describe your own game in one sentence
-
-> Make a new game: you are a dragon flying through clouds, collecting gems,
-> and you must not touch the thunderclouds. Keep play together working.
-
-Claude will build a first version. It will not be perfect. Play it, then say
-what to change.
+> Add thunderclouds to dodge, and a level 2 where they move faster.
 
 ## Tips for working with Claude
 

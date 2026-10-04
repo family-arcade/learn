@@ -37,12 +37,16 @@ people aged 13 or older.
 
 ## Steps to your first game
 
-1. [Copy the game starter and publish it](/make/copy/): copy the starter and put it on the web.
-2. [Connect Claude to your game](/make/ai-helper/): connect Claude to your game.
-3. [Make your first change](/make/first-change/): ask for a change, accept it, then
-   play.
-4. [Turn the sample into your own game](/make/your-game/): your idea, one step at a time.
-5. [Play your game with friends](/make/together/): with family and friends, in other homes too.
-6. [Add your game to the arcade](/make/arcade/): your tile on the family's devices.
+1. [Copy the game starter and publish it](/make/copy/): your game's own web
+   address, in ten minutes.
+2. [Connect Claude to your game](/make/ai-helper/): once, on the web.
+3. [Ask for your first game](/make/first-change/): one sentence, then ask,
+   merge, play.
+4. [Improve your game one step at a time](/make/your-game/): small asks,
+   played after each.
+5. [Play your game with friends](/make/together/): up to four devices, in
+   other homes too.
+6. [Add your game to the arcade](/make/arcade/): a tile on each of the
+   family's devices.
 
 If something goes wrong: [Fix common problems](/make/stuck/).

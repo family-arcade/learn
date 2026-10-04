@@ -1,19 +1,19 @@
 ---
 title: Game ideas and prompts for Claude
-description: Game ideas and ready-to-copy asks for Claude, from first changes to whole new games.
+description: Game ideas and ready-to-copy asks for Claude, from small changes to whole new games.
 sidebar:
   label: Game ideas and prompts
 ---
 
 Copy any prompt into Claude. Change the words to make it yours.
 
-## First changes to Star Catch
+## Small changes to try
 
 > Make the background a sunset instead of night.
 
-> The stars should wobble a little as they fall.
+> Make the gems sparkle a little.
 
-> When the timer has 10 seconds left, make it flash and tick.
+> Add a timer, and when 10 seconds are left make it flash and tick.
 
 > Give each player a hat in their own colour.
 

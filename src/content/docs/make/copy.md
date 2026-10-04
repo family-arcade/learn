@@ -35,9 +35,10 @@ Your game is now at:
 https://<your-github-name>.github.io/<game-name>/
 ```
 
-Open it. You should see **Star Catch**, the sample game. Catch the falling
-stars. The first player to catch 10 stars wins. Play a round against the
-computer.
+Open it. You should see your game's empty home page: its name, who is
+playing, and a **Play together** button. It is empty because you have not
+asked for a game yet. Try **Play together** on two devices to check it
+works.
 
 :::tip
 Bookmark your game's address. On a phone or tablet, add it to the home
