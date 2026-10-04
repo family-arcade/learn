@@ -26,9 +26,10 @@ helper named Claude writes the code.
   includes Claude Code, the AI helper this guide uses. The account holder
   must be 18 or older.
 
-:::note[No Claude plan?]
-You can also build from the starter with Codex in ChatGPT or GitHub Copilot
-Free. Both read the same rules. Their buttons differ a little from this guide.
+:::note[Other AI helpers]
+Without a Claude plan, you can build from the starter with Codex in ChatGPT
+or GitHub Copilot Free. Both read the same rules. Their buttons differ a
+little from this guide.
 
 Codex in ChatGPT is in the free plan for now. You must be at least 13 to use
 it. Anyone under 18 needs a parent's permission. GitHub Copilot Free is for
@@ -42,7 +43,7 @@ people aged 13 or older.
 2. [Connect Claude to your game](/make/ai-helper/): once, on the web.
 3. [Ask for your first game](/make/first-change/): one sentence, then ask,
    merge, play.
-4. [Improve your game one step at a time](/make/your-game/): small asks,
+4. [Improve your game](/make/your-game/): small asks,
    played after each.
 5. [Play your game with friends](/make/together/): up to four devices, in
    other homes too.

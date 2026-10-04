@@ -20,10 +20,11 @@ networks, block it. Home wifi and mobile data work.
 
 ## Testing on one computer
 
-Open the game in two browser windows. Make one window private so each window
-has its own player. Use one window as the host and the other as the guest.
+1. Open the game in two browser windows.
+2. Make one window private, so that each window has its own player.
+3. Use one window as the host and the other as the guest.
 
-## Adding play together to your own game
+## Play together in your game
 
 Tell Claude what playing together means in your game:
 

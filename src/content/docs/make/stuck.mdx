@@ -5,39 +5,43 @@ sidebar:
   order: 8
 ---
 
+import GhIcon from '../../../components/GhIcon.astro';
+
 Things break. That is normal. They are almost always easy to fix.
 
-## The game shows a white screen or does not start
+## Game shows a white screen
 
-Tell Claude exactly what you see:
+This also applies when the game does not start. Tell Claude exactly what you
+see:
 
 > The game shows a white screen since the last change. Please find out why,
 > fix it, and run the tests and the build.
 
-## The change does not show up on the web
+## Change missing on the web
 
 - Did you **merge** the pull request? A change only goes live after the merge.
-- Look at the **Actions** tab on GitHub. A red cross means the tests or the
-  build failed and nothing was published. Copy the red error into Claude:
+- Look at the <GhIcon name="play" />**Actions** tab on GitHub. A red cross
+  means the tests or the build failed and nothing was published. Copy the red
+  error into Claude:
 
   > Publishing failed with this error: (paste). Please fix it.
 
 - Reload the page. On a phone or tablet, close the game and open it again.
 
-## Play together does not connect
+## Devices will not connect
 
 - Both devices need internet.
 - The codes are 4 letters. Check them again.
 - Some school or office networks block it. Try home wifi or mobile data.
 - If the person who made the code leaves, the others see **Connection lost**.
-  Tap **Leave** under **Room**, then start again with a new code.
+  Tap **Leave** under **Room**. Then start again with a new code.
 
-## Claude says it has reached a limit
+## Claude reaches its limit
 
 The plan has a usage limit. It resets after a few hours. Take a break, play
 the game, and write down what to change next.
 
-## The game got worse and you want the old one back
+## Going back to the old game
 
 Every merged change is kept. Ask Claude:
 
@@ -47,5 +51,6 @@ Or on GitHub, open the pull request you merged and click **Revert**.
 
 ## Getting more help
 
-Ask Claude to explain, in simple words, what it thinks is wrong. If it seems
-to be the starter itself, tell us. See [About the Family Arcade](/about/) for how to reach us.
+Ask Claude to explain, in simple words, what it thinks is wrong. If the
+problem seems to be in the starter itself, write to
+[mario@knyflores.com](mailto:mario@knyflores.com).

@@ -1,5 +1,5 @@
 ---
-title: Improve your game one step at a time
+title: Improve your game
 description: From the first version to a game you love, one small ask at a time.
 sidebar:
   label: Improve your game

@@ -9,7 +9,10 @@ sidebar:
 1. Open [familyarcade.eu](https://familyarcade.eu) on the device.
 2. Make your player if you have not done that yet.
 3. Tap **Add a game from a friend**.
-4. Paste your game's link, tap **Look it up**, then **Add**.
+4. Add your game:
+   1. Paste your game's link.
+   2. Tap **Look it up**.
+   3. Tap **Add**.
 
 ![Adding a game from a friend](../../../assets/screens/arcade-friends-add.webp)
 
@@ -30,13 +33,12 @@ phone and tablet you play on.
 A friend's game lives on their own website, and what it does is up to them.
 :::
 
-## Give your game a name and colour
+## Name and colour your game
 
-The arcade reads your game's name and colour from a small file in your game:
-`public/arcade.json`. Ask Claude:
+The arcade reads your game's name and colour from a small file in your game,
+`public/arcade.json`. Ask Claude to change it:
 
 > Rename the game to Dragon Dash, make its colour a deep purple, and update
 > the description.
 
-Done. Next time someone adds your game, the tile shows the new name and
-colour.
+Next time someone adds your game, the tile shows the new name and colour.
