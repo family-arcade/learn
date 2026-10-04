@@ -1,12 +1,12 @@
 ---
 title: Rules every game follows
-description: What every game made from the starter promises the children who play it.
+description: What every game made from the starter template promises the children who play it.
 sidebar:
   order: 2
 ---
 
-Every game made from the starter keeps these rules. Claude knows them from
-the starter's `CLAUDE.md`. This page is for grown-ups.
+Every game made from the starter template keeps these rules. Claude knows
+them from the template's `AGENTS.md`. This page is for grown-ups.
 
 1. **Nothing from other websites.** There are no ads and no tracking.
    The game loads no pictures, sounds, fonts or code from somewhere else.
@@ -28,7 +28,8 @@ the starter's `CLAUDE.md`. This page is for grown-ups.
 
 :::caution[Enforced and not enforced]
 Rule 8 is enforced. GitHub will not publish a game whose tests fail. The
-other rules are what Claude is told and what the starter does. Nobody checks
-another family's game. That is why the arcade says: only add games from
-people you know.
+other rules are what Claude is told and what the template does. Before Claude
+says a change is done, it also searches the game for anything loaded from
+other websites. Nobody checks another family's game. That is why the arcade
+says: only add games from people you know.
 :::

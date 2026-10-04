@@ -6,7 +6,7 @@ sidebar:
   order: 1
 ---
 
-The kit lives in `src/arcade/` in every game made from the starter. It is the
+The kit lives in `src/arcade/` in every game made from the starter template. It is the
 only part of a game that knows about the arcade. Import `arcade` from it.
 Leave the folder itself unchanged so it can be updated.
 

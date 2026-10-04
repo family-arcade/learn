@@ -2,10 +2,11 @@
 title: Fix common problems
 description: What to do when the game, the publishing or Claude gets stuck.
 sidebar:
-  order: 8
+  order: 9
 ---
 
 import GhIcon from '../../../components/GhIcon.astro';
+import Prompt from '../../../components/Prompt.astro';
 
 Things break. That is normal. They are almost always easy to fix.
 
@@ -14,17 +15,19 @@ Things break. That is normal. They are almost always easy to fix.
 This also applies when the game does not start. Tell Claude exactly what you
 see:
 
-> The game shows a white screen since the last change. Please find out why,
-> fix it, and run the tests and the build.
+<Prompt>The game shows a white screen since the last change. Please find out why, fix it, and run the tests and the build.</Prompt>
 
 ## Change missing on the web
 
 - Did you **merge** the pull request? A change only goes live after the merge.
-- Look at the <GhIcon name="play" />**Actions** tab on GitHub. A red cross
-  means the tests or the build failed and nothing was published. Copy the red
-  error into Claude:
+- Is GitHub Pages on? Open the newest run in the
+  <GhIcon name="play" />**Actions** tab. If it says "Not published yet",
+  follow [Put your game on the web](/make/publish/).
+- A red cross in the <GhIcon name="play" />**Actions** tab means the tests or
+  the build failed, and nothing was published. Copy the red error into
+  Claude:
 
-  > Publishing failed with this error: (paste). Please fix it.
+  <Prompt>Publishing failed with this error: (paste the error here). Please fix it.</Prompt>
 
 - Reload the page. On a phone or tablet, close the game and open it again.
 
@@ -45,12 +48,12 @@ the game, and write down what to change next.
 
 Every merged change is kept. Ask Claude:
 
-> Undo the last change, the one that made the dragon too fast.
+<Prompt>Undo the last change, the one that made the dragon too fast.</Prompt>
 
 Or on GitHub, open the pull request you merged and click **Revert**.
 
 ## Getting more help
 
 Ask Claude to explain, in simple words, what it thinks is wrong. If the
-problem seems to be in the starter itself, write to
+problem seems to be in the starter template itself, write to
 [mario@knyflores.com](mailto:mario@knyflores.com).

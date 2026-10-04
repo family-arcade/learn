@@ -4,6 +4,10 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   site: "https://learn.familyarcade.eu",
   output: "static",
+  // Pages that moved keep their old address working.
+  redirects: {
+    "/make/first-change/": "/make/first-game/",
+  },
   integrations: [
     starlight({
       title: "Family Arcade",
@@ -24,10 +28,14 @@ export default defineConfig({
         Sidebar: "./src/components/Sidebar.astro",
         PageSidebar: "./src/components/PageSidebar.astro",
         TwoColumnContent: "./src/components/TwoColumnContent.astro",
+        // The front page opens like the arcade: awning, bulbs, a night card.
+        Hero: "./src/components/Hero.astro",
       },
       // Sections listed in the sidebar: a page's h2 headings.
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
-      customCss: ["./src/styles/arcade.css"],
+      // Press Start 2P (SIL OFL, see LICENSE-press-start-2p) is bundled from
+      // npm, Latin only, for a few pixel-font accents.
+      customCss: ["@fontsource/press-start-2p/latin-400.css", "./src/styles/arcade.css"],
       sidebar: [
         { label: "For parents", slug: "parents" },
         { label: "How the arcade works", slug: "how-it-works" },

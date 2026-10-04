@@ -91,7 +91,6 @@ body {
 }
 
 h1, h2, h3, h4,
-.hero h1,
 .sl-markdown-content :is(h1, h2, h3, h4) {
   font-family: var(--fa-round);
   font-weight: 900;
@@ -177,13 +176,6 @@ header.header {
 .fa-card.make::before { background: linear-gradient(90deg, #34e0c8, #2ec4ff); }
 .fa-card.parents::before { background: linear-gradient(90deg, #ff7ec0, #a78bfa); }
 
-/* The splash hero: roomy but not huge on a phone. */
-.hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); color: var(--sl-color-white); }
-@media (min-width: 50em) {
-  .hero .sl-flex > div, .hero .copy { max-width: 56rem; }
-}
-.hero .tagline { color: var(--sl-color-gray-2); }
-
 @media (prefers-reduced-motion: no-preference) {
   .fa-card { transition: transform 0.15s ease, border-color 0.15s ease; }
   .fa-card:hover { transform: translateY(-3px); }
@@ -245,17 +237,35 @@ site-search kbd * { font-size: 0.875rem; }
   :root { --sl-text-h1: 1.9rem; }
 }
 
-/* The home hero has no image: its text takes the full width, so the title
-   stays on one line on a tablet and up. */
-.hero {
-  grid-template-columns: 100%;
-}
-.hero .copy > h1 {
-  max-width: none;
-}
-
 /* Cards in a row start at the same height (Starlight spaces siblings in
    content with a top margin). */
 .fa-cards > * {
   margin-top: 0;
+}
+
+/* Press Start 2P, the arcade's pixel font (SIL OFL, LICENSE-press-start-2p),
+   is an accent only: the front page's kicker, step numbers and the label on
+   a prompt card. Never body text, a heading or words a child reads aloud.
+   It is wide: 16px at most. */
+:root {
+  --fa-pixel: "Press Start 2P", ui-monospace, monospace;
+}
+
+/* Step numbers are the arcade's gold coins, with pixel digits: 14px, in a
+   coin wide enough for "10". */
+.sl-steps {
+  --bullet-size: 2rem;
+}
+.sl-steps > li::before {
+  box-sizing: border-box;
+  font-family: var(--fa-pixel);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: calc(var(--bullet-size) - 3px);
+  letter-spacing: -0.06em;
+  padding-inline-start: 2px;
+  color: #2a1f4a;
+  background: radial-gradient(circle at 40% 34%, #fff8c4 0 16%, #ffd23f 20% 58%, #f0a800 62% 100%);
+  border: 1.5px solid #2a1f4a;
+  box-shadow: 0 2px 0 #2a1f4a;
 }

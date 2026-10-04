@@ -1,0 +1,92 @@
+---
+// Three real first games. Each was made by Claude Code from one sentence, in a
+// fresh copy of the starter template with its own rules and nothing else.
+// Claude asked its questions and every answer was "You choose.". Times run
+// from the first message to Claude saying the game was done (October 2026).
+// The games are kept in ~/code/arcade/example-first-games/.
+import { Image } from 'astro:assets';
+import dragon from '../assets/screens/first-games/dragon.webp';
+import frog from '../assets/screens/first-games/frog.webp';
+import fish from '../assets/screens/first-games/fish.webp';
+
+const games = [
+	{
+		img: dragon,
+		alt: 'Cloud Dragon: a red dragon flies across a sunset sky with orange clouds and teal gems, with a 60-second timer and the score above',
+		asked: 'Make a game where you are a dragon collecting gems in the clouds.',
+		questions: 'two questions',
+		time: 'about 4 minutes',
+	},
+	{
+		img: frog,
+		alt: 'Hungry Frog: a green frog on a lily pad at the bottom of a sunny pond, with flies in the sky above, a 30-second timer and the score',
+		asked: 'Make a game where a hungry frog catches flies with its tongue when you tap.',
+		questions: 'three questions',
+		time: 'about 4 minutes',
+	},
+	{
+		img: fish,
+		alt: 'Little Fish: an orange clownfish swims in a blue sea with seaweed, while a grey shark comes in from the side, with the time survived above',
+		asked: 'Make a game where you are a little fish and you swim away from the sharks.',
+		questions: 'two questions',
+		time: 'about 6 minutes',
+	},
+];
+---
+
+<div class="fa-first-games not-content">
+	{
+		games.map((g) => (
+			<figure>
+				<Image src={g.img} alt={g.alt} widths={[480, 760, 1000]} sizes="(max-width: 50em) 100vw, 15rem" />
+				<figcaption>
+					<span class="asked">“{g.asked}”</span>
+					<span>
+						Claude asked {g.questions}. It was done in {g.time}.
+					</span>
+				</figcaption>
+			</figure>
+		))
+	}
+</div>
+
+<style>
+	/* Three across on a tablet or computer, one under the other on a phone. */
+	.fa-first-games {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+		gap: 1.5rem 1rem;
+		margin: 1.5rem 0 2rem;
+	}
+	/* Picture and caption rows are shared across the row of games, so the
+	   captions line up even though the pictures differ in height. */
+	figure {
+		display: grid;
+		grid-row: span 2;
+		grid-template-rows: subgrid;
+		row-gap: 0;
+		margin: 0;
+	}
+	figure :global(img) {
+		align-self: end;
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 14px;
+		border: 1px solid var(--sl-color-hairline);
+	}
+	figcaption {
+		display: grid;
+		gap: 0.15rem;
+		margin-top: 0.6rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		color: var(--sl-color-gray-2);
+	}
+	.asked {
+		font-weight: 700;
+		color: var(--sl-color-white);
+	}
+</style>

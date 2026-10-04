@@ -1,0 +1,465 @@
+---
+// The front page opens like the arcade's home (its "Midnight Carnival"): a
+// striped awning and a string of bulbs edge to edge, then a night-blue card
+// with a rainbow stripe holding the pitch from index.mdx's `hero`
+// frontmatter. The picture is the arcade's own Learn banner art: an idea
+// becomes a game. Everything is drawn inline; nothing loads from elsewhere.
+// The card is the arcade's night blue in the dark theme and its cream card,
+// with ink outlines, in the light theme.
+// Animations run only when the device allows motion.
+const { data } = Astro.locals.starlightRoute.entry;
+const { title = data.title, tagline, actions = [] } = data.hero || {};
+
+// A short label over the title, in the pixel font. The "page not found"
+// page uses this hero too, without it.
+const kicker = Astro.locals.starlightRoute.id === '404' ? undefined : 'A guide for families';
+---
+
+<div class="fa-hero">
+	<div class="fa-awning" aria-hidden="true"></div>
+	<div class="fa-bulbs" aria-hidden="true">
+		<span class="fa-bulb-row b1"></span>
+		<span class="fa-bulb-row b2"></span>
+		<span class="fa-bulb-row b3"></span>
+		<span class="fa-bulb-row b4"></span>
+	</div>
+
+	<div class="fa-hero-card">
+		<div class="fa-hero-copy">
+			{kicker && <p class="fa-hero-kicker">{kicker}</p>}
+			<h1 id="_top" data-page-title set:html={title} />
+			{tagline && <p class="fa-hero-tagline" set:html={tagline} />}
+			{
+				actions.length > 0 && (
+					<div class="fa-hero-actions">
+						{actions.map(({ attrs: { class: className, ...attrs } = {}, icon, link: href, text, variant }) => (
+							<a
+								href={href}
+								class:list={['fa-pill', variant === 'primary' ? 'fa-pill-yellow' : 'fa-pill-ghost', className]}
+								{...attrs}
+							>
+								<span>{text}</span>
+								{icon && (
+									<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+										<path d="m9 5 7 7-7 7" />
+									</svg>
+								)}
+							</a>
+						))}
+					</div>
+				)
+			}
+		</div>
+
+		<div class="fa-hero-art" aria-hidden="true">
+			<svg class="fa-hero-sp a" viewBox="0 0 24 24" width="24" height="24" focusable="false">
+				<path d="M12 3c.7 3.9 2.6 5.8 6.5 6.5-3.9.7-5.8 2.6-6.5 6.5-.7-3.9-2.6-5.8-6.5-6.5C9.4 8.8 11.3 6.9 12 3Z" />
+				<path d="M18.5 15.5c.35 1.9 1.3 2.85 3.2 3.2-1.9.35-2.85 1.3-3.2 3.2-.35-1.9-1.3-2.85-3.2-3.2 1.9-.35 2.85-1.3 3.2-3.2Z" />
+			</svg>
+			<svg class="fa-hero-ill" viewBox="0 0 220 124" focusable="false">
+				<defs>
+					<linearGradient id="fa-hero-sky" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0" stop-color="#3b2a8f" />
+						<stop offset="1" stop-color="#1f8fb3" />
+					</linearGradient>
+				</defs>
+				<!-- The idea -->
+				<rect x="8" y="20" width="72" height="54" rx="16" fill="#fff" />
+				<path d="M30 72 L24 90 L44 74 Z" fill="#fff" />
+				<circle cx="44" cy="42" r="13" fill="#ffe066" stroke="#2a1f4a" stroke-width="2.5" />
+				<rect x="38.5" y="54" width="11" height="8" rx="2" fill="#2a1f4a" />
+				<path d="M44 23 v-5 M59 30 l4 -3 M29 30 l-4 -3" stroke="#ffe066" stroke-width="3" stroke-linecap="round" />
+				<!-- Becomes -->
+				<path
+					d="M88 52 C100 44 108 46 116 54"
+					fill="none"
+					stroke="#fff"
+					stroke-width="3"
+					stroke-dasharray="5 5"
+					stroke-linecap="round"
+				/>
+				<path d="M112 47 L120 57 L108 58 Z" fill="#fff" />
+				<!-- The game -->
+				<rect x="126" y="12" width="88" height="104" rx="14" fill="#2a1f4a" stroke="#fff" stroke-width="3" />
+				<rect x="133" y="20" width="74" height="84" rx="7" fill="url(#fa-hero-sky)" />
+				<path d="M140 46 l6 -6 l6 6 l-6 6 Z" fill="#34e0c8" />
+				<path d="M186 34 l5 -5 l5 5 l-5 5 Z" fill="#ff7ec0" />
+				<path d="M183 74 l5 -5 l5 5 l-5 5 Z" fill="#ffe066" />
+				<ellipse cx="158" cy="83" rx="13" ry="5" fill="rgba(0,0,0,0.25)" />
+				<path d="M145 68 q-8 -8 -2 -14 q6 2 8 10 Z M171 68 q8 -8 2 -14 q-6 2 -8 10 Z" fill="#c9b1ff" />
+				<circle cx="158" cy="68" r="14" fill="#ff7ec0" stroke="#2a1f4a" stroke-width="2.5" />
+				<circle cx="153" cy="65" r="4" fill="#fff" />
+				<circle cx="163" cy="65" r="4" fill="#fff" />
+				<circle cx="154" cy="66" r="1.8" fill="#2a1f4a" />
+				<circle cx="164" cy="66" r="1.8" fill="#2a1f4a" />
+				<path d="M153 73 q5 4 10 0" fill="none" stroke="#2a1f4a" stroke-width="2" stroke-linecap="round" />
+			</svg>
+			<svg class="fa-hero-sp b" viewBox="0 0 24 24" width="20" height="20" focusable="false">
+				<path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3.5Z" />
+			</svg>
+		</div>
+	</div>
+</div>
+
+<style>
+	.fa-hero {
+		/* The arcade's tokens (family-arcade src/app/styles/home.css). */
+		--red: #e0405f;
+		--cream: #f6ead2;
+		--gold: #ffd76a;
+		--pink: #ff7ec0;
+		--teal: #34e0c8;
+		--violet: #a78bfa;
+		--ink: #2a1f4a;
+		--rainbow: linear-gradient(90deg, #ff4d5e 0%, #ff9f1c 20%, #ffd23f 40%, #35d07f 60%, #2ec4ff 80%, #9b5cff 100%);
+		--bulb-gap: 26px;
+		--bulb-line: rgba(255, 255, 255, 0.16);
+		/* Dark: the arcade's night-blue card. */
+		--ring: #ffe066;
+		--card-bg: linear-gradient(180deg, #1f2a4a, #161e38);
+		--card-hi: rgba(255, 255, 255, 0.08);
+		--card-line: #56689c;
+		--card-drop: #05070f;
+		--card-glow: rgba(0, 0, 0, 0.35);
+		--card-title: #ffffff;
+		--card-soft: #cfd6ea;
+		--kicker: var(--teal);
+		--pill-drop: #05070f;
+		--ghost-fg: #ffffff;
+		--ghost-line: rgba(255, 255, 255, 0.6);
+		--ghost-bg: rgba(255, 255, 255, 0.04);
+		--ghost-shadow: none;
+		--ghost-hover-line: var(--gold);
+		--ghost-hover-bg: rgba(255, 215, 106, 0.12);
+		position: relative;
+		padding-bottom: 0.5rem;
+	}
+	/* Light: the arcade's cream card with ink outlines, as its cards were
+	   before the night look; the awning, bulbs, rainbow and yellow pill stay. */
+	:global(:root[data-theme='light']) .fa-hero {
+		--bulb-line: rgba(42, 31, 74, 0.28);
+		--ring: #6a2ee0;
+		--card-bg: linear-gradient(180deg, #ffffff, #fffaf0);
+		--card-hi: rgba(255, 255, 255, 0.7);
+		--card-line: var(--ink);
+		--card-drop: var(--ink);
+		--card-glow: rgba(42, 31, 74, 0.18);
+		--card-title: #1c1440;
+		--card-soft: #3a3560;
+		--kicker: #0b6158;
+		--pill-drop: var(--ink);
+		--ghost-fg: var(--ink);
+		--ghost-line: var(--ink);
+		--ghost-bg: linear-gradient(180deg, #ffffff, #efe8f7);
+		--ghost-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.7), 0 4px 0 var(--ink);
+		--ghost-hover-line: #6a2ee0;
+		--ghost-hover-bg: linear-gradient(180deg, #ffffff, #e5dcfb);
+	}
+	@media (min-width: 50em) {
+		.fa-hero {
+			--bulb-gap: 64px;
+		}
+	}
+
+	/* The awning and the bulbs reach the window's edges, past the page's
+	   column, and tuck under the header. The extra 48px each side covers the
+	   few widths where Starlight's column is not quite centred. `main` spans
+	   the window and clips them, so nothing scrolls sideways. (Clipping the
+	   body would pass to the window, and a phone would still widen the page.) */
+	:global(main:has(.fa-hero)) {
+		overflow-x: clip;
+	}
+	.fa-awning,
+	.fa-bulbs {
+		margin-inline: calc(50% - 50vw - 48px);
+	}
+	.fa-awning {
+		position: relative;
+		height: 44px;
+		margin-top: -1.5rem;
+	}
+	.fa-awning::before {
+		content: '';
+		position: absolute;
+		inset: 0 0 16px;
+		background: repeating-linear-gradient(90deg, var(--red) 0 46px, var(--cream) 46px 92px);
+		box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.28);
+	}
+	.fa-awning::after {
+		content: '';
+		position: absolute;
+		inset: auto 0 -3px;
+		height: 20px;
+		background:
+			radial-gradient(circle at 23px 0, var(--red) 0 21px, transparent 22px),
+			radial-gradient(circle at 69px 0, var(--cream) 0 21px, transparent 22px);
+		background-size: 92px 20px;
+		background-repeat: repeat-x;
+		filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+	}
+	:global(:root[data-theme='light']) .fa-awning::after {
+		filter: drop-shadow(0 3px 0 rgba(42, 31, 74, 0.35)) drop-shadow(0 6px 8px rgba(42, 31, 74, 0.25));
+	}
+
+	/* Four rows of bulbs, one per colour, each a bulb every fourth place, so
+	   each colour can blink on its own beat. They keep one spacing at any
+	   width, centred on the page. */
+	.fa-bulbs {
+		position: relative;
+		height: 26px;
+		overflow: hidden;
+	}
+	.fa-bulbs::before {
+		content: '';
+		position: absolute;
+		inset: 6px 0 auto;
+		height: 2px;
+		background: var(--bulb-line);
+	}
+	.fa-bulb-row {
+		--c: var(--gold);
+		--glow: rgba(255, 215, 106, 0.55);
+		--k: 0;
+		position: absolute;
+		inset: 0;
+		background:
+			radial-gradient(4.5px 6px at 50% 15px, var(--c) 0 90%, transparent 100%),
+			radial-gradient(12px 11px at 50% 15px, var(--glow), transparent 100%);
+		background-size: calc(4 * var(--bulb-gap)) 26px;
+		background-repeat: repeat-x;
+		background-position-x: calc(50% + (var(--k) - 1.5) * var(--bulb-gap));
+	}
+	.fa-bulb-row.b2 {
+		--c: var(--pink);
+		--glow: rgba(255, 126, 192, 0.5);
+		--k: 1;
+	}
+	.fa-bulb-row.b3 {
+		--c: var(--teal);
+		--glow: rgba(52, 224, 200, 0.5);
+		--k: 2;
+	}
+	.fa-bulb-row.b4 {
+		--c: var(--violet);
+		--glow: rgba(167, 139, 250, 0.5);
+		--k: 3;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.fa-bulb-row {
+			animation: fa-bulb 1.6s infinite;
+			animation-delay: calc(var(--k) * 0.4s);
+		}
+	}
+	@keyframes fa-bulb {
+		50% {
+			filter: brightness(0.5);
+		}
+	}
+
+	/* The card with its rainbow stripe: night blue in dark, cream in light. */
+	.fa-hero-card {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		margin-top: 0.75rem;
+		border: 1.5px solid var(--card-line);
+		border-radius: 24px;
+		overflow: hidden;
+		background: var(--card-bg);
+		color: var(--card-soft);
+		box-shadow:
+			inset 0 2px 0 var(--card-hi),
+			0 5px 0 var(--card-drop),
+			0 16px 30px var(--card-glow);
+	}
+	.fa-hero-card::before {
+		content: '';
+		position: absolute;
+		z-index: 2;
+		inset: 0 0 auto;
+		height: 8px;
+		background: var(--rainbow);
+		border-bottom: 1.5px solid var(--card-line);
+	}
+
+	.fa-hero-copy {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.75rem 1.25rem 1.5rem;
+	}
+	.fa-hero-copy > * {
+		margin: 0;
+	}
+	.fa-hero-kicker {
+		font-family: var(--fa-pixel);
+		font-size: 14px;
+		line-height: 1.5;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		white-space: nowrap;
+		color: var(--kicker);
+	}
+	/* The pixel font is wide: on the smallest phones it may take two lines. */
+	@media (max-width: 380px) {
+		.fa-hero-kicker {
+			white-space: normal;
+		}
+	}
+	.fa-hero-kicker + h1 {
+		margin-top: 0.75rem;
+	}
+	.fa-hero-copy h1 {
+		font-family: var(--fa-round);
+		font-weight: 900;
+		font-size: clamp(2rem, 1.1rem + 3.4vw, 3rem);
+		line-height: 1.1;
+		letter-spacing: 0.005em;
+		color: var(--card-title);
+	}
+	.fa-hero-tagline {
+		margin-top: 0.9rem;
+		max-width: 36em;
+		font-size: 1.125rem;
+		line-height: 1.55;
+		color: var(--card-soft);
+	}
+	.fa-hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem 1rem;
+		margin-top: 1.5rem;
+	}
+
+	/* Pill buttons, as in the arcade: yellow for the way in, an outline for
+	   the other. */
+	.fa-pill {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		min-height: 52px;
+		padding: 0 22px;
+		border-radius: 999px;
+		font-family: var(--fa-round);
+		font-weight: 900;
+		font-size: 18px;
+		line-height: 1.1;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.fa-pill svg {
+		flex: none;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2.4;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+	.fa-pill-yellow {
+		color: var(--ink);
+		border: 1.5px solid var(--ink);
+		background: linear-gradient(180deg, #ffe98a, #ffd23f 55%, #f0a800);
+		box-shadow:
+			inset 0 2px 0 rgba(255, 255, 255, 0.7),
+			0 4px 0 var(--pill-drop);
+	}
+	.fa-pill-ghost {
+		color: var(--ghost-fg);
+		border: 2px solid var(--ghost-line);
+		background: var(--ghost-bg);
+		box-shadow: var(--ghost-shadow);
+	}
+	.fa-pill-yellow:hover {
+		color: var(--ink);
+		background: linear-gradient(180deg, #fff3b0, #ffdf66 55%, #f5b400);
+	}
+	.fa-pill-ghost:hover {
+		color: var(--ghost-fg);
+		border-color: var(--ghost-hover-line);
+		background: var(--ghost-hover-bg);
+	}
+	.fa-pill:focus-visible {
+		outline: 4px solid var(--ring);
+		outline-offset: 3px;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.fa-pill {
+			transition:
+				transform 120ms ease-out,
+				box-shadow 120ms ease-out;
+		}
+		.fa-pill:hover {
+			transform: translateY(-2px);
+		}
+		.fa-pill-yellow:active {
+			transform: translateY(3px);
+			box-shadow:
+				inset 0 2px 0 rgba(255, 255, 255, 0.7),
+				0 1px 0 var(--pill-drop);
+		}
+	}
+
+	/* The picture: the arcade's Learn banner art. */
+	.fa-hero-art {
+		position: relative;
+		order: -1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 150px;
+		padding: 18px 12px 10px;
+		color: #ffe066;
+		background:
+			radial-gradient(70% 90% at 30% 30%, rgba(255, 255, 255, 0.18), transparent 70%),
+			linear-gradient(135deg, #6a2ee0, #2b8fd6 70%, #34e0c8);
+	}
+	.fa-hero-ill {
+		width: min(78%, 250px);
+		height: auto;
+		overflow: visible;
+		filter: drop-shadow(0 3px 0 rgba(20, 10, 60, 0.45));
+	}
+	.fa-hero-sp {
+		position: absolute;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.7;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+	.fa-hero-sp.a {
+		left: 7%;
+		top: 20%;
+	}
+	.fa-hero-sp.b {
+		right: 7%;
+		bottom: 16%;
+	}
+
+	/* A tablet and up: the words on the left, the picture on the right. The
+	   title keeps to one line. */
+	@media (min-width: 50em) {
+		.fa-hero-card {
+			grid-template-columns: minmax(0, 1fr) clamp(15rem, 28%, 19rem);
+		}
+		.fa-hero-copy {
+			padding: 2.75rem 2.5rem 2.5rem;
+		}
+		.fa-hero-copy h1 {
+			font-size: clamp(2.4rem, 1rem + 2.6vw, 3rem);
+			white-space: nowrap;
+		}
+		.fa-hero-tagline {
+			font-size: 1.25rem;
+		}
+		.fa-hero-art {
+			order: 0;
+			min-height: 0;
+			padding: 20px 16px;
+		}
+		.fa-hero-ill {
+			width: min(88%, 250px);
+		}
+	}
+</style>

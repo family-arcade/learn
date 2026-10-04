@@ -23,4 +23,5 @@ which Caddy serves from /opt/static/learn.familyarcade.eu/.
 ## Licence
 
 Content CC BY 4.0, code MIT. See LICENSE. The rounded font is under the SIL OFL
-(src/assets/fonts/OFL.txt).
+(src/assets/fonts/OFL.txt). The pixel font, Press Start 2P, is bundled from
+`@fontsource/press-start-2p` under the SIL OFL (LICENSE-press-start-2p).

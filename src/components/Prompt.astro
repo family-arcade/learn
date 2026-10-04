@@ -1,0 +1,209 @@
+---
+// Words to say or type to Claude, shown as a speech bubble so they read as
+// something to say, not a quotation. A Copy button appears when the browser
+// can copy; without it the words are still there to read and select.
+//
+//   <Prompt>Make a game where you are a dragon collecting gems.</Prompt>
+//   <Prompt label="Then say">Make the dragon slower.</Prompt>
+//
+// Keep a custom label short (about 14 letters): it is in the pixel font.
+interface Props {
+	label?: string;
+}
+const { label = 'Say or type' } = Astro.props;
+---
+
+<div class="fa-prompt not-content">
+	<div class="fa-prompt-top">
+		<span class="fa-prompt-label">
+			<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+				<path d="M6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5v-7A2.5 2.5 0 0 1 6.5 4Z" />
+				<path d="M8.5 9.25h7M8.5 12.25h4.5" />
+			</svg>
+			<span>{label}</span>
+		</span>
+		<button type="button" class="fa-prompt-copy" hidden>
+			<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+				<rect x="8.5" y="8.5" width="11" height="12" rx="2.5" />
+				<path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H7A2.5 2.5 0 0 0 4.5 6v8A2.5 2.5 0 0 0 7 16.5h1.5" />
+			</svg>
+			<span class="fa-prompt-copy-text">Copy</span><span class="fa-vh"> these words</span>
+		</button>
+	</div>
+	<div class="fa-prompt-text"><slot /></div>
+	<span class="fa-prompt-status fa-vh" aria-live="polite"></span>
+</div>
+
+<script>
+	// Show each Copy button and copy the bubble's words, as one line.
+	function setUpPrompts() {
+		if (!navigator.clipboard || !window.isSecureContext) return;
+		for (const card of document.querySelectorAll<HTMLElement>('.fa-prompt')) {
+			const button = card.querySelector<HTMLButtonElement>('.fa-prompt-copy');
+			const words = card.querySelector<HTMLElement>('.fa-prompt-text');
+			const buttonText = card.querySelector<HTMLElement>('.fa-prompt-copy-text');
+			const status = card.querySelector<HTMLElement>('.fa-prompt-status');
+			if (!button || !words || !buttonText || !status || !button.hidden) continue;
+			button.hidden = false;
+			let timer: number | undefined;
+			button.addEventListener('click', async () => {
+				const text = (words.textContent ?? '').replace(/\s+/g, ' ').trim();
+				let done = 'Copied';
+				try {
+					await navigator.clipboard.writeText(text);
+					button.dataset.copied = '';
+				} catch {
+					done = 'Not copied';
+				}
+				buttonText.textContent = done;
+				status.textContent = done;
+				window.clearTimeout(timer);
+				timer = window.setTimeout(() => {
+					buttonText.textContent = 'Copy';
+					status.textContent = '';
+					delete button.dataset.copied;
+				}, 2000);
+			});
+		}
+	}
+	setUpPrompts();
+</script>
+
+<style>
+	.fa-prompt {
+		--p-bg: #231c55;
+		--p-line: #8f6bf0;
+		--p-text: #ffffff;
+		--p-label: #34e0c8;
+		--p-btn: #eef1fa;
+		--p-btn-line: #a78bfa;
+		--p-btn-hover: rgba(167, 139, 250, 0.2);
+		--p-done: #8ff0b4;
+		position: relative;
+		container-type: inline-size;
+		margin: 1.25rem 0 1.5rem;
+		padding: 0.75rem 1rem 1rem;
+		background: var(--p-bg);
+		border: 2px solid var(--p-line);
+		border-radius: 20px 20px 20px 6px;
+		color: var(--p-text);
+	}
+	:global(:root[data-theme='light']) .fa-prompt {
+		--p-bg: #f1ebfd;
+		--p-line: #6a2ee0;
+		--p-text: #1c1440;
+		--p-label: #0b6158;
+		--p-btn: #3d1a99;
+		--p-btn-line: #6a2ee0;
+		--p-btn-hover: rgba(106, 46, 224, 0.12);
+		--p-done: #145c34;
+	}
+	/* The bubble's tail, low on the left: someone is speaking. */
+	.fa-prompt::after {
+		content: '';
+		position: absolute;
+		left: 28px;
+		bottom: -9px;
+		width: 16px;
+		height: 16px;
+		background: var(--p-bg);
+		border-right: 2px solid var(--p-line);
+		border-bottom: 2px solid var(--p-line);
+		transform: rotate(45deg);
+	}
+
+	.fa-prompt-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.25rem 0.75rem;
+		margin-bottom: 0.35rem;
+	}
+	.fa-prompt-label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		min-height: 44px;
+		font-family: var(--fa-pixel);
+		font-size: 14px;
+		line-height: 1.4;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		white-space: nowrap;
+		color: var(--p-label);
+	}
+	.fa-prompt svg {
+		flex: none;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.8;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.fa-prompt-copy {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		min-height: 44px;
+		padding: 0 0.9rem;
+		border: 1.5px solid var(--p-btn-line);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--p-btn);
+		font: 700 0.9375rem/1 var(--sl-font);
+		cursor: pointer;
+	}
+	.fa-prompt-copy[hidden] {
+		display: none;
+	}
+	.fa-prompt-copy:hover {
+		background: var(--p-btn-hover);
+	}
+	.fa-prompt-copy[data-copied] {
+		color: var(--p-done);
+		border-color: currentColor;
+	}
+	.fa-prompt-copy:focus-visible {
+		outline: 3px solid var(--fa-focus);
+		outline-offset: 2px;
+	}
+	/* A narrow bubble, such as inside a step on a phone: the label drops its
+	   icon so the label and the button keep to one row. */
+	@container (max-width: 300px) {
+		.fa-prompt-label svg {
+			display: none;
+		}
+		.fa-prompt-copy {
+			padding: 0 0.7rem;
+		}
+	}
+
+	.fa-prompt-text {
+		font-size: var(--sl-text-body);
+		line-height: 1.6;
+		overflow-wrap: anywhere;
+	}
+	.fa-prompt-text :global(p) {
+		margin: 0;
+	}
+	.fa-prompt-text :global(p + p) {
+		margin-top: 0.6em;
+	}
+	.fa-prompt-text :global(code) {
+		font-size: 0.9375rem;
+		padding: 0.1em 0.3em;
+		border-radius: 4px;
+		background: rgba(127, 127, 160, 0.2);
+	}
+
+	.fa-vh {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+</style>

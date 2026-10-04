@@ -1,0 +1,91 @@
+---
+title: Make your first game
+description: Tell Claude one idea, answer its questions, and add a basic first game to your repository.
+sidebar:
+  label: Make your first game
+  order: 4
+---
+
+import Prompt from '../../../components/Prompt.astro';
+import FirstGames from '../../../components/FirstGames.astro';
+
+Your first game will be very basic: a few shapes on a screen and one thing
+to do. That is on purpose. A small game that works is the best start. You
+make it better afterwards.
+
+## Example first games
+
+We made each of these games in a fresh copy of the starter template. We
+typed one sentence into Claude Code. Claude asked its questions, and we
+answered each one with "You choose." Nothing was changed afterwards. The
+time runs from the first message until Claude said the game was done. Your
+child's answers will add a few minutes.
+
+<FirstGames />
+
+## Tell Claude your idea
+
+Your child says the idea in one sentence. The grown-up types it, or your
+child does.
+
+<Prompt>Make a game where you are a dragon collecting gems in the clouds.</Prompt>
+
+Claude then asks a few short questions, one at a time. Who are you in the
+game? How do you win? Which colours? Let your child answer each one. If they
+are stuck, Claude offers two or three choices.
+
+## Let your child talk
+
+Your child can say the words instead of typing them. Claude Code on the web
+has no voice mode of its own. Your device can turn speech into text in any
+text box, including Claude's:
+
+- **On an iPad or iPhone,** tap the microphone key on the keyboard, then
+  talk.
+- **On a Mac,** turn on Dictation once, in System Settings under
+  **Keyboard**. Then press the dictation shortcut and talk.
+
+The words appear in the box. The grown-up checks them and sends them.
+
+To talk the idea through before you build, use voice mode in the Claude app.
+It is an ordinary chat, separate from Claude Code. It works best on a phone.
+It runs on the grown-up's account, so stay with your child while they talk.
+Tap the sound-wave icon next to the chat box to start. At the end, ask Claude
+to write the game idea as one short paragraph. Paste that paragraph into
+Claude Code.
+
+## While Claude works
+
+In our tests, Claude took four to six minutes for a first game. You can
+watch it work:
+
+- **It edits the game's files** and shows you each change.
+- **It runs the tests,** small checks that the game still works. A test can
+  fail. Claude then fixes the problem and runs them again. That is normal.
+- **It may ask before it does something.** Read the question together.
+  Answer it, and Claude carries on.
+- **It says when it is done,** and what it changed. A **Create PR** button
+  appears.
+
+## Look at the change
+
+Read what Claude changed, together. Is it what your child asked for? If
+something is not right, say so before you merge:
+
+<Prompt>The dragon is too small. Make it bigger.</Prompt>
+
+Claude changes it on the same branch.
+
+## Merge the change
+
+A pull request asks to add the change to your game. The merge adds it.
+
+1. In Claude, click **Create PR**. GitHub opens the pull request.
+2. Merge the change:
+   1. Click **Merge pull request**.
+   2. Click **Confirm merge**.
+
+Your first game is now in your repository. It is not on the web yet. The
+next page puts it there, once.
+
+Next: [Put it on the web](/make/publish/).

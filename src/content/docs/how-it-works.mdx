@@ -9,8 +9,12 @@ import ArcadeDiagram from '../../components/ArcadeDiagram.astro';
 import GhIcon from '../../components/GhIcon.astro';
 
 The Family Arcade is a set of browser games your family plays, on its own
-devices, together or alone. This page starts with the arcade itself, then
-playing together, then how families make their own games and share them.
+devices, together or alone. Playing together goes through the Family Arcade.
+Friends open a game in their own Family Arcade, with their own player. Then
+their devices connect with a four-letter code.
+
+This page starts with the arcade itself, then playing together, then how
+families make their own games and share them.
 
 <ArcadeDiagram which="parts" />
 
@@ -33,47 +37,51 @@ The arcade's games are made by one family, and they come with the arcade.
 
 ## Playing together across homes
 
-Two devices connect with a four-letter code:
+Each player opens the game in their own Family Arcade, with their own player.
+One device shows four letters, and the others type them. Here three friends
+are about to play Gulp, one of the arcade's games:
+
+![Gulp’s player select: Klara made the code KQZT, Mina and Oskar joined from their own devices, and a fourth place is waiting](../../assets/screens/gulp-together-lobby.webp)
 
 <ArcadeDiagram which="together" />
 
-1. One device asks a free matchmaking service called PeerJS to hold the code.
-2. The other devices type the code. PeerJS introduces the devices to each
-   other.
+1. One device makes a code.
+2. The other devices type the code. The Family Arcade's own connection
+   service, on our server in Germany, passes the first hello between them.
+   It keeps no log.
 3. From then on, the game's data travels **directly between the devices**. It
-   uses the same technology as video calls (WebRTC).
+   uses the same technology as video calls, called WebRTC.
 
-The matchmaking service and two small public helpers from Google and Twilio
-only help devices find each other. They never see names, moves, video or
-voice. It works across homes and countries. A few strict networks, such as
-some school and office networks, block it.
+It works across homes and countries. A few strict networks, such as some
+school and office networks, block it.
 
 The device that made the code runs the game. The others send what their
 player does and get back what happens.
 
 ## Making and sharing a game
 
-1. **Copy the starter.** On GitHub, the
-   [game starter](https://github.com/family-arcade/arcade-game-starter) is a
-   template. Choose **Use this template** to make your own copy. It starts
-   as an empty home page for your game, with Play together already working.
-2. **Build with an AI helper.** Claude Code reads the starter's rules and
-   writes the code you describe. Claude leaves each change for you to merge.
-   Merging means choosing to add that change to your copy of the game.
-3. **It goes on the web by itself.** Every merged change is tested, built and
-   published to your own address, such as
+1. **Start from the template.** On GitHub, choose **Use this template** on
+   the [starter template](https://github.com/family-arcade/arcade-game-starter)
+   to make your own repository. It starts as an empty home page for your
+   game, with Play together already working.
+2. **Build with an AI helper.** Claude Code reads the template's rules and
+   asks your child a few questions. It makes each change on a branch, a copy
+   for trying things. Merging adds the change to your game.
+3. **It goes on the web by itself.** Once GitHub Pages is on, every merged
+   change is tested, built and published to your own address, such as
    `https://your-name.github.io/dragon-dash/`. GitHub hosts it for free.
-4. **Share the link.** Anyone you send it to can play it, alone or together
-   with a code.
-5. **Add it to the arcade.** In the arcade, tap **Add a game from a friend**
+4. **Add it to the arcade.** In the arcade, tap **Add a game from a friend**
    and paste the link. The game becomes a tile on that device.
+5. **Play with friends.** Send them the link. They add the game to their own
+   arcade, then you play together with a code.
 
-Nothing in this needs our server. Your game lives in your GitHub account. The
-arcade only remembers its link on your device.
+Your game lives in your GitHub account, not on our server. The arcade only
+remembers its link on your device. Our server comes in only when you play
+together, to pass the first hello between the devices.
 
 ## Arcade kit in each game
 
-Every game made from the starter has a small folder, `src/arcade/`, called
+Every game made from the starter template has a small folder, `src/arcade/`, called
 the kit. It is the only part of a game that knows about the arcade:
 
 - **Who is playing.** The arcade hands over the player's name and colour when
@@ -105,8 +113,9 @@ game reads the name and colour, removes them from the address bar and shows
 |---|---|
 | The arcade | familyarcade.eu, a server in Germany (Hetzner, Falkenstein) |
 | This guide | learn.familyarcade.eu, the same server |
+| The connection service for playing together | the same server |
 | A family's game | that family's GitHub Pages |
-| The starter's code | GitHub |
+| The starter template's code | GitHub |
 | Players and saves | the browser on each device |
 
 ## Features that may come

@@ -16,6 +16,14 @@ plain. These rules come from the owner's own review of the guide.
 - Name the action, not the mechanism: "Start from the template", not "Copy
   the game starter and publish it".
 
+## Names
+
+- Name things what they are. It is "the starter template", or "the
+  template" once the page has said "starter template". Never "the starter"
+  or "the game starter".
+- Use the product's own name: Claude Code, Codex, GitHub Pages, the Family
+  Arcade.
+
 ## Sentences
 
 - Put the point first; conditions come after it or in the next sentence.
@@ -27,6 +35,27 @@ plain. These rules come from the owner's own review of the guide.
   pull request, merge, workflow.
 - Warm and calm; no hype. No rhetorical "not just X but Y"; one example
   where one is enough.
+- Set expectations honestly. The first game is basic on purpose; say so
+  wherever the first game comes up.
+
+## How a game gets built
+
+- Explain the path early, before the steps use it: repository → branch →
+  you look at it → pull request → merge → GitHub publishes → live. Say on
+  the development pages, not only on the problems page, that a change only
+  goes live after the merge.
+- Making the first game and publishing it are separate pages. Publishing
+  (turning on GitHub Pages) comes after the first game is merged.
+
+## Example prompts
+
+- Every example ask, anything a family would say or type to Claude, is a
+  `<Prompt>` card (`src/components/Prompt.astro`), never a Markdown
+  blockquote: a blockquote reads as a quotation. The page must be `.mdx`.
+- One ask per card, with two or three changes at most.
+- Keep a custom Prompt `label` to about 14 letters (the default is "Say or
+  type"). It is in the pixel font, and the label and Copy button must stay
+  on one row at 393px.
 
 ## Steps
 
@@ -40,6 +69,9 @@ plain. These rules come from the owner's own review of the guide.
 
 - Show only real things: real games, real pages. Never a made-up game or a
   fake account in a screenshot.
+- A game made to show what Claude gives is captioned truthfully: what was
+  asked, and that nothing was changed afterwards. Images are webp, sized for
+  the page.
 - A concept with moving parts gets a diagram (`src/components/ArcadeDiagram.astro`
   style: inline SVG, narrow so it reads on a phone, themed for light and
   dark). Introduce one idea at a time: the first diagram on a page shows
@@ -52,6 +84,11 @@ plain. These rules come from the owner's own review of the guide.
   the Previous / Next links at the bottom of each page. Text contrast at
   least 4.5:1 (3:1 for large headings).
 - Text 17px or larger for body copy; nothing smaller than 14px.
+- The pixel font, Press Start 2P (`var(--fa-pixel)`), is an accent only:
+  the front-page kicker, the step-number coins and the Prompt card's label.
+  Never body text, a whole heading, a button, or words a child reads aloud.
+  Use 14px, never more than 16px, and check it neither wraps nor overflows
+  at 393px.
 
 ## Facts and promises
 
@@ -60,6 +97,16 @@ plain. These rules come from the owner's own review of the guide.
   a new promise is not. "Might one day" is the most a future feature gets.
 - The arcade promises "No ads. No tracking." Say no tracking, never "no
   analytics".
+- Playing together goes through the Family Arcade: friends open the game in
+  their own Family Arcade, with their own player. Devices find each other
+  through the Family Arcade's own connection service, on our server in
+  Germany, which passes only the first hello and keeps no log. Then the
+  game's data goes directly between the devices. No other matchmaking
+  service is named.
+- Voice: Claude Code on the web has no voice mode. Suggest only the
+  device's own dictation, or voice mode in the Claude app to talk an idea
+  through before building. The Claude account is a grown-up's, and the
+  grown-up stays with the child.
 - Contact: mario@knyflores.com.
 
 ## Checking a change
@@ -70,5 +117,5 @@ mise x node@22 -- npx astro preview --port 4370
 ```
 
 Then look at every changed page in a real browser at the three widths, in
-both themes, and say what you see. Deploy with `scripts/deploy.sh` (the
+both themes, and say what you see. Check that every internal link resolves. Deploy with `scripts/deploy.sh` (the
 server keeps no access log).

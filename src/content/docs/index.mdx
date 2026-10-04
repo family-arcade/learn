@@ -15,6 +15,7 @@ hero:
 ---
 
 import { Steps } from '@astrojs/starlight/components';
+import Prompt from '../../components/Prompt.astro';
 
 <div class="fa-cards">
   <div class="fa-card make">
@@ -23,45 +24,65 @@ import { Steps } from '@astrojs/starlight/components';
   </div>
   <div class="fa-card play">
     <h2>Learning by making</h2>
-    <p>Children learn how games work by changing one thing, playing it, and changing the next. No coding needed to start.</p>
+    <p>Children learn how games work by changing a few things, playing, and changing the next. No coding needed to start.</p>
   </div>
   <div class="fa-card parents">
     <h2>Play together, anywhere</h2>
-    <p>Send the link to cousins and friends. Up to four devices play together with a 4-letter code, from different homes.</p>
+    <p>Friends open your game in their own Family Arcade and play with you from their homes. Up to four devices connect with a 4-letter code.</p>
   </div>
 </div>
 
-## A first game in an afternoon
+## A basic game in an afternoon
+
+The first game is basic on purpose: a few shapes and one thing to do. You
+make it better from there.
 
 <Steps>
 
-1. **Start from the template.** Your game gets its own web address in about
-   ten minutes. [How](/make/copy/)
+1. **Start from the template.** It becomes your game's own repository, its
+   home on GitHub. [How](/make/copy/)
 
-2. **Ask for your game in one sentence.** For example: "Make a game where you
-   are a dragon collecting gems in the clouds." [How](/make/first-change/)
+2. **Tell Claude your idea in one sentence.** Claude asks your child a few
+   questions, then makes a basic first version. [How](/make/first-game/)
 
-3. **Improve it one small step at a time.** Play after every change and say
-   what to change next. [How](/make/your-game/)
+   <Prompt>Make a game where you are a dragon collecting gems in the clouds.</Prompt>
 
-4. **Play it with family and friends,** and add it to the
-   [Family Arcade](https://familyarcade.eu) on every device.
+3. **Put it on the web.** One setting, and your game has its own address.
+   [How](/make/publish/)
+
+4. **Make it better,** two or three changes at a time. Play after every
+   change. [How](/make/your-game/)
+
+5. **Play it with friends** in the Family Arcade, from their own homes.
    [How](/make/together/)
 
 </Steps>
+
+Claude makes each change on a copy of your game, called a branch. Your game
+changes only when you merge, with one button on GitHub.
+[How a game gets built](/make/#how-a-game-gets-built)
+
+## Playing together in the Family Arcade
+
+Friends add your game to their own Family Arcade at
+[familyarcade.eu](https://familyarcade.eu) and open it there with their own
+player. One device shows four letters, and the others type them. Here three
+friends are about to play Gulp, one of the arcade's games:
+
+![Gulp’s player select: Klara made the code KQZT, Mina and Oskar joined from their own devices, and a fourth place is waiting](../../assets/screens/gulp-together-lobby.webp)
 
 ## Getting started needs three things
 
 - **An hour,** and a computer for the first time.
 - **A free GitHub account.** It keeps your game's code and puts it on the
-  web. It is the grown-up's account for children under 13.
+  web. For a child under 13, it is a grown-up's account.
 - **An AI helper.** This guide uses Claude Code, part of a paid Claude plan
   held by a grown-up. [Free options for teenagers](/make/) are listed too.
 
 ## Safe by design
 
 - **No ads and no tracking,** in the arcade and in every game made from the
-  starter.
+  starter template.
 - **Only people with your code** can play with your child. There is no chat
   and no public list of players.
 - **Players and saves stay on your device.** There are no accounts to sign up

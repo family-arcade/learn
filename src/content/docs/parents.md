@@ -18,8 +18,9 @@ wins and recent games. Nothing is sent to us. There is no account, email
 address, birthday or photo. Clearing the site's data in the browser erases
 it.
 
-**Nothing on our server.** The server only hands out the arcade's files. It
-keeps no log of who visited. There are no ads and no tracking.
+**Nothing stored on our server.** The server hands out the arcade's files.
+When devices play together, it also passes their first hello. It keeps no
+log of either. There are no ads and no tracking.
 
 Because players live on each device, the same child on two devices is two
 separate players. Syncing players across a family's devices needs accounts.
@@ -32,12 +33,14 @@ letters. The other devices type those letters in. There is no public list of
 games, no search for players and no chat. Someone your child has never met
 cannot find them.
 
-**Directly, device to device.** Once connected, game moves travel straight
-between the devices, not through a server. Video or voice also travels this
-way if you turn it on. To find each other, devices use a free matchmaking
-service called PeerJS and public helpers from Google and Twilio. Those
-services see the devices' internet addresses for a moment, not names or
-games.
+**Through the Family Arcade.** Friends open a game in their own Family
+Arcade, with their own player. To find each other, devices use the Family
+Arcade's own connection service, on our server in Germany. It passes only
+the first hello between the devices and keeps no log.
+
+**Then directly, device to device.** Once connected, game moves travel
+straight between the devices, not through a server. Video or voice also
+travels this way if you turn it on.
 
 **Calls are off until tapped.** Voice and video calls work between two devices.
 The camera and microphone stay off until someone taps them. The browser asks
@@ -59,9 +62,9 @@ GitHub Pages, GitHub's free web hosting.
   server.
 - The website that hosts the game sees the visit, like any website.
 - What the game does is up to the family who made it. Games made from our
-  starter follow [rules](/reference/rules/): no ads, no trackers, nothing
-  loaded from other websites and no chat. The AI helper is told to keep these
-  rules. Nobody checks other families' games.
+  starter template follow [rules](/reference/rules/): no ads, no trackers,
+  nothing loaded from other websites and no chat. The AI helper is told to
+  keep these rules. Nobody checks other families' games.
 
 Only add games from people you know.
 
@@ -79,6 +82,9 @@ Making a game needs two accounts. Both have age limits:
 For younger children, the accounts are yours and you build together. Your
 child has the ideas and plays. You type and press the buttons. That is also
 the best way to do it.
+
+The Claude account is always a grown-up's. Stay with your child while they
+use it.
 
 Teenagers can use a free [GitHub](https://github.com) account. Instead of
 Claude, they can use one of these AI helpers:
@@ -107,8 +113,10 @@ few hours. That is a natural break.
 - **Let them decide.** Let your child choose what the game is about, what to
   change next and whether it is fun. You type, read Claude's answers aloud if
   needed and press merge, which means accepting the change.
-- **Play after every change.** Small steps, played straight away, beat big
-  plans. "What should we change next?" is the whole loop.
+- **Expect a basic first game.** The first version is simple on purpose. It
+  gets better with each round of changes.
+- **Play after every merge.** Two or three changes at a time, played straight
+  away, beat big plans. "What should we change next?" is the whole loop.
 - **Words, not code.** Your child says how it should feel. "Make it bouncier"
   is enough. Claude works out the code.
 - **First names only.** Nothing else about your child belongs in a game.

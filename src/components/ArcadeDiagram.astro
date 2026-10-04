@@ -1,15 +1,76 @@
 ---
-// Diagrams for "How the Family Arcade works", drawn inline so nothing loads
+// Diagrams for the guide, drawn inline so nothing loads
 // from elsewhere and they follow the site's light and dark themes. Narrow on
 // purpose (360 wide) so the text stays readable on a phone.
 interface Props {
-	which: 'parts' | 'together' | 'friend';
+	which: 'parts' | 'together' | 'friend' | 'build';
 }
 const { which } = Astro.props;
 ---
 
 {
-	which === 'parts' ? (
+	which === 'build' ? (
+		<figure class="fa-diagram tall">
+			<svg viewBox="0 0 360 512" role="img" aria-labelledby="db-t db-d">
+				<title id="db-t">How a game gets built</title>
+				<desc id="db-d">
+					Your game's code lives in a repository on GitHub. Claude makes a change on a branch, a copy for trying
+					things. You look at what it changed. A pull request asks to add the change. While it is on the branch, your
+					game does not change. The merge adds the change to the main game. GitHub then publishes it in a minute or
+					two, and the game is live at its address.
+				</desc>
+				<defs>
+					<marker id="db-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+						<path d="M0,0 L10,5 L0,10 z" class="head" />
+					</marker>
+				</defs>
+
+				<rect x="40" y="4" width="280" height="46" rx="12" class="box" />
+				<text x="180" y="24" class="t">Repository</text>
+				<text x="180" y="42" class="s">Your game's code, on GitHub</text>
+
+				<path d="M180,52 L180,71" class="line" marker-end="url(#db-arrow)" />
+
+				<rect x="14" y="74" width="332" height="224" rx="16" class="group" />
+				<text x="180" y="94" class="l">Your game does not change yet</text>
+
+				<rect x="40" y="104" width="280" height="46" rx="12" class="box" />
+				<text x="180" y="124" class="t">Branch</text>
+				<text x="180" y="142" class="s">Claude makes a change on a copy</text>
+
+				<path d="M180,152 L180,169" class="line" marker-end="url(#db-arrow)" />
+
+				<rect x="40" y="172" width="280" height="46" rx="12" class="box" />
+				<text x="180" y="192" class="t">You look at it</text>
+				<text x="180" y="210" class="s">Claude says what it changed</text>
+
+				<path d="M180,220 L180,237" class="line" marker-end="url(#db-arrow)" />
+
+				<rect x="40" y="240" width="280" height="46" rx="12" class="box" />
+				<text x="180" y="260" class="t">Pull request</text>
+				<text x="180" y="278" class="s">Asks to add the change</text>
+
+				<path d="M180,300 L180,319" class="line" marker-end="url(#db-arrow)" />
+
+				<rect x="40" y="322" width="280" height="46" rx="12" class="box you" />
+				<text x="180" y="342" class="t">Merge</text>
+				<text x="180" y="360" class="s">Adds it to the main game</text>
+
+				<path d="M180,370 L180,389" class="line" marker-end="url(#db-arrow)" />
+				<text x="192" y="385" class="l" style="text-anchor: start">Now your game changes</text>
+
+				<rect x="40" y="392" width="280" height="46" rx="12" class="box" />
+				<text x="180" y="412" class="t">GitHub publishes it</text>
+				<text x="180" y="430" class="s">In a minute or two</text>
+
+				<path d="M180,440 L180,459" class="line" marker-end="url(#db-arrow)" />
+
+				<rect x="40" y="462" width="280" height="46" rx="12" class="box you" />
+				<text x="180" y="482" class="t">Live at its address</text>
+				<text x="180" y="500" class="s">your-name.github.io/dragon-dash</text>
+			</svg>
+		</figure>
+	) : which === 'parts' ? (
 		<figure class="fa-diagram">
 			<svg viewBox="0 0 360 286" role="img" aria-labelledby="dp-t dp-d">
 				<title id="dp-t">Where the Family Arcade lives</title>
@@ -75,8 +136,9 @@ const { which } = Astro.props;
 			<svg viewBox="0 0 360 300" role="img" aria-labelledby="dt-t dt-d">
 				<title id="dt-t">Playing together across homes</title>
 				<desc id="dt-d">
-					A free matchmaking service, PeerJS, introduces your tablet and your cousin's tablet with the 4-letter code.
-					After that, the game's moves travel directly between the two devices, not through any server.
+					The Family Arcade's own connection service, on our server in Germany, passes the first hello between your
+					tablet and your cousin's tablet, using the 4-letter code. It keeps no log. After that, the game's data travels
+					directly between the two devices.
 				</desc>
 				<defs>
 					<marker id="dt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -84,10 +146,10 @@ const { which } = Astro.props;
 					</marker>
 				</defs>
 
-				<rect x="80" y="6" width="200" height="86" rx="12" class="box" />
-				<text x="180" y="34" class="t">Matchmaking</text>
-				<text x="180" y="56" class="s">PeerJS, free and public</text>
-				<text x="180" y="76" class="s">Introduces, with the code</text>
+				<rect x="45" y="6" width="270" height="86" rx="12" class="box" />
+				<text x="180" y="34" class="t">Connection service</text>
+				<text x="180" y="56" class="s">The Family Arcade's, in Germany</text>
+				<text x="180" y="76" class="s">Passes the first hello. No log.</text>
 
 				<path d="M118,96 L70,180" class="line dashed" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
 				<path d="M242,96 L290,180" class="line dashed" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
@@ -113,6 +175,15 @@ const { which } = Astro.props;
 		margin: 1.5rem auto;
 		max-width: 460px;
 	}
+	.fa-diagram.tall {
+		max-width: 400px;
+	}
+	.group {
+		fill: none;
+		stroke: var(--sl-color-text-accent);
+		stroke-width: 1.5;
+		stroke-dasharray: 6 5;
+	}
 	.fa-diagram svg {
 		display: block;
 		width: 100%;
@@ -127,6 +198,10 @@ const { which } = Astro.props;
 	.you {
 		stroke: #ffd76a;
 		stroke-width: 2.5;
+	}
+	/* Gold on the light page needs more weight to stand out (3:1 or more). */
+	:global(:root[data-theme='light']) .you {
+		stroke: #a87400;
 	}
 	text {
 		text-anchor: middle;
