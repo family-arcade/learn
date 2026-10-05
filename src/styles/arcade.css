@@ -100,7 +100,7 @@ h1 { color: var(--sl-color-white); }
 :root[data-theme="dark"] .sl-markdown-content h2 { color: var(--fa-gold); }
 
 /* Links in the content: teal in dark, deep teal in light, underlined for non-colour cue. */
-.sl-markdown-content a:not(.sl-link-button):not(.fa-card) {
+.sl-markdown-content a:not(.sl-link-button):not(.fa-card):not(.fa-cta-pill) {
   color: var(--fa-link);
   text-underline-offset: 0.2em;
 }

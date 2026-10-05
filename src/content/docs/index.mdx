@@ -15,7 +15,10 @@ hero:
 ---
 
 import { Steps } from '@astrojs/starlight/components';
+import Cta from '../../components/Cta.astro';
 import Prompt from '../../components/Prompt.astro';
+import Shot from '../../components/Shot.astro';
+import gulpCode from '../../assets/screens/gulp-together-code.webp';
 
 <div class="fa-cards">
   <div class="fa-card make">
@@ -40,36 +43,37 @@ make it better from there.
 <Steps>
 
 1. **Start from the template.** It becomes your game's own repository, its
-   home on GitHub. [How](/make/copy/)
+   home on GitHub.
 
 2. **Tell Claude your idea in one sentence.** Claude asks your child a few
-   questions, then makes a basic first version. [How](/make/first-game/)
+   questions, then makes a basic first version.
 
    <Prompt>Make a game where you are a dragon collecting gems in the clouds.</Prompt>
 
 3. **Put it on the web.** One setting, and your game has its own address.
-   [How](/make/publish/)
 
 4. **Make it better,** two or three changes at a time. Play after every
-   change. [How](/make/your-game/)
+   change.
 
 5. **Play it with friends** in the Family Arcade, from their own homes.
-   [How](/make/together/)
 
 </Steps>
 
 Claude makes each change on a copy of your game, called a branch. Your game
 changes only when you merge, with one button on GitHub.
-[How a game gets built](/make/#how-a-game-gets-built)
+
+<Cta href="/make/" note="Step by step, for a parent and child together.">Make your first game</Cta>
 
 ## Playing together in the Family Arcade
 
 Friends add your game to their own Family Arcade at
 [familyarcade.eu](https://familyarcade.eu) and open it there with their own
-player. One device shows four letters, and the others type them. Here three
-friends are about to play Gulp, one of the arcade's games:
+player. One device shows four letters, and the others type them.
 
-![Gulp’s player select: Klara made the code KQZT, Mina and Oskar joined from their own devices, and a fourth place is waiting](../../assets/screens/gulp-together-lobby.webp)
+<Shot images={[{ src: gulpCode, alt: 'Gulp, ready to play together: one device shows the code KQZT, three players have joined, and a fourth place is waiting' }]}>
+  Three friends about to play Gulp, one of the arcade's games. One device
+  shows the code, and the other two typed it on theirs.
+</Shot>
 
 ## Getting started needs three things
 

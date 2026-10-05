@@ -7,6 +7,8 @@ sidebar:
 
 import ArcadeDiagram from '../../components/ArcadeDiagram.astro';
 import GhIcon from '../../components/GhIcon.astro';
+import Shot from '../../components/Shot.astro';
+import gulpCode from '../../assets/screens/gulp-together-code.webp';
 
 The Family Arcade is a set of browser games your family plays, on its own
 devices, together or alone. Playing together goes through the Family Arcade.
@@ -38,10 +40,12 @@ The arcade's games are made by one family, and they come with the arcade.
 ## Playing together across homes
 
 Each player opens the game in their own Family Arcade, with their own player.
-One device shows four letters, and the others type them. Here three friends
-are about to play Gulp, one of the arcade's games:
+One device shows four letters, and the others type them.
 
-![Gulp’s player select: Klara made the code KQZT, Mina and Oskar joined from their own devices, and a fourth place is waiting](../../assets/screens/gulp-together-lobby.webp)
+<Shot images={[{ src: gulpCode, alt: 'Gulp, ready to play together: one device shows the code KQZT, three players have joined, and a fourth place is waiting' }]}>
+  Three friends about to play Gulp, one of the arcade's games. One device
+  shows the code, and the other two typed it on theirs.
+</Shot>
 
 <ArcadeDiagram which="together" />
 

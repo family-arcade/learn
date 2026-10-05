@@ -9,11 +9,13 @@ sidebar:
 import Prompt from '../../../components/Prompt.astro';
 import Shot from '../../../components/Shot.astro';
 import ArcadeDiagram from '../../../components/ArcadeDiagram.astro';
-import turntable from '../../../assets/screens/3d/racer-turntable.webp';
+import coinMall from '../../../assets/screens/3d/coin-mall.webp';
 import gulpCity from '../../../assets/screens/3d/gulp-city.webp';
-import conceptSheet from '../../../assets/screens/3d/unicorn-concept-sheet.webp';
-import optionA from '../../../assets/screens/3d/racer-option-a.webp';
-import optionB from '../../../assets/screens/3d/racer-option-b.webp';
+import lookA from '../../../assets/screens/3d/coin-look-a.webp';
+import lookB from '../../../assets/screens/3d/coin-look-b.webp';
+import lookC from '../../../assets/screens/3d/coin-look-c.webp';
+import machineConcept from '../../../assets/screens/3d/coin-machine-concept.webp';
+import machineModel from '../../../assets/screens/3d/coin-machine-model.webp';
 
 This page shows how we make good-looking 3D for the Family Arcade's games,
 and keep it smooth on a tablet. It asks more of the grown-up: one part needs
@@ -30,10 +32,13 @@ the web.
 
 **Models made in Blender.** Blender is a free program for making 3D models.
 Claude builds the model in it, and you put the file in your game. Use it for
-shapes that simple pieces can't make, such as a ship.
+shapes that simple pieces can't make, such as a ship, or for characters with
+moving joints.
 
-<Shot images={[{ src: turntable, alt: 'A pastel unicorn and a fairy, each seen from the front, three-quarter, side and back' }]}>
-  Rainbow Racer's unicorn and fairy, built from shapes in code.
+<Shot images={[{ src: coinMall, alt: 'Coin Corner: a pastel mall corner with a red vending machine, a shelf of stock boxes, plants, a bench and the shopkeeper in a blue cap' }]}>
+  Coin Corner, the vending-machine game we're making now, uses both. The mall is built from
+  shapes in code. The shopkeeper and the vending machine are models made in
+  Blender.
 </Shot>
 
 <Shot images={[{ src: gulpCity, alt: 'A round of Gulp: a hole with eyes in a park with trees, benches, people and a red car' }]}>
@@ -77,28 +82,35 @@ later picture.
 
 <Prompt label="In ChatGPT">Make Pip in two other styles so we can choose: one hard and blocky, one soft and round like a plush toy.</Prompt>
 
+For every big change to a game's look, we show the family about three
+labelled options like these. We build the one they pick.
+
+<Shot images={[
+  { src: lookA, label: 'A, Candy Pastel', alt: 'Look A: a coral vending machine with pastel stripes, soft rounded shoppers and a shopkeeper in a pastel mall' },
+  { src: lookB, label: 'B, Bold Toybox', alt: 'Look B: a red and yellow vending machine with blocky shoppers in a bright red and blue mall' },
+  { src: lookC, label: 'C, Cozy Modern', alt: 'Look C: a teal and orange vending machine with shoppers on a warm, softly lit mall balcony' },
+]}>
+  Three looks for Coin Corner, made in ChatGPT. The family picked A.
+</Shot>
+
 ### Ask for every side
 
 <Prompt label="In ChatGPT">Use this picture of Pip as the reference. Show Pip from the front, side, back and three-quarter, the same size, in a row. Plain background, no text.</Prompt>
 
-<Shot images={[{ src: conceptSheet, alt: 'A white chibi unicorn with a rainbow mane and pastel wings, from the front, side, back and three-quarter' }]}>
-  Concept art for Rainbow Racer's unicorn, made with an AI image generator.
-  Our children picked this look from five.
+<Shot images={[{ src: machineConcept, alt: 'A coral vending machine full of sweets, from the front, three-quarter, side and back, and open with its trays out' }]}>
+  Concept art for Coin Corner's vending machine, made in ChatGPT in the look
+  the family picked.
 </Shot>
 
 Ask for each view on its own if the views don't match. Change one thing at a
 time, and say what must stay the same.
 
-Concept art is a guide, not the finished model. Ours had more detail than a
-racer needs, so we built two simpler versions in code. For every big change
-to a game's look, we show the family about three labelled options like
-these. We build the one they pick.
+Concept art is a guide, not the finished model. The model keeps the shape and
+the colours, and leaves out the small details.
 
-<Shot images={[
-  { src: optionA, label: 'A, hard boxes', alt: 'Option A: the unicorn and fairy as hard boxes with square eyes' },
-  { src: optionB, label: 'B, rounded blocks', alt: 'Option B: the unicorn and fairy as rounded blocks with big glossy eyes' },
-]}>
-  Two versions in code. The family picked B, which keeps the big eyes.
+<Shot images={[{ src: machineModel, alt: 'The vending machine as a 3D model at three sizes, the largest with a star on top' }]}>
+  The machine as a model in the game. It grows in three steps when you
+  upgrade it.
 </Shot>
 
 ## Build a model in Blender
@@ -198,9 +210,9 @@ light from the start, and test on the real device.
 - **Not every pixel.** Tablet screens have two or three pixels per point. Our
   games draw at most two.
 
-Rainbow Racer's racers are 2,000 to 3,000 triangles and four to six pieces
-each, down from 18 to 60 pieces. A test holds the limit. Devices differ, so
-measure on yours.
+Coin Corner's shoppers are about 2,000 triangles and one piece each. All ten
+characters, with their movements, fit in one file of 216 KB. A check holds
+each one under 3,000 triangles. Devices differ, so measure on yours.
 
 <Prompt>The game stutters on our iPad. Find what costs the most and count the triangles and draw calls. Explain it simply before you change anything.</Prompt>
 
