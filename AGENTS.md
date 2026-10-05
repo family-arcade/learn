@@ -114,8 +114,16 @@ plain. These rules come from the owner's own review of the guide.
 ```
 mise x node@22 -- npm run build
 mise x node@22 -- npx astro preview --port 4370
+mise x node@22 -- npm run shots -- <page paths>
 ```
 
-Then look at every changed page in a real browser at the three widths, in
-both themes, and say what you see. Check that every internal link resolves. Deploy with `scripts/deploy.sh` (the
-server keeps no access log).
+`npm run shots` needs the preview running. Set `SHOTS_URL` if it is on
+another port. It takes full-page shots of each page at 393px, 1180px and
+1920px, in light and dark, and writes them to `shots/`. It also checks
+each page for horizontal overflow, broken images and broken internal
+links, and exits non-zero if any check fails. Add `--figs` for close-ups
+of each picture and call-to-action card.
+
+Then open the shots for every changed page and say what you see. The
+script cannot judge contrast, wrapping or layout. Deploy with
+`scripts/deploy.sh` (the server keeps no access log).
