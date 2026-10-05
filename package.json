@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --port 4370",
     "shots": "node scripts/shots.mjs",
     "deploy": "bash scripts/deploy.sh"
   },
