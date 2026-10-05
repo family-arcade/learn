@@ -41,6 +41,7 @@ export default defineConfig({
         { label: "How the arcade works", slug: "how-it-works" },
         { label: "Make a game", items: [{ autogenerate: { directory: "make" } }] },
         { label: "Game ideas and prompts", slug: "ideas" },
+        { label: "Advanced", items: [{ autogenerate: { directory: "advanced" } }] },
         { label: "Reference", items: [{ autogenerate: { directory: "reference" } }] },
         { label: "About the Family Arcade", slug: "about" },
       ],

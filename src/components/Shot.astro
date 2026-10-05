@@ -1,0 +1,72 @@
+---
+// A real picture with a caption that says what it shows. Two pictures sit
+// side by side on a tablet or computer, one under the other on a phone; a
+// `label` names each one (A, B) above it.
+//
+//   <Shot images={[{ src: turntable, alt: '…' }]}>What it shows.</Shot>
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	images: Array<{ src: ImageMetadata; alt: string; label?: string }>;
+}
+const { images } = Astro.props;
+const pair = images.length > 1;
+---
+
+<figure class:list={['fa-shot', 'not-content', { pair }]}>
+	<div class="fa-shot-images">
+		{
+			images.map((img) => (
+				<div class="fa-shot-one">
+					{img.label && <span class="fa-shot-label">{img.label}</span>}
+					<Image
+						src={img.src}
+						alt={img.alt}
+						widths={pair ? [430, 760, 1000] : [480, 760, 1000, 1480]}
+						sizes={pair ? '(max-width: 30em) 100vw, 23rem' : '(max-width: 50em) 100vw, 46rem'}
+					/>
+				</div>
+			))
+		}
+	</div>
+	<figcaption><slot /></figcaption>
+</figure>
+
+<style>
+	.fa-shot {
+		margin: 1.5rem 0 2rem;
+	}
+	.fa-shot-images {
+		display: grid;
+		gap: 1rem;
+	}
+	@media (min-width: 30em) {
+		.pair .fa-shot-images {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.fa-shot-one {
+		display: grid;
+		gap: 0.35rem;
+		align-content: start;
+	}
+	.fa-shot-label {
+		font-weight: 700;
+		font-size: 1rem;
+		color: var(--sl-color-white);
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 14px;
+		border: 1px solid var(--sl-color-hairline);
+	}
+	figcaption {
+		margin-top: 0.6rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		color: var(--sl-color-gray-2);
+	}
+</style>

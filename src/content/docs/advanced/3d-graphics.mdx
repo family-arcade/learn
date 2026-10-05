@@ -1,0 +1,304 @@
+---
+title: 3D graphics for your game
+description: Good-looking 3D characters and worlds that run well on a tablet, made the way we make the Family Arcade's own games.
+sidebar:
+  label: 3D graphics
+  order: 1
+---
+
+import Prompt from '../../../components/Prompt.astro';
+import Shot from '../../../components/Shot.astro';
+import ArcadeDiagram from '../../../components/ArcadeDiagram.astro';
+import turntable from '../../../assets/screens/3d/racer-turntable.webp';
+import gulpCity from '../../../assets/screens/3d/gulp-city.webp';
+import conceptSheet from '../../../assets/screens/3d/unicorn-concept-sheet.webp';
+import optionA from '../../../assets/screens/3d/racer-option-a.webp';
+import optionB from '../../../assets/screens/3d/racer-option-b.webp';
+
+Your game can have 3D characters and worlds that look good and run smoothly
+on a tablet. This page shows how we make them for the Family Arcade's own
+games. It is for families who have made a game with the starter template and
+want to go further.
+
+It asks more of the grown-up than the first pages. One part needs a program
+installed on a computer. Every step is still one you can do together.
+
+## Two ways to make 3D
+
+There are two ways to make 3D for your game. Start with the first. Move to
+the second only when the first is not enough.
+
+**Shapes in code.** Claude builds characters and worlds from simple shapes,
+such as balls, boxes and cones. It uses three.js, free ready-made code for 3D
+in a web browser. The starter template allows it, as long as it is bundled
+inside the game. Shapes in code load fast and need no extra tools. They work
+in Claude Code on the web, as you have used it so far.
+
+**Models made in Blender.** Blender is a free program for making 3D models.
+Claude can build a model in Blender for you. You then save it as a file and
+put it in your game. Use this for a shape that is hard to build from simple
+pieces, such as a ship or a detailed animal.
+
+<Shot images={[{ src: turntable, alt: 'A white unicorn with a rainbow mane and pastel wings, and a fairy with a lavender bob and mint and pink wings, each seen from the front, three-quarter, side and back' }]}>
+  Rainbow Racer's unicorn and fairy, built from simple shapes in code. Each
+  is shown from the front, three-quarter, side and back.
+</Shot>
+
+Gulp's whole city is built the same way, down to the last bench.
+
+<Shot images={[{ src: gulpCity, alt: 'A round of Gulp: a blue hole with eyes and teeth in a park with a fountain, benches, trees, flower boxes, people and a red car' }]}>
+  A round of Gulp. The park, trees, benches, people and cars are all shapes
+  in code.
+</Shot>
+
+A 3D shape is made of many small flat triangles. Fewer triangles draw
+faster. Ask for a limit from the start:
+
+<Prompt>Make the dragon 3D with three.js. Build it from simple rounded shapes in code: a big head, a small body and two wings. Keep it under 3,000 triangles.</Prompt>
+
+Shapes in code have limits. We tried twice to build a warship from shapes in
+code. Both tries failed: one came out as a flat slab with a stick for a mast.
+A shape with many curves and parts needs a modelling program like Blender.
+
+## Decide the look first
+
+Decide how a character should look before anything is built. Pictures of the
+look are called concept art. We make ours in ChatGPT, on a grown-up's
+account. Stay with your child while you use it.
+
+**Your child's part** is the most important one:
+
+- **Draw the first shape** on paper. Take a photo of it for ChatGPT.
+- **Name the character.**
+- **Pick four to six colours.**
+- **Choose between two or three looks.**
+- **Approve each picture** before anything is built from it.
+
+Keep each session to one loop that ends in play: draw, make the pictures,
+choose, put it in the game, play.
+
+### Start with a character sheet
+
+Write a short character sheet first: the name, three things about its shape,
+its colours, and what it must never have. Use the same words every time you
+ask for a picture.
+
+<Prompt label="In ChatGPT">Make concept art for a game character: Pip, a little dragon. Big round head, round body, short stubby wings. Mint green, cream and coral. A chunky toy figure with rounded shapes and flat colours. Plain background, no text. Pip never has scary teeth.</Prompt>
+
+Describe the look in your own words. Don't name famous characters, films or
+living artists. "A rounded vinyl toy in warm pastel colours" works better,
+and the result is your own.
+
+### Let your child pick
+
+Ask for two or three different looks. Your child picks one.
+
+<Prompt label="In ChatGPT">Make Pip in two other styles, so we can choose: one with hard, blocky shapes, and one soft and round like a plush toy.</Prompt>
+
+Keep the picked picture. It is the reference for every later picture of Pip.
+
+### Ask for every side
+
+A model needs the character from every side. Start from the picked picture:
+
+<Prompt label="In ChatGPT">Use this picture of Pip as the reference. Show Pip from the front, the side, the back and three-quarter view, all the same size, in a row. Plain background, no scenery, no text.</Prompt>
+
+<Shot images={[{ src: conceptSheet, alt: 'Concept art of a white chibi unicorn with big violet eyes, a gold horn, a rainbow mane and tail, and pastel wings, shown from the front, side, back and three-quarter view' }]}>
+  Concept art for Rainbow Racer's unicorn, made with an AI image generator:
+  the same unicorn from the front, side, back and three-quarter. Our
+  children picked this look from five.
+</Shot>
+
+Ask for each view on its own if the views don't match each other. Start from
+the picked picture each time.
+
+Change one thing at a time, and say what must stay:
+
+<Prompt label="In ChatGPT">Keep everything else the same. Make the wings a little smaller.</Prompt>
+
+Concept art is a guide, not the finished model. Our unicorn sheet is softer
+and more detailed than a racer needs to be at race size. So we built two
+simpler, chunkier versions in code, A and B. The family picked B.
+
+<Shot images={[
+  { src: optionA, label: 'A, hard boxes', alt: 'Option A: the unicorn and the fairy built from hard boxes, with square eyes, on two game cards' },
+  { src: optionB, label: 'B, rounded blocks', alt: 'Option B: the unicorn and the fairy built from rounded blocks, with big glossy eyes, on two game cards' },
+]}>
+  Two versions of the same racers, built in code. B keeps the big eyes from
+  the concept art. We built B for the whole cast.
+</Shot>
+
+We do this for every big change to how a game looks. We show the family
+about three labelled options and build only the one they pick.
+
+## Build a model in Blender
+
+Claude can build a model in Blender when shapes in code are not enough. It
+works through the Blender Lab MCP Server, a free tool from Blender's makers.
+MCP is a way for an AI helper like Claude to use another program.
+
+This all happens on your own computer, with Blender open. So it needs Claude
+Code on that computer: the Claude desktop app, or Claude Code in a terminal.
+Choose **Local** for the session in the desktop app. Claude Code on the web
+runs in the cloud, so it cannot reach Blender on your computer.
+
+<ArcadeDiagram which="blender" />
+
+### What you need
+
+- **A computer** with Windows, macOS or Linux.
+- **Blender 5.1 or newer.** It is free from [blender.org](https://www.blender.org/download/).
+- **Claude Code on that computer,** in the Claude desktop app or in a
+  terminal. It uses the same Claude account as before.
+
+:::caution[Claude runs code inside Blender]
+The MCP server runs code that the AI writes, inside Blender. Blender's own
+page warns that nothing guards your files: such code could delete them or
+send them elsewhere. Blender recommends a computer without private files on
+it, or a virtual machine, which is a separate computer running inside yours.
+The grown-up decides, and stays at the computer while Claude works.
+:::
+
+### Set it up once
+
+1. Install Blender 5.1 or newer.
+2. Add the MCP add-on to Blender. An add-on is an extra part for Blender.
+   Follow the add-on steps on
+   [Blender's MCP Server page](https://www.blender.org/lab/mcp-server/).
+   Dragging the add-on into Blender takes two goes: the first adds Blender
+   Lab's list of add-ons, the second installs the add-on.
+3. In Blender's preferences, under **System**, turn on **Allow Online
+   Access**. The add-on needs it to start. It only listens to programs on
+   your own computer.
+4. Open Claude Code on the computer, and ask it to connect the MCP server:
+
+   <Prompt label="With Blender">Set up the official Blender Lab MCP Server from blender.org/lab/mcp-server for Claude Code on this computer. Explain each step before you run it.</Prompt>
+
+5. Start a new Claude Code session, with Blender open. Claude connects to MCP
+   servers when a session starts. Check that it works:
+
+   <Prompt label="With Blender">Take a screenshot of the Blender window and tell us what you see.</Prompt>
+
+### Build one model at a time
+
+1. **Give Claude the picked concept art.** In the desktop app, drag the
+   picture into the message box. In a terminal, tell Claude where the
+   picture file is.
+2. **Ask for one part at a time,** built from simple shapes, with a name.
+
+   <Prompt label="With Blender">Look at the picture of Pip. In Blender, build only Pip's head and body from simple rounded shapes, and name them. Then show us pictures from the front, three-quarter, side and back on a white background, and wait.</Prompt>
+
+3. **Look at it from every side.** A picture Blender makes of the model is
+   called a render. On a white background, holes and gaps show up. Your
+   child compares each side with the concept art.
+4. **Ask for one change at a time.**
+
+   <Prompt label="With Blender">From the side, the wings look too thin. Make them thicker. Keep everything else the same.</Prompt>
+
+5. **Get it ready for the game.** It stands on the ground, faces forward, its
+   parts have names, and it uses few materials. A material is the colour and
+   finish of a surface.
+6. **Save it as a GLB file.** A GLB is one file that holds the model, its
+   colours and its pictures. Blender turns every face into triangles when it
+   saves one. So count the triangles in the GLB, not in Blender.
+
+   <Prompt label="With Blender">Get Pip ready for the game: feet on the ground, facing forward, parts named, as few materials as you can. Export pip.glb, and tell us its triangle count and file size.</Prompt>
+
+:::note[Services that turn a picture into 3D]
+Some online services make a 3D model from a picture, such as Meshy or Tripo.
+We haven't used them for the Family Arcade's games. Their free plans often
+have conditions about who owns the model and how to credit it. Some are not
+meant for children. A grown-up reads the terms first and decides.
+:::
+
+## Put a model in your game
+
+A model is a file inside your game. The starter template's first rule is
+[nothing from other websites](/reference/rules/). So never load a model from
+another website, even a free model site. Put the file in your repository.
+
+1. Open your game's repository on GitHub.
+2. Upload the model:
+   1. Click **Add file**, then **Upload files**.
+   2. Drag the GLB file onto the page.
+   3. Choose **Commit directly to the main branch**.
+   4. Click **Commit changes**.
+
+   The file alone changes nothing in the game yet.
+3. In Claude Code on the web, ask Claude to use it:
+
+   <Prompt>I uploaded pip.glb to the repository. Use it for the dragon in the game, loaded with three.js and bundled with the game.</Prompt>
+
+Claude makes the change on a branch, as always. A change only goes live after
+you merge it.
+
+A model file can often be made much smaller without looking different. A
+compressed model needs a little code to unpack it, called a decoder. three.js
+comes with one, so it stays inside the game too.
+
+<Prompt>Make pip.glb smaller without changing how it looks. Compress it, and keep the decoder bundled in the game.</Prompt>
+
+## Keep it fast on a tablet
+
+A game that runs smoothly on a computer can stutter on a tablet. Keep 3D
+light from the start, and test on the real device.
+
+- **Fewer triangles.** Every triangle is work for the tablet, in every frame.
+- **Fewer pieces.** Each separate piece with its own material is a draw
+  call: one job for the tablet's graphics chip, in every frame. Many small
+  pieces can slow a game more than many triangles. Join the parts that move
+  together into one piece. Paint the colours onto the shape, so one material
+  is enough.
+- **Small files.** Ship Battle's ship models are 160 to 760 KB each. Our tool
+  simplifies and compresses models. On a test model of about 97,000
+  triangles, it cut the file from about 3 MB to 77 KB.
+- **Simple light.** Use one main light, like the sun, and a soft fill light.
+  three.js has a fill light called a hemisphere light: one colour from the
+  sky, another from the ground. It casts no shadows. Shadows, glow and other
+  effects each cost speed. Add one at a time, and test it on the tablet. A
+  soft dark circle under a character is a cheap shadow.
+- **Not every pixel.** Tablets and phones have very sharp screens, with two
+  or three real pixels for every point. Drawing all of them costs a lot. Our
+  games draw at most two per point, and Gulp's busy city one and a half.
+
+Rainbow Racer's racers are about 2,000 to 3,000 triangles and four to six
+pieces each, rider and ride together. Before we rebuilt them, they were 18 to
+60 pieces each. A test checks the limit after every change. Our numbers are
+a starting point. Devices differ, so measure on yours.
+
+<Prompt>Write a test that the dragon stays under 3,000 triangles and 6 draw calls.</Prompt>
+
+<Prompt>The game stutters on our iPad. Find what costs the most and count the triangles and draw calls. Tell us in simple words before you change anything.</Prompt>
+
+Decide together when a fix would make the game look worse, such as fewer
+shadows.
+
+## Use only art you may use
+
+A licence is the set of rules a maker gives for using their work. Only use
+models and pictures that you made, or that a licence allows you to use.
+
+- **Don't start from famous characters.** Don't download models of famous
+  characters, ships or vehicles, even if you change them afterwards.
+- **Free to use:** [Kenney](https://kenney.nl/)'s game packs are free for
+  any game, with no credit needed. Their licence is called CC0. Write down
+  where each model came from anyway.
+- **Credit when asked:** some models are free only if you credit the maker.
+  This licence is called CC BY. List the maker, the model's name, where it
+  came from and the licence, in the game's credits.
+- **Check each model:** many free model sites mix licences, model by model.
+  Leave out fan models of famous characters, branded cars or ships, and
+  anything without a licence.
+
+<Prompt>Add a credits screen that lists each model's maker, name, licence and where it came from, as plain text with no links.</Prompt>
+
+## Rules for good 3D
+
+1. Start with shapes in code.
+2. Decide the look with pictures first, and let your child pick.
+3. Keep one picked picture as the reference.
+4. Build one part at a time, and change one thing at a time.
+5. Look at every model from every side before you accept it.
+6. Keep pieces, triangles and materials few.
+7. Test on the real tablet or phone.
+8. Use only art you made or may use, inside the game.

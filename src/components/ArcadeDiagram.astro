@@ -3,13 +3,54 @@
 // from elsewhere and they follow the site's light and dark themes. Narrow on
 // purpose (360 wide) so the text stays readable on a phone.
 interface Props {
-	which: 'parts' | 'together' | 'friend' | 'build';
+	which: 'parts' | 'together' | 'friend' | 'build' | 'blender';
 }
 const { which } = Astro.props;
 ---
 
 {
-	which === 'build' ? (
+	which === 'blender' ? (
+		<figure class="fa-diagram tall">
+			<svg viewBox="0 0 360 416" role="img" aria-labelledby="dbl-t dbl-d">
+				<title id="dbl-t">Where Claude and Blender work together</title>
+				<desc id="dbl-d">
+					Everything happens on your own computer. Claude Code, in the desktop app or the terminal, talks to the
+					Blender Lab MCP Server. The server passes Claude's requests to Blender, which is open on the screen, and passes
+					Blender's answers and pictures back. Claude Code on the web runs in the cloud, so it cannot reach Blender on
+					your computer.
+				</desc>
+				<defs>
+					<marker id="dbl-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+						<path d="M0,0 L10,5 L0,10 z" class="head" />
+					</marker>
+				</defs>
+
+				<rect x="14" y="4" width="332" height="292" rx="16" class="group" />
+				<text x="180" y="26" class="l">Your computer</text>
+
+				<rect x="40" y="38" width="280" height="56" rx="12" class="box you" />
+				<text x="180" y="61" class="t">Claude Code</text>
+				<text x="180" y="81" class="s">The desktop app or the terminal</text>
+
+				<path d="M180,97 L180,125" class="line" marker-end="url(#dbl-arrow)" marker-start="url(#dbl-arrow)" />
+
+				<rect x="40" y="128" width="280" height="56" rx="12" class="box" />
+				<text x="180" y="151" class="t">Blender Lab MCP Server</text>
+				<text x="180" y="171" class="s">Passes Claude's requests on</text>
+
+				<path d="M180,187 L180,215" class="line" marker-end="url(#dbl-arrow)" marker-start="url(#dbl-arrow)" />
+
+				<rect x="40" y="218" width="280" height="56" rx="12" class="box you" />
+				<text x="180" y="241" class="t">Blender, open on screen</text>
+				<text x="180" y="261" class="s">Builds the model, makes pictures</text>
+
+				<rect x="40" y="320" width="280" height="56" rx="12" class="box" />
+				<text x="180" y="343" class="t">Claude Code on the web</text>
+				<text x="180" y="363" class="s">Runs in the cloud</text>
+				<text x="180" y="404" class="l">It cannot reach Blender on your computer</text>
+			</svg>
+		</figure>
+	) : which === 'build' ? (
 		<figure class="fa-diagram tall">
 			<svg viewBox="0 0 360 512" role="img" aria-labelledby="db-t db-d">
 				<title id="db-t">How a game gets built</title>
