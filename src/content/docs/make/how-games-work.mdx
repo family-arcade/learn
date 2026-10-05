@@ -1,0 +1,44 @@
+---
+title: How a web game works
+description: The four big ideas behind every web game, in pictures - the code, where the game lives, where saves go, and how a change gets in.
+sidebar:
+  label: How a web game works
+  order: 0
+---
+
+import ArcadeDiagram from '../../../components/ArcadeDiagram.astro';
+import Cta from '../../../components/Cta.astro';
+
+Four big ideas are behind every web game. Read them together before you
+start. It takes a few minutes, and you don't need to remember them: the
+guide explains each one again when you need it.
+
+## Code is the game's instructions
+
+A game is made of code: text that tells a computer what to do. Claude writes
+the code for you, and you never have to read it. Your game's code lives in
+its **repository**, a folder for your game on GitHub.
+
+## Hosting puts your game on the web
+
+GitHub keeps a copy of your game on its computers, at its own web address.
+This is called **hosting**. When a friend opens the address, their browser
+fetches the game. The game then runs on their own device.
+
+## Saves stay on your device
+
+Your player and your best scores are saved on the device you play on, inside
+its browser. Many apps keep everyone's data in a **database**, a store on a
+server. Games made from the starter template have no database. So a save on
+the tablet is not on the laptop.
+
+## A change goes in when you merge
+
+Claude never changes your game straight away. It makes each change on a
+copy of your game, called a **branch**. You read what it changed, together.
+If you like it, you **merge** it: one button on GitHub adds the change to
+your game. A minute or two later, the new version is on the web.
+
+<ArcadeDiagram which="build" />
+
+<Cta href="/make/" note="Next: what you need, and the steps to your first game.">Start making your game</Cta>
