@@ -11,7 +11,7 @@ Needs Node 22.12 or newer.
     npm install
     npm run dev      # http://localhost:4321
     npm run build    # static site in dist/
-    npm run preview  # serve dist/ at http://localhost:4321
+    npm run preview  # serve dist/ at http://localhost:4370
     npm run shots -- / /make/   # screenshots and page checks, see below
 
 ## Coding agents (Claude Code, Codex)
@@ -40,8 +40,8 @@ What a developer brings:
 Deploying needs the owner's server access. `scripts/deploy.sh` calls
 `deploy-static.sh` from a separate `hetzner-ops-familyarcade` checkout at
 `~/code/hetzner-ops-familyarcade`, which uploads to the owner's server over
-SSH. Without that checkout and access it fails, so agents build and check
-but do not deploy.
+SSH. Without that checkout and access it fails: anyone else can build and
+check the site, and the owner deploys it.
 
 ## Deploy
 
