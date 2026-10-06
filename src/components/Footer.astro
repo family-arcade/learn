@@ -1,0 +1,22 @@
+---
+// Starlight's own footer (Previous / Next), then one quiet line with the
+// Impressum that German law asks every page to reach.
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default><slot /></Default>
+<p class="fa-legal"><a href="/impressum/">Impressum</a></p>
+
+<style>
+	.fa-legal {
+		margin: 2rem 0 0;
+		font-size: 0.9375rem;
+		text-align: center;
+	}
+	.fa-legal a {
+		color: var(--sl-color-gray-2);
+	}
+	.fa-legal a:hover {
+		color: var(--sl-color-white);
+	}
+</style>

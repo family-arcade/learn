@@ -30,6 +30,8 @@ export default defineConfig({
         TwoColumnContent: "./src/components/TwoColumnContent.astro",
         // The front page opens like the arcade: awning, bulbs, a night card.
         Hero: "./src/components/Hero.astro",
+        // Previous / Next, then the Impressum link on every page.
+        Footer: "./src/components/Footer.astro",
       },
       // Sections listed in the sidebar: a page's h2 headings.
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
