@@ -14,9 +14,9 @@ const { which } = Astro.props;
 			<svg viewBox="0 0 360 416" role="img" aria-labelledby="dbl-t dbl-d">
 				<title id="dbl-t">Where Claude and Blender work together</title>
 				<desc id="dbl-d">
-					Everything happens on your own computer. Claude Code, in the desktop app or the terminal, talks to the
-					Blender Lab MCP Server. The server passes Claude's requests to Blender, which is open on the screen, and passes
-					Blender's answers and pictures back. Claude Code on the web runs in the cloud, so it cannot reach Blender on
+					Everything happens on your own computer. Claude Code, in the desktop app or the terminal, writes a
+					script. Blender runs the script in the background, with no window, and saves the model and pictures for
+					Claude to look at. Claude Code on the web runs in the cloud, so it cannot reach Blender on
 					your computer.
 				</desc>
 				<defs>
@@ -35,13 +35,13 @@ const { which } = Astro.props;
 				<path d="M180,97 L180,125" class="line" marker-end="url(#dbl-arrow)" marker-start="url(#dbl-arrow)" />
 
 				<rect x="40" y="128" width="280" height="56" rx="12" class="box" />
-				<text x="180" y="151" class="t">Blender Lab MCP Server</text>
-				<text x="180" y="171" class="s">Passes Claude's requests on</text>
+				<text x="180" y="151" class="t">A script</text>
+				<text x="180" y="171" class="s">Steps written down, to run again</text>
 
 				<path d="M180,187 L180,215" class="line" marker-end="url(#dbl-arrow)" marker-start="url(#dbl-arrow)" />
 
 				<rect x="40" y="218" width="280" height="56" rx="12" class="box you" />
-				<text x="180" y="241" class="t">Blender, open on screen</text>
+				<text x="180" y="241" class="t">Blender, no window</text>
 				<text x="180" y="261" class="s">Builds the model, makes pictures</text>
 
 				<rect x="40" y="320" width="280" height="56" rx="12" class="box" />
