@@ -19,7 +19,7 @@ Claude Code helps you build your game. On the web, it needs nothing installed. C
 5. Choose your game's repository. Choosing only that repository is fine.
 6. Go back to Claude and pick your repository.
 
-The Claude app on an iPad works too. Open the **Code** tab. You can follow a session and merge its change from the tablet.
+The Claude app on an iPad or phone works too. Open the **Code** tab. You can follow a session and merge its change from there.
 
 ## Questions for your child
 
