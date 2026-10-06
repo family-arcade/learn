@@ -24,6 +24,15 @@ the child just achieved (the owner's pick, 2026-10-06). The point of every page 
   check and the next step.
 - **Adults get the calm, competent voice** (German: "Sie"), with the same clarity and no spark.
 
+## Children read everything (the owner, 2026-10-06)
+
+Children of 8 to 10 read every word on their screen and don't know how to skip. So **the shortest
+clear line wins**: say what to do, or what they achieved, in the fewest words a child knows. Cut
+what doesn't help them act or see their progress; delete a line rather than polish it. A metaphor
+stays only when the screen shows exactly that (the planets on the map), never "your journey" or
+"stars waiting to light up". The budgets below are ceilings, not targets." (A pass with this rule
+cut TippMitGalli's German by 37%.)
+
 ## The shapes (budgets are maximums)
 
 | Element | Shape | Budget |
@@ -46,6 +55,10 @@ the child just achieved (the owner's pick, 2026-10-06). The point of every page 
 6. **Only now, the spark:** does this section earn one playful image or celebration? At most one.
 
 ## German (TippMitGalli)
+
+**The frame:** learning to type, and watching your own progress toward becoming a typing star
+("Tipp-Star"). The practice home greets a new child with "Lerne tippen. Werde ein Tipp-Star!"
+(Learn to type. Become a typing star!), and the six chapter stars lead there.
 
 The same voice in German: "du" to children, "Sie" to adults. Galli stays the tone test (curious,
 precise, encouraging, never babyish). TippMitGalli's copy test still applies: at most one "!" per
