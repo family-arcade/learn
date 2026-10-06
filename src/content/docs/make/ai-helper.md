@@ -42,7 +42,7 @@ The starter template contains a file called `AGENTS.md`, the rules for AI
 helpers. Claude reads it before changing anything. Codex reads it too.
 Nothing needs installing. From it, Claude already knows:
 
-- to ask your child a few questions first, and to keep the first game small;
+- to ask your child a few questions first, and to keep the first game basic so you see results quickly;
 - how the game is put together and how to test it;
 - to check the game before it says a change is done: the tests, the build,
   and nothing loaded from other websites;

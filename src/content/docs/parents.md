@@ -3,12 +3,12 @@ title: For parents
 description: What the Family Arcade is, what it keeps about your child, who they can play with, and how to help them make a game.
 ---
 
-The Family Arcade is a small collection of browser games one family made
-together. It also helps other families make and play their own games. It runs
+The Family Arcade is a handful of browser games one family made together,
+for the fun of it. It also helps other families make and play their own games. It runs
 at [familyarcade.eu](https://familyarcade.eu) on a server in Germany. It is
 free, has no ads and is not a business.
 
-This page covers what you will want to know before your child uses it.
+This page covers what to know before your child uses it.
 
 ## Data stored about your child
 
@@ -24,7 +24,7 @@ log of either. There are no ads and no tracking.
 
 Because players live on each device, the same child on two devices is two
 separate players. Syncing players across a family's devices needs accounts.
-Those accounts may come one day. A parent would run them, never a child.
+Those accounts might come one day. A parent would run them, never a child.
 
 ## Playing with others
 
@@ -105,23 +105,23 @@ Codex in ChatGPT is in the free plan for now.
 | Claude with Claude Code | a paid plan (Pro or higher), monthly |
 | Codex in ChatGPT, GitHub Copilot Free | free, with limits |
 
-A long building session can hit the AI plan's usage limit. It resets after a
-few hours. That is a natural break.
+A long building session can reach the AI plan's usage limit, which resets
+after a few hours. That makes a natural break.
 
-## Keeping the first game small
+## Keeping the first game basic
 
-A game that works is the biggest motivator. When your child sees their own
-idea move on the screen a few minutes after saying it, they want to make it
-better. That feeling carries the rest of the session.
+Seeing results is the biggest motivator. When your child sees their own idea
+move on the screen a few minutes after saying it, they want to make it
+better. That carries the rest of the session.
 
-A small first game also keeps things going:
+A basic first game also keeps things going:
 
 - **Quick to see.** In our tests, Claude made a basic first game in four to
   six minutes. A big first request takes much longer, and a child's
   attention may not wait.
 - **Easy to follow.** With one thing to do, your child understands the whole
   game and can say what to change next.
-- **Easy to fix.** When something breaks, a small game has few places to
+- **Easy to fix.** When something goes wrong, a basic game has few places to
   look, so Claude finds the problem faster.
 - **Lighter on your plan.** Bigger requests use more of your Claude plan.
 
@@ -134,7 +134,7 @@ child's choice.
   change next and whether it is fun. You type, read Claude's answers aloud if
   needed and press merge, which means accepting the change.
 - **Expect a basic first game.** It gets better with each round of changes.
-  [Why it starts small](#keeping-the-first-game-small).
+  [Why it starts basic](#keeping-the-first-game-basic).
 - **Play after every merge.** Two or three changes at a time, played straight
   away, beat big plans. "What should we change next?" is the whole loop.
 - **Words, not code.** Your child says how it should feel. "Make it bouncier"

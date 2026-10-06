@@ -11,7 +11,7 @@ family's iPads. The games included unicorns, ships and a city-eating blob.
 The family also wanted to play with cousins in other homes.
 
 This guide and the starter template help other families do the same. Make a game
-with your children, then play each other's games.
+with your children, watch it come to life, then play each other's games.
 
 It is a family project, not a business. There are no ads, no tracking and no
 accounts to sell.
