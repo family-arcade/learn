@@ -35,8 +35,10 @@ plain. These rules come from the owner's own review of the guide.
   pull request, merge, workflow.
 - Warm and calm; no hype. No rhetorical "not just X but Y"; one example
   where one is enough.
-- Set expectations honestly. The first game is basic on purpose; say so
-  wherever the first game comes up.
+- Set expectations honestly. The first game is basic, so it works quickly and
+  the child sees real results; that progress is what makes them want to build
+  more. Say so wherever the first game comes up. Never "tiny" or "broken on
+  purpose". The voice: `.claude/skills/learn-voice/`.
 
 ## How a game gets built
 
