@@ -111,6 +111,14 @@ plain. These rules come from the owner's own review of the guide.
 
 ## Checking a change
 
+Run `mise x node@22 -- npm run gates` and paste its one `GATES …` line
+verbatim in your report, never a count from memory. It builds, runs
+`npm run shots -- /` when a preview answers at `SHOTS_URL` (default
+`http://localhost:4370`; skipped with a note otherwise), and fails on a
+regression against `gates-baseline.json`. After an intended change, rewrite
+the baseline with `npm run gates -- --update-baseline` and say in the commit
+why it moved. The steps by hand:
+
 ```
 mise x node@22 -- npm run build
 mise x node@22 -- npx astro preview --port 4370

@@ -12,6 +12,7 @@
     "build": "astro build",
     "preview": "astro preview --port 4370",
     "shots": "node scripts/shots.mjs",
+    "gates": "node scripts/gates.mjs",
     "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
