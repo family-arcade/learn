@@ -27,7 +27,7 @@ Before it builds, Claude asks a few short questions. Who are you in the game? Wh
 
 ## Rules Claude already knows
 
-The starter template has a file called `AGENTS.md`, the rules for AI helpers. Claude and Codex read it before changing anything. From it, Claude already knows:
+The starter template has a file called `AGENTS.md`, the rules for AI helpers. Codex reads it, and Claude reads it through `CLAUDE.md`, which points to it. From it, Claude already knows:
 
 - to ask your child a few questions first, and to keep the first game basic so you see results quickly;
 - to check the game before it says a change is done: the tests, the build, and nothing loaded from other websites;
