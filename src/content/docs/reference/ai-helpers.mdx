@@ -1,6 +1,6 @@
 ---
 title: Rules files for AI helpers
-description: Where the rules for AI coding assistants live, how Claude and Codex read them, and how to point a different assistant at them.
+description: Where the rules for AI helpers live, and how to point a different helper at them.
 sidebar:
   label: AI helper rules
   order: 3
@@ -8,39 +8,27 @@ sidebar:
 
 import Prompt from '../../../components/Prompt.astro';
 
-A repository is a game's home on GitHub. It contains the game's files. The
-starter template keeps its rules for AI helpers in one file, `AGENTS.md`:
+The starter template keeps its rules for AI helpers in one file, `AGENTS.md`:
 
 - **Codex** and other assistants read `AGENTS.md` directly.
 - **Claude Code** reads `CLAUDE.md`. That file points to `AGENTS.md` with
   the line `@AGENTS.md`, so Claude follows the same rules.
 
-Nothing needs installing. The rules explain the game's layout,
-[the kit](/reference/kit/), and the [rules every game follows](/reference/rules/).
-They also tell the assistant:
+Nothing needs installing. The rules explain the game's layout, [the kit](/reference/kit/), and the [rules every game follows](/reference/rules/). They also tell the assistant:
 
-- to ask the child 3 to 5 short questions, one at a time, before the first
-  game, and to keep the first version basic;
+- to ask the child 3 to 5 short questions, one at a time, before the first game, and to keep the first version basic;
 - to offer two or three ideas after each version;
-- to check every change before it says it is done: the tests, the build, and
-  a search for anything loaded from other websites;
+- to check every change before it says it is done: the tests, the build, and a search for anything loaded from other websites;
 - how to try play together on one computer.
 
-If you use an assistant that reads neither file, start every session with
-this request:
+If your assistant reads neither file, start every session with this request:
 
 <Prompt>Read AGENTS.md in this repository and follow it for everything you change.</Prompt>
 
 ## Talking in a terminal
 
-If you use Claude Code in a terminal on your own computer, you can talk to
-it. Type `/voice`, then hold Space while you speak. It works on macOS, Linux
-and Windows, with a microphone on that computer.
+In Claude Code in a terminal, type `/voice`, then hold Space while you speak. It works on macOS, Linux and Windows, with a microphone on that computer.
 
 ## Changing the rules
 
-The file is yours. If your family wants a different rule, edit `AGENTS.md`
-and tell the assistant. For example, you might want a game for one device
-only, without play together. Keep rules 1 to 3 of
-[Rules every game follows](/reference/rules/). They are what makes a game
-safe to share with other families' children.
+The file is yours. To change a rule, edit `AGENTS.md` and tell the assistant. For example, you might want a game for one device only, without play together. Keep rules 1 to 3 of [Rules every game follows](/reference/rules/). They make a game safe to share with other families' children.

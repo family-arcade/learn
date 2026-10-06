@@ -1,6 +1,6 @@
 ---
 title: 3D graphics for your game
-description: Good-looking 3D characters and worlds that run well on a tablet, made the way we make the Family Arcade's own games.
+description: Good-looking 3D characters and worlds that run well on a tablet.
 sidebar:
   label: 3D graphics
   order: 1
@@ -17,53 +17,35 @@ import lookC from '../../../assets/screens/3d/coin-look-c.webp';
 import machineConcept from '../../../assets/screens/3d/coin-machine-concept.webp';
 import machineModel from '../../../assets/screens/3d/coin-machine-model.webp';
 
-This page shows how we make good-looking 3D for the Family Arcade's games,
-and keep it smooth on a tablet. It asks more of the grown-up: one part needs
-a program on a computer.
+This page shows how we make 3D for the Family Arcade's games and keep it smooth on a tablet. It asks more of the grown-up: one part needs a program on a computer.
 
 ## Three ways to make 3D
 
 Start with the first.
 
-**Shapes in code.** Claude builds simple props and worlds from balls, boxes
-and cones, with three.js: free code for 3D in a web browser. The starter
-template allows it, bundled inside the game. It loads fast and works in Claude
-Code on the web.
+**Shapes in code.** Claude builds simple props and worlds from balls, boxes and cones, with three.js: free code for 3D in a web browser. It is bundled inside the game, loads fast and works in Claude Code on the web.
 
-**Models made in Blender.** Blender is a free program for making 3D models.
-Claude builds the model in it, and you put the file in your game. Use it for
-anything sculpted or soft, such as a character, a ship, or anything with
-moving joints.
+**Models made in Blender.** Blender is a free program for making 3D models. Claude builds the model in it, and you put the file in your game. Use it for anything soft or with moving joints, such as a character or a ship.
 
-**Free kits.** Some makers give away packs of ready-made scenery pieces and
-characters. We recolour the pieces to the game's colours. Kits suit scenery
-best; see "Use only art you may use" below.
+**Free kits.** Some makers give away ready-made scenery and characters. We recolour them to the game's colours. Kits suit scenery best. See "Use only art you may use" below.
 
 <Shot images={[{ src: coinMall, alt: 'Coin Corner: a pastel mall corner with a red vending machine, a shelf of stock boxes, plants, a bench and the shopkeeper in a blue cap' }]}>
-  Coin Corner, the vending-machine game we're making now, uses two ways. The
-  mall is built from shapes in code. The shopkeeper, the shoppers and the
-  vending machine are models made in Blender.
+  Coin Corner uses two ways. The mall is shapes in code. The shopkeeper, shoppers and vending machine are Blender models.
 </Shot>
 
 <Shot images={[{ src: gulpCity, alt: 'A round of Gulp: a hole with eyes in a park with trees, benches, people and a red car' }]}>
   Gulp's whole city is shapes in code.
 </Shot>
 
-A 3D shape is made of small flat triangles. Fewer triangles draw faster, so
-ask for a limit from the start:
+A 3D shape is made of small flat triangles. Fewer triangles draw faster, so ask for a limit:
 
 <Prompt>Make the dragon 3D with three.js, from rounded shapes in code: a big head, a small body and two wings. Keep it under 3,000 triangles, with a test that checks it.</Prompt>
 
-Shapes in code have limits. Simple props come out well, but characters and
-curved things look like boxes. Coin Corner's first shoppers did, next to its
-concept art. We tried twice to build a warship this way. One try came out as a
-flat slab with a stick for a mast.
+Shapes in code have limits. Simple props come out well, but characters and curved things look like boxes. Our first try at a warship came out as a flat slab with a stick for a mast.
 
 ## Decide the look first
 
-Pictures of how a character should look are called concept art. We make ours
-in ChatGPT, on a grown-up's account, with the child beside us. Nothing is
-built until your child has picked a look.
+Pictures of how a character should look are called concept art. We make ours in ChatGPT, on a grown-up's account, with the child beside us. Nothing is built until your child picks a look.
 
 **Your child's part:**
 
@@ -72,13 +54,9 @@ built until your child has picked a look.
 - Choose between two or three looks.
 - Approve each picture before anything is built from it.
 
-Keep each session to one loop that ends in play.
-
 ### Start with a character sheet
 
-Write its name, three things about its shape, its colours, and what it must
-never have. Reuse those words in every ask. Describe the look yourself,
-without naming famous characters, films or living artists.
+Write its name, three things about its shape, its colours, and what it must never have. Reuse those words in every ask. Describe the look yourself, without naming famous characters, films or living artists.
 
 <Prompt label="In ChatGPT">Make concept art for a game character: Pip, a little dragon. Big round head, round body, stubby wings. Mint green, cream and coral. A chunky toy with flat colours. Plain background, no text. Pip never has scary teeth.</Prompt>
 
@@ -89,24 +67,17 @@ later picture.
 
 <Prompt label="In ChatGPT">Make Pip in two other styles so we can choose: one hard and blocky, one soft and round like a plush toy.</Prompt>
 
-For every big change to a game's look, we show the family about three
-labelled options like these. We build the one they pick.
-
 <Shot images={[
   { src: lookA, label: 'A, Candy Pastel', alt: 'Look A: a coral vending machine with pastel stripes, soft rounded shoppers and a shopkeeper in a pastel mall' },
   { src: lookB, label: 'B, Bold Toybox', alt: 'Look B: a red and yellow vending machine with blocky shoppers in a bright red and blue mall' },
   { src: lookC, label: 'C, Cozy Modern', alt: 'Look C: a teal and orange vending machine with shoppers on a warm, softly lit mall balcony' },
 ]}>
-  Three looks for Coin Corner, made in ChatGPT. The family picked A.
+  Three looks for Coin Corner. The family picked A.
 </Shot>
 
 ### Draw it at the game's camera
 
-The game's camera is the angle and distance the player sees. Ask for a picture
-of a whole scene from that camera, with room for the buttons and scores. That
-picture is the goal: we hold the game next to it. A poster the game's camera
-can never show only sets you up for a letdown. Keep the shapes simple and
-chunky, so a model can really reach them.
+The game's camera is the angle and distance the player sees. Ask for a picture of a whole scene from that camera, with room for the buttons and scores. That picture is the goal: we hold the game next to it. Keep the shapes simple and chunky, so a model can reach them.
 
 <Prompt label="In ChatGPT">Make concept art of the dragon's cave as the game shows it: seen from high up and a little behind Pip, the whole cave in the picture, space at the top for the score. Same style as the picked picture.</Prompt>
 
@@ -115,39 +86,27 @@ chunky, so a model can really reach them.
 <Prompt label="In ChatGPT">Use this picture of Pip as the reference. Show Pip from the front, side, back and three-quarter, the same size, in a row. Plain background, no text.</Prompt>
 
 <Shot images={[{ src: machineConcept, alt: 'A coral vending machine full of sweets, from the front, three-quarter, side and back, and open with its trays out' }]}>
-  Concept art for Coin Corner's vending machine, made in ChatGPT in the look
-  the family picked.
+  Concept art for Coin Corner's vending machine, in the look the family picked.
 </Shot>
 
-Ask for each view on its own if the views don't match. Change one thing at a
-time, and say what must stay the same.
+If the views don't match, ask for each on its own.
 
-Concept art is a guide, not the finished model. The model keeps the shape and
-the colours, and leaves out the small details. Cute comes from the pose and
-soft, round shapes, not from more triangles.
+Concept art is a guide, not the finished model. The model keeps the shape and colours and leaves out small details. Cute comes from soft, round shapes, not more triangles.
 
 <Shot images={[{ src: machineModel, alt: 'The vending machine as a 3D model at three sizes, the largest with a star on top' }]}>
-  The machine as a model in the game. It grows in three steps when you
-  upgrade it.
+  The machine as a model in the game.
 </Shot>
 
 ## Build a model in Blender
 
-Claude builds a model in Blender with a script: a short program that Blender
-runs in the background, with no window. The same script makes the same model
-every time. So you can ask for one change and the rest stays as it was. Claude
-writes the script, runs it and makes the pictures.
+Claude builds a model in Blender with a script: a short program Blender runs with no window. The same script makes the same model every time, so one change leaves the rest as it was. Claude writes and runs it.
 
-It runs on your own computer, with Blender installed. So you need Claude Code
-on that computer: in the Claude desktop app with a **Local** session, or in a
-terminal. Claude Code on the web runs in the cloud and can't reach Blender.
+It runs on your own computer, with Blender installed. You need Claude Code on that computer: in the Claude desktop app with a **Local** session, or in a terminal. Claude Code on the web can't reach Blender.
 
 <ArcadeDiagram which="blender" />
 
 :::caution[Claude runs programs on your computer]
-Claude Code runs commands on your computer, and Blender runs the script with
-your own access to your files. The grown-up decides what Claude may run, and
-stays at the computer.
+Claude Code runs commands on your computer, and Blender runs the script with your own access to your files. The grown-up decides what Claude may run, and stays at the computer.
 :::
 
 ### Set it up once
@@ -161,45 +120,30 @@ stays at the computer.
 
 ### Build one model at a time
 
-1. **Give Claude the picked concept art.** Drag it into the desktop app, or
-   give the file's path in a terminal.
+1. **Give Claude the picked concept art.** Drag it into the desktop app, or give the file's path in a terminal.
 2. **Ask for one part, from simple shapes:**
 
    <Prompt label="With Blender">Look at the picture of Pip. Write a Blender script that builds only Pip's head and body from rounded shapes, and name the parts. Run it, and show us pictures from the front, three-quarter, side and back on white, then wait.</Prompt>
 
-3. **Look at every side.** These pictures are called renders. On white,
-   holes and gaps show up. Also look at one tiny picture, as small as the
-   character is in the game. Your child compares each with the concept art.
+3. **Look at every side.** These pictures are called renders. On white, holes and gaps show up. Also look at one tiny picture, as small as the character is in the game. Your child compares each with the concept art.
 4. **Change one thing at a time,** and say what must stay the same.
-5. **Save it as a GLB,** one file with the model and its colours. Blender
-   turns every face into triangles when it saves, so count the triangles in
-   the GLB. Ask for few materials: a material is a surface's colour and
-   finish.
+5. **Save it as a GLB,** one file with the model and its colours. Blender turns every face into triangles when it saves, so count the triangles in the GLB. Ask for few materials: a material is a surface's colour and finish.
 
    <Prompt label="With Blender">Get Pip ready for the game: feet on the ground, facing forward, parts named, as few materials as you can. Export pip.glb, then make pictures from the GLB itself. Tell us its triangle count and file size.</Prompt>
 
-6. **Count it as done only after those pictures look right.** Pictures from
-   the finished file catch what the first ones missed.
+6. **It is done only when pictures from the finished file look right.** They catch what the first ones missed.
 
 :::note[Watching Blender live]
-The Blender Lab MCP Server lets Claude work in a Blender window you watch.
-MCP lets an AI helper use another program. It is good for trying ideas. It
-runs code inside Blender with nothing guarding your files, so use it only
-with a grown-up watching. [Blender's MCP Server page](https://www.blender.org/lab/mcp-server/)
-has the steps. We build with scripts, because a script can be run again.
+The Blender Lab MCP Server lets Claude work in a Blender window you watch. MCP lets an AI helper use another program. It runs code inside Blender with nothing guarding your files, so use it only with a grown-up watching. [Blender's MCP Server page](https://www.blender.org/lab/mcp-server/) has the steps. We use scripts, because a script can be run again.
 :::
 
 :::note[Services that turn a picture into 3D]
-Services such as Meshy or Tripo make a model from a picture. We tried them on
-spaceships and warships, and the models didn't work for our games. We haven't
-tested them on round toy characters. Free plans often limit who owns the
-model, and some are not meant for children. A grown-up reads the terms first.
+Services such as Meshy or Tripo make a model from a picture. The models they made for our spaceships and warships didn't work. We haven't tested round toy characters. Free plans often limit who owns the model, and some are not meant for children. A grown-up reads the terms first.
 :::
 
 ## Put a model in your game
 
-The template's first rule is [nothing from other websites](/reference/rules/).
-So the model goes into your repository, never loaded from another site.
+The template's first rule is [nothing from other websites](/reference/rules/). So the model goes into your repository.
 
 1. Open your game's repository on GitHub.
 2. Upload the model:
@@ -213,54 +157,37 @@ So the model goes into your repository, never loaded from another site.
 
    <Prompt>I uploaded pip.glb. Use it for the dragon, bundled with the game, and compress it to keep the file small.</Prompt>
 
-A compressed model needs a decoder, a little code to unpack it. three.js
-includes one, so it stays inside the game too. The change goes live after the
-merge.
+A compressed model needs a decoder, a little code to unpack it. three.js includes one, so it stays inside the game too. The change goes live after the merge.
 
 ## Keep it fast on a tablet
 
-A game that runs smoothly on a computer can stutter on a tablet. Keep 3D
-light from the start, and test on the real device.
+A game that runs smoothly on a computer can stutter on a tablet. Keep 3D light from the start, and test on the real device.
 
 - **Fewer triangles.** Each one is work for the tablet, in every frame.
-- **Fewer pieces.** Each piece with its own material is a draw call: one job
-  for the graphics chip, in every frame. Many pieces can cost more than many
-  triangles. Join parts that move together, and paint the colours onto one
-  material.
-- **Small files.** Ship Battle's ships are 160 to 760 KB each. Our
-  compression tool cut a 97,000-triangle test model from about 3 MB to 77 KB.
-- **Simple light.** Use one main light, like the sun, and a soft fill, such
-  as three.js's hemisphere light. A soft dark circle under a character is a
-  cheap shadow. Add shadows and effects one at a time, and test each.
-- **Not every pixel.** Tablet screens have two or three pixels per point. Our
-  games draw at most two.
+- **Fewer pieces.** Each piece with its own material is a draw call: one job for the graphics chip, in every frame. Many pieces can cost more than many triangles. Join parts that move together, and paint the colours onto one material.
+- **Small files.** Ship Battle's ships are 160 to 760 KB each. Our compression tool cut a 97,000-triangle test model from about 3 MB to 77 KB.
+- **Simple light.** Use one main light, like the sun, and a soft fill, such as three.js's hemisphere light. A soft dark circle under a character is a cheap shadow. Add shadows and effects one at a time, and test each.
+- **Not every pixel.** Tablet screens have two or three pixels per point. Our games draw at most two.
 
-Coin Corner's shoppers are about 2,000 to 2,600 triangles and one or two
-pieces each. All ten characters, with their movements, fit in one file of
-208 KB. A check holds each one under 3,000 triangles. Devices differ, so measure on yours.
+Coin Corner's shoppers are about 2,000 to 2,600 triangles and one or two pieces each. All ten characters, with their movements, fit in one file of 208 KB. A check holds each under 3,000 triangles. Devices differ, so measure on yours.
 
 <Prompt>The game stutters on our iPad. Find what costs the most and count the triangles and draw calls. Explain it simply before you change anything.</Prompt>
 
-Decide together when a fix makes the game look worse.
-
 ## When the game looks flat
 
-Raise the colour first. Ask Claude for stronger, brighter colours before you
-add lamps or glow. Light is the last thing to fix.
+Raise the colour first. Ask for stronger, brighter colours before you add lamps or glow. Light is the last thing to fix.
 
-Next, look at what fills the screen:
+Then look at what fills the screen:
 
 - Fill the frame with the action, not with empty floor.
 - Turn faces toward the camera.
 - Put small props on every surface, and some close to the camera.
 
-Hold the game next to the concept art at the same camera, and say what
-differs.
+Hold the game next to the concept art at the same camera, and say what differs.
 
 <Prompt>The game looks flat next to our concept art. Hold a screenshot beside the picture and list what differs: colour, framing, faces, props. Fix the colours first, and show us before and after.</Prompt>
 
-If a model's colours look much darker than they did in Blender, ask Claude to
-check the game's colour handling with a middle-grey test.
+If a model looks much darker than in Blender, ask Claude to check the game's colour handling with a middle-grey test.
 
 ## Use only art you may use
 
@@ -269,60 +196,26 @@ pictures you made, or that a licence allows.
 
 - **No famous characters.** Don't start from downloaded models of famous
   characters, ships or vehicles, even changed ones.
-- **Free to use:** the game packs of [Kenney](https://kenney.nl/) and Quaternius
-  are free for any game, with no credit needed. Their licence is called CC0.
-  KayKit's free packs are CC0 too, but check each pack. Note the source
-  anyway. Check a kit character's triangles before you use it: some have
-  7,000 or more, far above a tablet game's budget.
-- **Credit when asked:** some models are free if you credit the maker. Their
-  licence is called CC BY. List the maker, model, source and licence in your
-  game's credits.
-- **Check each model.** Free model sites often mix licences. Skip fan models,
-  branded cars or ships, and anything without a licence. We use free packs
-  only, and buy none.
+- **Free to use:** the game packs of [Kenney](https://kenney.nl/) and Quaternius are free for any game, with no credit needed. Their licence is called CC0. KayKit's free packs are CC0 too, but check each pack. Note the source anyway. Check a kit character's triangles first: some have 7,000 or more, far above a tablet game's budget.
+- **Credit when asked:** some models are free if you credit the maker. Their licence is called CC BY. List the maker, model, source and licence in your game's credits.
+- **Check each model.** Free model sites often mix licences. Skip fan models, branded cars or ships, and anything without a licence. We use free packs only, and buy none.
 
 ## Skills that help with 3D
 
-A skill is a file of instructions that Claude Code loads for one kind of
-task. Claude follows it with the access Claude already has. So a grown-up
-reads a skill before installing it, from a source they trust.
+A skill is a file of instructions that Claude Code loads for one kind of task. Claude follows it with the access it already has. So a grown-up reads a skill before installing it, from a source they trust.
 
-These three passed our check on 5 October 2026. They are free, use no paid
-services, and add nothing from other websites to the game. A skill can change
-after we checked it, so read it again when you install it.
+These three passed our check on 5 October 2026. They are free, use no paid services, and add nothing from other websites to the game. A skill can change after we checked it, so read it again when you install it.
 
-- **threejs-aaa-graphics-builder** helps when your 3D still looks plain. It
-  aims high, so tell it the game must stay smooth on your tablet.
-- **threejs-debug-profiler** helps when the game stutters or the screen stays
-  blank. It measures first, then fixes the biggest cost.
-- **blender-image-to-3d** builds a Blender model from your concept art in
-  steps. After each step it shows pictures and waits for your OK. It works
-  with or without the MCP server. Its usual sizes are for computer games, so
-  give it your triangle limit.
+- **threejs-aaa-graphics-builder** helps when your 3D looks plain. It aims high, so tell it the game must stay smooth on your tablet.
+- **threejs-debug-profiler** helps when the game stutters or the screen stays blank. It measures first, then fixes the biggest cost.
+- **blender-image-to-3d** builds a Blender model from your concept art in steps. After each step it shows pictures and waits for your OK. It works with or without the MCP server. Its usual sizes are for computer games, so give it your triangle limit.
 
-The first two are from Majid Manzarpour's
-[three.js game skills](https://github.com/majidmanzarpour/threejs-game-skills).
-Install only these two: others in that pack use paid services when given a
-key. For Claude Code on the web, add them to your repository:
+The first two are from Majid Manzarpour's [three.js game skills](https://github.com/majidmanzarpour/threejs-game-skills). Install only these two: others in that pack use paid services when given a key. For Claude Code on the web, add them to your repository:
 
 <Prompt>Copy the threejs-aaa-graphics-builder and threejs-debug-profiler skills from github.com/majidmanzarpour/threejs-game-skills into this repository's .claude/skills folder, and nothing else. Tell us simply what each one tells you to do.</Prompt>
 
-After the merge, every new session loads them. The third is from the same
-maker's [Blender game skills](https://github.com/majidmanzarpour/blender-game-skills).
-It goes on the computer with Blender:
+After the merge, every new session loads them. The third is from the same maker's [Blender game skills](https://github.com/majidmanzarpour/blender-game-skills). It goes on the computer with Blender:
 
 <Prompt label="With Blender">Install the blender-image-to-3d skill from github.com/majidmanzarpour/blender-game-skills in ~/.claude/skills. First tell us simply what it tells you to do.</Prompt>
 
 Then start a new session.
-
-## Rules for good 3D
-
-1. Start with shapes in code. Use Blender for characters and anything soft.
-2. Let your child pick the look from pictures drawn at the game's camera,
-   before building.
-3. Build and change one thing at a time.
-4. Check every side, and the finished file, before you accept a model.
-5. Keep pieces, triangles and materials few.
-6. When it looks flat, fix colour first.
-7. Test on the real tablet.
-8. Use only art you may use, inside the game.

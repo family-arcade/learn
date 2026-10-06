@@ -5,17 +5,12 @@ sidebar:
   order: 2
 ---
 
-Every game made from the starter template keeps these rules. Claude knows
-them from the template's `AGENTS.md`. This page is for grown-ups.
+Every game made from the starter template keeps these rules. Claude knows them from the template's `AGENTS.md`.
 
-1. **Nothing from other websites.** There are no ads and no tracking.
-   The game loads no pictures, sounds, fonts or code from somewhere else.
-   Everything it needs is inside it. The only connection out is playing
-   together.
+1. **Nothing from other websites.** There are no ads and no tracking. The game loads no pictures, sounds, fonts or code from elsewhere. The only connection out is playing together.
 2. **No links out and no pop-ups.** A game never sends a child to another
    website. "← Arcade" goes back to the arcade.
-3. **No chat.** Players share their player name and nothing else they type.
-   Messages between devices carry the game, nothing more.
+3. **No chat.** Players share their player name and nothing else they type. Messages between devices carry only the game.
 4. **Playable by touch and by keyboard.** Every button is big enough to tap.
    Every action has a key too.
 5. **Calm when asked.** If a device is set to reduce motion, the game has no

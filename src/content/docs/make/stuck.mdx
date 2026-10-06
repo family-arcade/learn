@@ -8,41 +8,32 @@ sidebar:
 import GhIcon from '../../../components/GhIcon.astro';
 import Prompt from '../../../components/Prompt.astro';
 
-Sometimes a game does not do what you asked. That happens to every game maker, and the fix is usually quick.
-
 ## Game shows a white screen
 
-This also applies when the game does not start. Tell Claude exactly what you
-see:
+Or the game does not start. Tell Claude what you see:
 
 <Prompt>The game shows a white screen since the last change. Please find out why, fix it, and run the tests and the build.</Prompt>
 
 ## Change missing on the web
 
-- Did you **merge** the pull request? A change only goes live after the merge.
-- Is GitHub Pages on? Open the newest run in the
-  <GhIcon name="play" />**Actions** tab. If it says "Not published yet",
-  follow [Put your game on the web](/make/publish/).
-- A red cross in the <GhIcon name="play" />**Actions** tab means the tests or
-  the build failed, and nothing was published. Copy the red error into
-  Claude:
+- Did you **merge**? A change only goes live after the merge.
+- Is GitHub Pages on? Open the newest run in the <GhIcon name="play" />**Actions** tab. If it says "Not published yet", follow [Put your game on the web](/make/publish/).
+- A red cross in the <GhIcon name="play" />**Actions** tab means the tests or the build failed, and nothing was published. Copy the red error into Claude:
 
   <Prompt>Publishing failed with this error: (paste the error here). Please fix it.</Prompt>
 
-- Reload the page. On a phone or tablet, close the game and open it again.
+- Reload the page. On a tablet, close the game and open it again.
 
 ## Devices will not connect
 
 - Both devices need internet.
 - The codes are 4 letters. Check them again.
 - Some school or office networks block it. Try home wifi or mobile data.
-- If the person who made the code leaves, the others see **Connection lost**.
-  Tap **Leave** under **Room**. Then start again with a new code.
+- If the person who made the code leaves, the others see **Connection lost**. Tap **Leave** under **Room**, then start again with a new code.
 
 ## Claude reaches its limit
 
-The plan has a usage limit. It resets after a few hours. Take a break, play
-the game you have, and write down what to change next.
+The plan has a usage limit. It resets after a few hours. Play your game and write down what to change next.
 
 ## Going back to the old game
 
@@ -54,6 +45,4 @@ Or on GitHub, open the pull request you merged and click **Revert**.
 
 ## Getting more help
 
-Ask Claude to explain, in simple words, what it thinks is wrong. If the
-problem seems to be in the starter template itself, write to
-[mario@knyflores.com](mailto:mario@knyflores.com).
+Ask Claude to explain what it thinks is wrong, in simple words. If the problem seems to be in the starter template, write to [mario@knyflores.com](mailto:mario@knyflores.com).

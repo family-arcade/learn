@@ -9,9 +9,7 @@ sidebar:
 import ArcadeDiagram from '../../../components/ArcadeDiagram.astro';
 import Prompt from '../../../components/Prompt.astro';
 
-Friends play your game with you through the Family Arcade. Each friend opens
-your game in their own Family Arcade, with their own player. Then the devices
-connect with a 4-letter code.
+Each friend opens your game in their own Family Arcade, with their own player. Then the devices connect with a 4-letter code.
 
 ## Playing together
 
@@ -24,18 +22,13 @@ connect with a 4-letter code.
 
 ![The starter template’s Play together panel: Klara made the code ZAXE, and Mina has joined](../../../assets/screens/template-together-code.webp)
 
-Up to four devices can play together. Different homes and different
-countries are fine. A few strict networks, including some school and office
-networks, block it. Home wifi and mobile data work.
+Up to four devices can play together, in different homes and countries. A few strict networks, including some school and office networks, block it. Home wifi and mobile data work.
 
 ## How the devices connect
 
 <ArcadeDiagram which="together" />
 
-Devices find each other through the Family Arcade's own connection service,
-on our server in Germany. It passes only the first hello between the devices
-and keeps no log. After that, the game's data goes directly between the
-devices.
+Devices find each other through the Family Arcade's own connection service, on our server in Germany. It passes only the first hello and keeps no log. After that, the game's data goes directly between the devices.
 
 ## Testing on one computer
 
@@ -45,11 +38,10 @@ devices.
 
 ## Play together in your game
 
-Tell Claude what playing together means in your game:
+Tell Claude how playing together works in your game:
 
 <Prompt>In my game, each player is a dragon in their own colour. Everyone sees all the dragons, and the first to 20 gems wins.</Prompt>
 
-The device that made the code runs the game. The other devices send what
-their players do. Claude knows how to set this up from the template's rules.
+The device that made the code runs the game. The other devices send what their players do. Claude knows how to set this up.
 
 Next: [Fix common problems](/make/stuck/).

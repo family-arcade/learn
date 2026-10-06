@@ -1,6 +1,6 @@
 ---
 title: How a web game works
-description: The four big ideas behind every web game, in pictures - the code, where the game lives, where saves go, and how a change gets in.
+description: Four ideas behind every web game - the code, where it lives, where saves go, and how a change gets in.
 sidebar:
   label: How a web game works
   order: 0
@@ -14,41 +14,29 @@ import hostingScene from '../../../assets/big-ideas/2-hosting.webp';
 import savesScene from '../../../assets/big-ideas/3-saves.webp';
 import mergeScene from '../../../assets/big-ideas/4-merge.webp';
 
-Four big ideas are behind every web game. Read them together before you
-start. It takes a few minutes, and you don't need to remember them: the
-guide explains each one again when you need it.
+Four ideas are behind every web game. Read them together. You don't need to remember them.
 
 ## Code is the game's instructions
 
-A game is made of code: text that tells a computer what to do. Claude writes
-the code for you, and you never have to read it. Your game's code lives in
-its **repository**, a folder for your game on GitHub.
+A game is made of code: text that tells a computer what to do. Claude writes it. The code lives in your game's **repository**, a folder on GitHub.
 
 <Shot images={[{ src: codeScene, alt: 'A laptop on a desk shows the code as rows of coloured bars, and the bars flow into a yellow folder.' }]}>The code is the game's instructions, kept in its repository.</Shot>
 
 ## Hosting puts your game on the web
 
-GitHub keeps a copy of your game on its computers, at its own web address.
-This is called **hosting**. When a friend opens the address, their browser
-fetches the game. The game then runs on their own device.
+GitHub keeps a copy of your game on its computers, at a web address. This is called **hosting**. When a friend opens the address, their browser fetches the game and runs it.
 
 <Shot images={[{ src: hostingScene, alt: 'A small server house on a floating island sends a dotted path of light to a tablet and a phone, which both show the same dragon game.' }]}>The computer that hosts the game sends it to every device that opens its address.</Shot>
 
 ## Saves stay on your device
 
-Your player and your best scores are saved on the device you play on, inside
-its browser. Many apps keep everyone's data in a **database**, a store on a
-server. Games made from the starter template have no database. So a save on
-the tablet is not on the laptop.
+Your player and best scores are saved in the browser of the device you play on. Many apps use a **database**, a store on a server. Games from the starter template have none. So a save on the tablet is not on the laptop.
 
 <Shot images={[{ src: savesScene, alt: 'A tablet with an open treasure chest of gems beside it, and a laptop on its own cloud with no chest.' }]}>The save stays on the tablet it was made on. The laptop has its own.</Shot>
 
 ## A change goes in when you merge
 
-Claude never changes your game straight away. It makes each change on a
-copy of your game, called a **branch**. You read what it changed, together.
-If you like it, you **merge** it: one button on GitHub adds the change to
-your game. A minute or two later, the new version is on the web.
+Claude never changes your game straight away. It makes each change on a copy, called a **branch**. You read what it changed, together. If you like it, you **merge** it: one button on GitHub adds the change to your game. A minute or two later, it is on the web.
 
 <Shot images={[{ src: mergeScene, alt: 'A path carries the game along. A purple side path branches off to a workbench and joins the main path again at a glowing check mark.' }]}>A change is made on a branch, then merged back into the game.</Shot>
 

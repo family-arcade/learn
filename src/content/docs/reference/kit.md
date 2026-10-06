@@ -6,9 +6,7 @@ sidebar:
   order: 1
 ---
 
-The kit lives in `src/arcade/` in every game made from the starter template. It is the
-only part of a game that knows about the arcade. Import `arcade` from it.
-Leave the folder itself unchanged so it can be updated.
+The kit lives in `src/arcade/` in every game made from the starter template. It is the only part of a game that knows about the arcade. Import `arcade` from it. Leave the folder unchanged so it can be updated.
 
 ```ts
 import { arcade } from './arcade';
@@ -22,9 +20,7 @@ await arcade.ui.ensurePlayer(document.body);   // shows "Who's playing?" if nobo
 arcade.setPlayer({ name: 'Klara', colour: '#e0405f' });
 ```
 
-When the arcade opens a game, it hands over the player in the link. See [How
-the Family Arcade works](/how-it-works/#opening-a-friends-game). The kit reads
-the player before your code runs, so `arcade.player()` already has them.
+The arcade hands over the player in the link. See [How the Family Arcade works](/how-it-works/#opening-a-friends-game). The kit reads it before your code runs, so `arcade.player()` already has it.
 
 ## Saving progress
 
@@ -42,8 +38,7 @@ forgets its saves.
 
 ## Play together
 
-The quickest way is the kit's own panel. It has **Play together**, **Make a
-code**, **I have a code**, who is here and **Leave**.
+The quickest way is the kit's own panel: **Play together**, **Make a code**, **I have a code**, who is here and **Leave**.
 
 ```ts
 const panel = arcade.ui.togetherPanel(container);
