@@ -30,7 +30,7 @@ Children of 8 to 10 read every word on their screen and don't know how to skip. 
 clear line wins**: say what to do, or what they achieved, in the fewest words a child knows. Cut
 what doesn't help them act or see their progress; delete a line rather than polish it. A metaphor
 stays only when the screen shows exactly that (the planets on the map), never "your journey" or
-"stars waiting to light up". The budgets below are ceilings, not targets." (A pass with this rule
+"stars waiting to light up". The budgets below are ceilings, not targets. (A pass with this rule
 cut TippMitGalli's German by 37%.)
 
 ## The shapes (budgets are maximums)
