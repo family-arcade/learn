@@ -10,7 +10,8 @@
 interface Props {
 	label?: string;
 }
-const { label = 'Say or type' } = Astro.props;
+const t = Astro.locals.t;
+const { label = t('learn.prompt.label') } = Astro.props;
 ---
 
 <div class="fa-prompt not-content">
@@ -22,12 +23,19 @@ const { label = 'Say or type' } = Astro.props;
 			</svg>
 			<span>{label}</span>
 		</span>
-		<button type="button" class="fa-prompt-copy" hidden>
+		<button
+			type="button"
+			class="fa-prompt-copy"
+			data-word-copy={t('learn.prompt.copy')}
+			data-word-done={t('learn.prompt.copied')}
+			data-word-failed={t('learn.prompt.notCopied')}
+			hidden
+		>
 			<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
 				<rect x="8.5" y="8.5" width="11" height="12" rx="2.5" />
 				<path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H7A2.5 2.5 0 0 0 4.5 6v8A2.5 2.5 0 0 0 7 16.5h1.5" />
 			</svg>
-			<span class="fa-prompt-copy-text">Copy</span><span class="fa-vh"> these words</span>
+			<span class="fa-prompt-copy-text">{t('learn.prompt.copy')}</span><span class="fa-vh"> {t('learn.prompt.copyHidden')}</span>
 		</button>
 	</div>
 	<div class="fa-prompt-text"><slot /></div>
@@ -48,18 +56,18 @@ const { label = 'Say or type' } = Astro.props;
 			let timer: number | undefined;
 			button.addEventListener('click', async () => {
 				const text = (words.textContent ?? '').replace(/\s+/g, ' ').trim();
-				let done = 'Copied';
+				let done = button.dataset.wordDone ?? '';
 				try {
 					await navigator.clipboard.writeText(text);
 					button.dataset.copied = '';
 				} catch {
-					done = 'Not copied';
+					done = button.dataset.wordFailed ?? '';
 				}
 				buttonText.textContent = done;
 				status.textContent = done;
 				window.clearTimeout(timer);
 				timer = window.setTimeout(() => {
-					buttonText.textContent = 'Copy';
+					buttonText.textContent = button.dataset.wordCopy ?? '';
 					status.textContent = '';
 					delete button.dataset.copied;
 				}, 2000);

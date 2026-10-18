@@ -9,27 +9,25 @@ import dragon from '../assets/screens/first-games/dragon.webp';
 import frog from '../assets/screens/first-games/frog.webp';
 import fish from '../assets/screens/first-games/fish.webp';
 
+const t = Astro.locals.t;
 const games = [
 	{
 		img: dragon,
-		alt: 'Cloud Dragon: a red dragon flies across a sunset sky with orange clouds and teal gems, with a 60-second timer and the score above',
-		asked: 'Make a game where you are a dragon collecting gems in the clouds.',
-		questions: 'two questions',
-		time: 'about 4 minutes',
+		alt: t('learn.firstGames.dragon.alt'),
+		asked: t('learn.firstGames.dragon.asked'),
+		result: t('learn.firstGames.dragon.result'),
 	},
 	{
 		img: frog,
-		alt: 'Hungry Frog: a green frog on a lily pad at the bottom of a sunny pond, with flies in the sky above, a 30-second timer and the score',
-		asked: 'Make a game where a hungry frog catches flies with its tongue when you tap.',
-		questions: 'three questions',
-		time: 'about 4 minutes',
+		alt: t('learn.firstGames.frog.alt'),
+		asked: t('learn.firstGames.frog.asked'),
+		result: t('learn.firstGames.frog.result'),
 	},
 	{
 		img: fish,
-		alt: 'Little Fish: an orange clownfish swims in a blue sea with seaweed, while a grey shark comes in from the side, with the time survived above',
-		asked: 'Make a game where you are a little fish and you swim away from the sharks.',
-		questions: 'two questions',
-		time: 'about 6 minutes',
+		alt: t('learn.firstGames.fish.alt'),
+		asked: t('learn.firstGames.fish.asked'),
+		result: t('learn.firstGames.fish.result'),
 	},
 ];
 ---
@@ -41,9 +39,7 @@ const games = [
 				<Image src={g.img} alt={g.alt} widths={[480, 760, 1000]} sizes="(max-width: 50em) 100vw, 15rem" />
 				<figcaption>
 					<span class="asked">“{g.asked}”</span>
-					<span>
-						Claude asked {g.questions}. It was done in {g.time}.
-					</span>
+					<span>{g.result}</span>
 				</figcaption>
 			</figure>
 		))

@@ -1,24 +1,21 @@
 ---
 // Diagrams for the guide, drawn inline so nothing loads
 // from elsewhere and they follow the site's light and dark themes. Narrow on
-// purpose (360 wide) so the text stays readable on a phone.
+// purpose (360 wide) so the text stays readable on a phone. Every word comes
+// from src/content/i18n/en.json (learn.diagram*).
 interface Props {
 	which: 'parts' | 'together' | 'friend' | 'build' | 'blender';
 }
 const { which } = Astro.props;
+const t = Astro.locals.t;
 ---
 
 {
 	which === 'blender' ? (
 		<figure class="fa-diagram tall">
 			<svg viewBox="0 0 360 416" role="img" aria-labelledby="dbl-t dbl-d">
-				<title id="dbl-t">Where Claude and Blender work together</title>
-				<desc id="dbl-d">
-					Everything happens on your own computer. Claude Code, in the desktop app or the terminal, writes a
-					script. Blender runs the script in the background, with no window, and saves the model and pictures for
-					Claude to look at. Claude Code on the web runs in the cloud, so it cannot reach Blender on
-					your computer.
-				</desc>
+				<title id="dbl-t">{t('learn.diagramBlender.title')}</title>
+				<desc id="dbl-d">{t('learn.diagramBlender.description')}</desc>
 				<defs>
 					<marker id="dbl-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 						<path d="M0,0 L10,5 L0,10 z" class="head" />
@@ -26,40 +23,35 @@ const { which } = Astro.props;
 				</defs>
 
 				<rect x="14" y="4" width="332" height="292" rx="16" class="group" />
-				<text x="180" y="26" class="l">Your computer</text>
+				<text x="180" y="26" class="l">{t('learn.diagramBlender.group')}</text>
 
 				<rect x="40" y="38" width="280" height="56" rx="12" class="box you" />
-				<text x="180" y="61" class="t">Claude Code</text>
-				<text x="180" y="81" class="s">The desktop app or the terminal</text>
+				<text x="180" y="61" class="t">{t('learn.diagramBlender.claudeCode.title')}</text>
+				<text x="180" y="81" class="s">{t('learn.diagramBlender.claudeCode.note')}</text>
 
 				<path d="M180,97 L180,125" class="line" marker-end="url(#dbl-arrow)" marker-start="url(#dbl-arrow)" />
 
 				<rect x="40" y="128" width="280" height="56" rx="12" class="box" />
-				<text x="180" y="151" class="t">A script</text>
-				<text x="180" y="171" class="s">Steps written down, to run again</text>
+				<text x="180" y="151" class="t">{t('learn.diagramBlender.script.title')}</text>
+				<text x="180" y="171" class="s">{t('learn.diagramBlender.script.note')}</text>
 
 				<path d="M180,187 L180,215" class="line" marker-end="url(#dbl-arrow)" marker-start="url(#dbl-arrow)" />
 
 				<rect x="40" y="218" width="280" height="56" rx="12" class="box you" />
-				<text x="180" y="241" class="t">Blender, no window</text>
-				<text x="180" y="261" class="s">Builds the model, makes pictures</text>
+				<text x="180" y="241" class="t">{t('learn.diagramBlender.blender.title')}</text>
+				<text x="180" y="261" class="s">{t('learn.diagramBlender.blender.note')}</text>
 
 				<rect x="40" y="320" width="280" height="56" rx="12" class="box" />
-				<text x="180" y="343" class="t">Claude Code on the web</text>
-				<text x="180" y="363" class="s">Runs in the cloud</text>
-				<text x="180" y="404" class="l">It cannot reach Blender on your computer</text>
+				<text x="180" y="343" class="t">{t('learn.diagramBlender.web.title')}</text>
+				<text x="180" y="363" class="s">{t('learn.diagramBlender.web.note')}</text>
+				<text x="180" y="404" class="l">{t('learn.diagramBlender.caption')}</text>
 			</svg>
 		</figure>
 	) : which === 'build' ? (
 		<figure class="fa-diagram tall">
 			<svg viewBox="0 0 360 512" role="img" aria-labelledby="db-t db-d">
-				<title id="db-t">How a game gets built</title>
-				<desc id="db-d">
-					Your game's code lives in a repository on GitHub. Claude makes a change on a branch, a copy for trying
-					things. You look at what it changed. A pull request asks to add the change. While it is on the branch, your
-					game does not change. The merge adds the change to the main game. GitHub then publishes it in a minute or
-					two, and the game is live at its address.
-				</desc>
+				<title id="db-t">{t('learn.diagramBuild.title')}</title>
+				<desc id="db-d">{t('learn.diagramBuild.description')}</desc>
 				<defs>
 					<marker id="db-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 						<path d="M0,0 L10,5 L0,10 z" class="head" />
@@ -67,58 +59,55 @@ const { which } = Astro.props;
 				</defs>
 
 				<rect x="40" y="4" width="280" height="46" rx="12" class="box" />
-				<text x="180" y="24" class="t">Repository</text>
-				<text x="180" y="42" class="s">Your game's code, on GitHub</text>
+				<text x="180" y="24" class="t">{t('learn.diagramBuild.repository.title')}</text>
+				<text x="180" y="42" class="s">{t('learn.diagramBuild.repository.note')}</text>
 
 				<path d="M180,52 L180,71" class="line" marker-end="url(#db-arrow)" />
 
 				<rect x="14" y="74" width="332" height="224" rx="16" class="group" />
-				<text x="180" y="94" class="l">Your game does not change yet</text>
+				<text x="180" y="94" class="l">{t('learn.diagramBuild.group')}</text>
 
 				<rect x="40" y="104" width="280" height="46" rx="12" class="box" />
-				<text x="180" y="124" class="t">Branch</text>
-				<text x="180" y="142" class="s">Claude makes a change on a copy</text>
+				<text x="180" y="124" class="t">{t('learn.diagramBuild.branch.title')}</text>
+				<text x="180" y="142" class="s">{t('learn.diagramBuild.branch.note')}</text>
 
 				<path d="M180,152 L180,169" class="line" marker-end="url(#db-arrow)" />
 
 				<rect x="40" y="172" width="280" height="46" rx="12" class="box" />
-				<text x="180" y="192" class="t">You look at it</text>
-				<text x="180" y="210" class="s">Claude says what it changed</text>
+				<text x="180" y="192" class="t">{t('learn.diagramBuild.look.title')}</text>
+				<text x="180" y="210" class="s">{t('learn.diagramBuild.look.note')}</text>
 
 				<path d="M180,220 L180,237" class="line" marker-end="url(#db-arrow)" />
 
 				<rect x="40" y="240" width="280" height="46" rx="12" class="box" />
-				<text x="180" y="260" class="t">Pull request</text>
-				<text x="180" y="278" class="s">Asks to add the change</text>
+				<text x="180" y="260" class="t">{t('learn.diagramBuild.pullRequest.title')}</text>
+				<text x="180" y="278" class="s">{t('learn.diagramBuild.pullRequest.note')}</text>
 
 				<path d="M180,300 L180,319" class="line" marker-end="url(#db-arrow)" />
 
 				<rect x="40" y="322" width="280" height="46" rx="12" class="box you" />
-				<text x="180" y="342" class="t">Merge</text>
-				<text x="180" y="360" class="s">Adds it to the main game</text>
+				<text x="180" y="342" class="t">{t('learn.diagramBuild.merge.title')}</text>
+				<text x="180" y="360" class="s">{t('learn.diagramBuild.merge.note')}</text>
 
 				<path d="M180,370 L180,389" class="line" marker-end="url(#db-arrow)" />
-				<text x="192" y="385" class="l" style="text-anchor: start">Now your game changes</text>
+				<text x="192" y="385" class="l" style="text-anchor: start">{t('learn.diagramBuild.mergeArrow')}</text>
 
 				<rect x="40" y="392" width="280" height="46" rx="12" class="box" />
-				<text x="180" y="412" class="t">GitHub publishes it</text>
-				<text x="180" y="430" class="s">In a minute or two</text>
+				<text x="180" y="412" class="t">{t('learn.diagramBuild.publish.title')}</text>
+				<text x="180" y="430" class="s">{t('learn.diagramBuild.publish.note')}</text>
 
 				<path d="M180,440 L180,459" class="line" marker-end="url(#db-arrow)" />
 
 				<rect x="40" y="462" width="280" height="46" rx="12" class="box you" />
-				<text x="180" y="482" class="t">Live at its address</text>
-				<text x="180" y="500" class="s">your-name.github.io/dragon-dash</text>
+				<text x="180" y="482" class="t">{t('learn.diagramBuild.live.title')}</text>
+				<text x="180" y="500" class="s">{t('learn.diagramBuild.live.note')}</text>
 			</svg>
 		</figure>
 	) : which === 'parts' ? (
 		<figure class="fa-diagram">
 			<svg viewBox="0 0 360 286" role="img" aria-labelledby="dp-t dp-d">
-				<title id="dp-t">Where the Family Arcade lives</title>
-				<desc id="dp-d">
-					The server familyarcade.eu in Germany sends the arcade to your tablet or phone once and keeps no log. Players,
-					tickets and saves stay on your device, in the browser, and the arcade works offline after the first visit.
-				</desc>
+				<title id="dp-t">{t('learn.diagramParts.title')}</title>
+				<desc id="dp-d">{t('learn.diagramParts.description')}</desc>
 				<defs>
 					<marker id="dp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 						<path d="M0,0 L10,5 L0,10 z" class="head" />
@@ -126,29 +115,25 @@ const { which } = Astro.props;
 				</defs>
 
 				<rect x="60" y="6" width="240" height="86" rx="12" class="box" />
-				<text x="180" y="34" class="t">familyarcade.eu</text>
-				<text x="180" y="56" class="s">A server in Germany</text>
-				<text x="180" y="76" class="s">Keeps no log of visits</text>
+				<text x="180" y="34" class="t">{t('learn.diagramParts.server.title')}</text>
+				<text x="180" y="56" class="s">{t('learn.diagramParts.server.noteOne')}</text>
+				<text x="180" y="76" class="s">{t('learn.diagramParts.server.noteTwo')}</text>
 
 				<path d="M180,96 L180,160" class="line" marker-end="url(#dp-arrow)" />
-				<text x="192" y="134" class="l" style="text-anchor: start">The arcade, once</text>
+				<text x="192" y="134" class="l" style="text-anchor: start">{t('learn.diagramParts.arrow')}</text>
 
 				<rect x="40" y="166" width="280" height="112" rx="14" class="box you" />
-				<text x="180" y="196" class="t">Your tablet or phone</text>
-				<text x="180" y="222" class="s">Players, tickets and saves</text>
-				<text x="180" y="242" class="s">stay here, in the browser</text>
-				<text x="180" y="264" class="s dim">Works offline after the first visit</text>
+				<text x="180" y="196" class="t">{t('learn.diagramParts.device.title')}</text>
+				<text x="180" y="222" class="s">{t('learn.diagramParts.device.noteOne')}</text>
+				<text x="180" y="242" class="s">{t('learn.diagramParts.device.noteTwo')}</text>
+				<text x="180" y="264" class="s dim">{t('learn.diagramParts.device.noteThree')}</text>
 			</svg>
 		</figure>
 	) : which === 'friend' ? (
 		<figure class="fa-diagram">
 			<svg viewBox="0 0 360 290" role="img" aria-labelledby="df-t df-d">
-				<title id="df-t">Opening a friend's game from the arcade</title>
-				<desc id="df-d">
-					Tapping a friend's game in the arcade opens the game's own website, on the other family's GitHub Pages. The
-					player's name and colour go along inside the link and never reach a server. The game's back button returns to
-					the arcade.
-				</desc>
+				<title id="df-t">{t('learn.diagramFriend.title')}</title>
+				<desc id="df-d">{t('learn.diagramFriend.description')}</desc>
 				<defs>
 					<marker id="df-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 						<path d="M0,0 L10,5 L0,10 z" class="head" />
@@ -156,31 +141,27 @@ const { which } = Astro.props;
 				</defs>
 
 				<rect x="40" y="6" width="280" height="86" rx="12" class="box you" />
-				<text x="180" y="34" class="t">The arcade, on your tablet</text>
-				<text x="180" y="56" class="s">Tap the friend's game tile</text>
-				<text x="180" y="76" class="s">under From friends</text>
+				<text x="180" y="34" class="t">{t('learn.diagramFriend.arcade.title')}</text>
+				<text x="180" y="56" class="s">{t('learn.diagramFriend.arcade.noteOne')}</text>
+				<text x="180" y="76" class="s">{t('learn.diagramFriend.arcade.noteTwo')}</text>
 
 				<path d="M140,96 L140,190" class="line" marker-end="url(#df-arrow)" />
-				<text x="128" y="134" class="l" style="text-anchor: end">Opens with</text>
-				<text x="128" y="154" class="l" style="text-anchor: end">your name</text>
+				<text x="128" y="134" class="l" style="text-anchor: end">{t('learn.diagramFriend.opensLineOne')}</text>
+				<text x="128" y="154" class="l" style="text-anchor: end">{t('learn.diagramFriend.opensLineTwo')}</text>
 				<path d="M220,190 L220,96" class="line dashed" marker-end="url(#df-arrow)" />
-				<text x="232" y="144" class="l" style="text-anchor: start">← Arcade</text>
+				<text x="232" y="144" class="l" style="text-anchor: start">{t('learn.diagramFriend.back')}</text>
 
 				<rect x="40" y="196" width="280" height="86" rx="12" class="box" />
-				<text x="180" y="224" class="t">The friend's game</text>
-				<text x="180" y="246" class="s">Its own website, on their</text>
-				<text x="180" y="266" class="s">family's GitHub Pages</text>
+				<text x="180" y="224" class="t">{t('learn.diagramFriend.game.title')}</text>
+				<text x="180" y="246" class="s">{t('learn.diagramFriend.game.noteOne')}</text>
+				<text x="180" y="266" class="s">{t('learn.diagramFriend.game.noteTwo')}</text>
 			</svg>
 		</figure>
 	) : (
 		<figure class="fa-diagram">
 			<svg viewBox="0 0 360 300" role="img" aria-labelledby="dt-t dt-d">
-				<title id="dt-t">Playing together across homes</title>
-				<desc id="dt-d">
-					The Family Arcade's own connection service, on our server in Germany, passes the first hello between your
-					tablet and your cousin's tablet, using the 4-letter code. It keeps no log. After that, the game's data travels
-					directly between the two devices.
-				</desc>
+				<title id="dt-t">{t('learn.diagramTogether.title')}</title>
+				<desc id="dt-d">{t('learn.diagramTogether.description')}</desc>
 				<defs>
 					<marker id="dt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 						<path d="M0,0 L10,5 L0,10 z" class="head" />
@@ -188,24 +169,24 @@ const { which } = Astro.props;
 				</defs>
 
 				<rect x="45" y="6" width="270" height="86" rx="12" class="box" />
-				<text x="180" y="34" class="t">Connection service</text>
-				<text x="180" y="56" class="s">The Family Arcade's, in Germany</text>
-				<text x="180" y="76" class="s">Passes the first hello. No log.</text>
+				<text x="180" y="34" class="t">{t('learn.diagramTogether.service.title')}</text>
+				<text x="180" y="56" class="s">{t('learn.diagramTogether.service.noteOne')}</text>
+				<text x="180" y="76" class="s">{t('learn.diagramTogether.service.noteTwo')}</text>
 
 				<path d="M118,96 L70,180" class="line dashed" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
 				<path d="M242,96 L290,180" class="line dashed" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
-				<text x="180" y="132" class="l">"Hello, ABCD"</text>
+				<text x="180" y="132" class="l">{t('learn.diagramTogether.hello')}</text>
 
 				<rect x="6" y="184" width="132" height="76" rx="12" class="box you" />
-				<text x="72" y="214" class="t">Your tablet</text>
-				<text x="72" y="238" class="s">Home 1</text>
+				<text x="72" y="214" class="t">{t('learn.diagramTogether.you.title')}</text>
+				<text x="72" y="238" class="s">{t('learn.diagramTogether.you.note')}</text>
 
 				<rect x="222" y="184" width="132" height="76" rx="12" class="box you" />
-				<text x="288" y="214" class="t">Cousin's tablet</text>
-				<text x="288" y="238" class="s">Home 2</text>
+				<text x="288" y="214" class="t">{t('learn.diagramTogether.cousin.title')}</text>
+				<text x="288" y="238" class="s">{t('learn.diagramTogether.cousin.note')}</text>
 
 				<path d="M144,222 L216,222" class="line strong" marker-end="url(#dt-arrow)" marker-start="url(#dt-arrow)" />
-				<text x="180" y="286" class="l">The game travels directly between them</text>
+				<text x="180" y="286" class="l">{t('learn.diagramTogether.caption')}</text>
 			</svg>
 		</figure>
 	)

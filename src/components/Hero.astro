@@ -12,7 +12,7 @@ const { title = data.title, tagline, actions = [] } = data.hero || {};
 
 // A short label over the title, in the pixel font. The "page not found"
 // page uses this hero too, without it.
-const kicker = Astro.locals.starlightRoute.id === '404' ? undefined : 'A guide for families';
+const kicker = Astro.locals.starlightRoute.id === '404' ? undefined : Astro.locals.t('learn.hero.kicker');
 ---
 
 <div class="fa-hero">
