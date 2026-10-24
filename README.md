@@ -37,19 +37,13 @@ What a developer brings:
 - Optionally, a headless browser MCP server of their own, for looking at
   pages by hand.
 
-Deploying needs the owner's server access. `scripts/deploy.sh` calls
-`deploy-static.sh` from a separate `hetzner-ops-familyarcade` checkout at
-`~/code/hetzner-ops-familyarcade`, which uploads to the owner's server over
-SSH. Without that checkout and access it fails: anyone else can build and
-check the site, and the owner deploys it.
+Releases need the owner: only an admin can push a release tag.
 
 ## Deploy
 
-    npm run build
-    npm run deploy   # scripts/deploy.sh
-
-The script uploads `dist/` with `~/code/hetzner-ops-familyarcade/scripts/deploy-static.sh`,
-which Caddy serves from /opt/static/learn.familyarcade.eu/.
+Releases go by tag. Push `vX.Y.Z` on `main`: `.github/workflows/release.yml`
+builds the site and uploads `dist/` to /opt/static/learn.familyarcade.eu/,
+which Caddy serves. Nothing is deleted from the server.
 
 ## Licence
 

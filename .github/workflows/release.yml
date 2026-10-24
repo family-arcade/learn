@@ -1,0 +1,149 @@
+# Deploys to https://learn.familyarcade.eu/ on release tags. Push a tag like v1.2.3 on main to check,
+# build and upload the site. To redeploy or roll back, run this workflow by hand from main with an
+# older tag: it checks out and rebuilds that tag.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing release tag to redeploy or roll back to (vX.Y.Z)'
+        required: true
+        type: string
+
+env:
+  SITE: learn.familyarcade.eu
+  DEPLOY_HOST: 178.105.99.130
+  LIVE_URL: https://learn.familyarcade.eu/
+
+concurrency:
+  group: release-learn
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate tag and branch
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check tag format and that it is released from main
+        id: tag
+        env:
+          TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+        run: |
+          if ! [[ $TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Tag must look like vX.Y.Z"
+            exit 1
+          fi
+          if [ "$EVENT" = workflow_dispatch ] && [ "$REF" != refs/heads/main ]; then
+            # A dispatch runs this file from the ref it was started on, with the deploy key.
+            echo "::error::Run this workflow from main"
+            exit 1
+          fi
+          if ! git rev-parse -q --verify "refs/tags/$TAG^{commit}" >/dev/null; then
+            echo "::error::Tag $TAG does not exist"
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$(git rev-parse "refs/tags/$TAG^{commit}")" origin/main; then
+            echo "::error::Tagged commit is not on main"
+            exit 1
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+  release:
+    name: Check, build and deploy
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # The deploy key is a secret of this environment, not of the repository. The
+    # environment admits only the main branch and v* tags, so a workflow edited on
+    # another branch can't read the key: GitHub enforces that, not this file.
+    environment:
+      name: production
+      url: https://learn.familyarcade.eu/
+    env:
+      TAG: ${{ needs.validate.outputs.tag }}
+    steps:
+      # Fail in seconds, before anything is built, when the deploy secrets are missing
+      # (hetzner-ops/scripts/ci-static-key.sh sets them).
+      - name: Check the deploy secrets
+        env:
+          DEPLOY_KEY: ${{ secrets.STATIC_DEPLOY_KEY }}
+          KNOWN_HOSTS: ${{ secrets.STATIC_DEPLOY_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$DEPLOY_KEY" ] || [ -z "$KNOWN_HOSTS" ]; then
+            echo "::error::STATIC_DEPLOY_KEY / STATIC_DEPLOY_KNOWN_HOSTS are not set in environment production. Run: ~/code/hetzner-ops/scripts/ci-static-key.sh $SITE $GITHUB_REPOSITORY"
+            exit 1
+          fi
+
+      - name: Check out the tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: refs/tags/${{ needs.validate.outputs.tag }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Check the build
+        run: |
+          [ -f dist/index.html ] || { echo "::error::no dist/index.html"; exit 1; }
+          [ -f dist/impressum/index.html ] || { echo "::error::no dist/impressum/index.html"; exit 1; }
+
+      # Two passes, never --delete: an iPad on the last release keeps its hashed files.
+      # The entry files go last so the live page never names a file that isn't there yet.
+      # Paths are relative to the key's forced rrsync root on the VM.
+      - name: Upload to the VM
+        env:
+          DEPLOY_KEY: ${{ secrets.STATIC_DEPLOY_KEY }}
+          KNOWN_HOSTS: ${{ secrets.STATIC_DEPLOY_KNOWN_HOSTS }}
+        run: |
+          umask 077
+          key="$RUNNER_TEMP/static-deploy-key"
+          known="$RUNNER_TEMP/static-deploy-known-hosts"
+          printf '%s\n' "$DEPLOY_KEY" > "$key"
+          printf '%s\n' "$KNOWN_HOSTS" > "$known"
+          ssh_cmd="ssh -i $key -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
+          rsync -rlt --exclude /index.html --exclude /sw.js -e "$ssh_cmd" dist/ "deploy@$DEPLOY_HOST:"
+          entry=(dist/index.html)
+          [ -f dist/sw.js ] && entry+=(dist/sw.js)
+          rsync -rlt -e "$ssh_cmd" "${entry[@]}" "deploy@$DEPLOY_HOST:"
+
+      - name: Remove deploy key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/static-deploy-key" "$RUNNER_TEMP/static-deploy-known-hosts"
+
+      - name: Check the live site serves this build
+        run: |
+          want="$(sha256sum dist/index.html | cut -d' ' -f1)"
+          for i in 1 2 3 4 5 6; do
+            got="$(curl -fsS -H 'Cache-Control: no-cache' "$LIVE_URL?ci=$GITHUB_RUN_ID" | sha256sum | cut -d' ' -f1 || true)"
+            if [ "$got" = "$want" ]; then
+              echo "Live site serves this build's index.html ($got)"
+              { echo "### Learn guide $TAG"; echo "Live: $LIVE_URL"; } >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "attempt $i: live index.html is ${got:-nothing}, want $want"
+            sleep 10
+          done
+          echo "::error::Live site does not serve this build's index.html"
+          exit 1

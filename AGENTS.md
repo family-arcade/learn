@@ -135,5 +135,5 @@ links, and exits non-zero if any check fails. Add `--figs` for close-ups
 of each picture and call-to-action card.
 
 Then open the shots for every changed page and say what you see. The
-script cannot judge contrast, wrapping or layout. Deploy with
-`scripts/deploy.sh` (the server keeps no access log).
+script cannot judge contrast, wrapping or layout. Release by pushing a `vX.Y.Z` tag on main
+(the server keeps no access log).
