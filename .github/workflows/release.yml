@@ -1,6 +1,7 @@
 # Deploys to https://learn.familyarcade.eu/ on release tags. Push a tag like v1.2.3 on main to check,
 # build and upload the site. To redeploy or roll back, run this workflow by hand from main with an
-# older tag: it checks out and rebuilds that tag.
+# older tag and `rollback` ticked: it checks out and rebuilds that tag. Without `rollback` a release
+# refuses to put older files live.
 name: Release
 
 on:
@@ -12,6 +13,11 @@ on:
         description: 'Existing release tag to redeploy or roll back to (vX.Y.Z)'
         required: true
         type: string
+      rollback:
+        description: 'Roll back on purpose: skip the check that the live site is an ancestor of this tag'
+        required: false
+        default: false
+        type: boolean
 
 env:
   SITE: learn.familyarcade.eu
@@ -94,6 +100,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: refs/tags/${{ needs.validate.outputs.tag }}
+          fetch-depth: 0
           persist-credentials: false
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -109,6 +116,36 @@ jobs:
           [ -f dist/index.html ] || { echo "::error::no dist/index.html"; exit 1; }
           [ -f dist/impressum/index.html ] || { echo "::error::no dist/impressum/index.html"; exit 1; }
 
+      # A release never puts older files live than what is live now. The live version.json names the
+      # commit that was uploaded last (any upload: a tag, a redeploy, deploy-static.sh). Refuse when that
+      # commit is not an ancestor of this tag's commit. A missing or old-format file only warns: the
+      # first release after the guard landed. A deliberate rollback is a manual run with `rollback` ticked.
+      - name: Refuse to roll the live site back
+        env:
+          ROLLBACK: ${{ github.event_name == 'workflow_dispatch' && inputs.rollback || 'false' }}
+        run: |
+          new="$(git rev-parse HEAD)"
+          built="$(jq -r '.rev // empty' dist/version.json)"
+          [ "$built" = "$new" ] || { echo "::error::dist/version.json rev '${built:-none}' is not the checked-out commit $new"; exit 1; }
+          live=""
+          code="$(curl -fsS -o "$RUNNER_TEMP/live-version.json" -w '%{http_code}' -H 'Cache-Control: no-cache' "${LIVE_URL}version.json?ci=$GITHUB_RUN_ID" || true)"
+          if [ "$code" = 200 ]; then
+            live="$(jq -r '.rev // empty' "$RUNNER_TEMP/live-version.json" 2>/dev/null || true)"
+            [ -n "$live" ] || echo "::warning::live version.json has no rev: not checking (first release after the guard)"
+          elif [ "$code" = 404 ]; then
+            echo "::warning::no live version.json yet: not checking (first release after the guard)"
+          else
+            echo "::error::could not read ${LIVE_URL}version.json (HTTP ${code:-none}); not uploading blind"
+            exit 1
+          fi
+          { echo "### Release guard"; echo "Live: ${live:-unknown}"; echo "This release: $new"; } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$ROLLBACK" = true ]; then
+            echo "rollback requested: skipping the ancestor check (live ${live:-unknown}, release $new)"
+          elif [ -n "$live" ] && ! git merge-base --is-ancestor "$live" "$new"; then
+            echo "::error::refusing: live $live is not an ancestor of $new (would roll back). Run the workflow by hand with rollback ticked to do it on purpose."
+            exit 1
+          fi
+
       # Two passes, never --delete: an iPad on the last release keeps its hashed files.
       # The entry files go last so the live page never names a file that isn't there yet.
       # Paths are relative to the key's forced rrsync root on the VM.
@@ -123,10 +160,12 @@ jobs:
           printf '%s\n' "$DEPLOY_KEY" > "$key"
           printf '%s\n' "$KNOWN_HOSTS" > "$known"
           ssh_cmd="ssh -i $key -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
-          rsync -rlt --exclude /index.html --exclude /sw.js -e "$ssh_cmd" dist/ "deploy@$DEPLOY_HOST:"
+          rsync -rlt --exclude /index.html --exclude /sw.js --exclude /version.json -e "$ssh_cmd" dist/ "deploy@$DEPLOY_HOST:"
           entry=(dist/index.html)
           [ -f dist/sw.js ] && entry+=(dist/sw.js)
           rsync -rlt -e "$ssh_cmd" "${entry[@]}" "deploy@$DEPLOY_HOST:"
+          # version.json last: it names this release only once the release is complete.
+          rsync -rlt -e "$ssh_cmd" dist/version.json "deploy@$DEPLOY_HOST:"
 
       - name: Remove deploy key
         if: always()
