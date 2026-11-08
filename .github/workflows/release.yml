@@ -21,7 +21,10 @@ on:
 
 env:
   SITE: learn.familyarcade.eu
-  DEPLOY_HOST: 178.105.99.130
+  # The VM's tailnet address: the job joins the tailnet for its run (tag:ci reaches the VM on
+  # tcp:22 only). The public address names the host key in the known-hosts secret.
+  DEPLOY_HOST: 100.127.162.33
+  HOST_KEY_ALIAS: 178.105.99.130
   LIVE_URL: https://learn.familyarcade.eu/
 
 concurrency:
@@ -81,6 +84,11 @@ jobs:
     environment:
       name: production
       url: https://learn.familyarcade.eu/
+    permissions:
+      contents: read
+      # GitHub's OIDC token proves this job to Tailscale (workload identity federation): no
+      # Tailscale secret is stored. The credential trusts only this repo's environment.
+      id-token: write
     env:
       TAG: ${{ needs.validate.outputs.tag }}
     steps:
@@ -90,9 +98,15 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.STATIC_DEPLOY_KEY }}
           KNOWN_HOSTS: ${{ secrets.STATIC_DEPLOY_KNOWN_HOSTS }}
+          TS_CI_CLIENT_ID: ${{ vars.TS_CI_CLIENT_ID }}
+          TS_CI_AUDIENCE: ${{ vars.TS_CI_AUDIENCE }}
         run: |
           if [ -z "$DEPLOY_KEY" ] || [ -z "$KNOWN_HOSTS" ]; then
             echo "::error::STATIC_DEPLOY_KEY / STATIC_DEPLOY_KNOWN_HOSTS are not set in environment production. Run: ~/code/hetzner-ops/scripts/ci-static-key.sh $SITE $GITHUB_REPOSITORY"
+            exit 1
+          fi
+          if [ -z "$TS_CI_CLIENT_ID" ] || [ -z "$TS_CI_AUDIENCE" ]; then
+            echo "::error::TS_CI_CLIENT_ID / TS_CI_AUDIENCE are not set in this environment (hetzner-ops docs/2026-11-08-close-public-ssh-plan.md)"
             exit 1
           fi
 
@@ -146,6 +160,15 @@ jobs:
             exit 1
           fi
 
+      # An ephemeral tag:ci node for this run only; it logs out when the job ends.
+      - name: Join the tailnet
+        uses: tailscale/github-action@064b10558093f38325e838ddea35486bdc6b1d5c # v4.4.0
+        with:
+          oauth-client-id: ${{ vars.TS_CI_CLIENT_ID }}
+          audience: ${{ vars.TS_CI_AUDIENCE }}
+          tags: tag:ci
+          ping: ${{ env.DEPLOY_HOST }}
+
       # Two passes, never --delete: an iPad on the last release keeps its hashed files.
       # The entry files go last so the live page never names a file that isn't there yet.
       # Paths are relative to the key's forced rrsync root on the VM.
@@ -159,7 +182,7 @@ jobs:
           known="$RUNNER_TEMP/static-deploy-known-hosts"
           printf '%s\n' "$DEPLOY_KEY" > "$key"
           printf '%s\n' "$KNOWN_HOSTS" > "$known"
-          ssh_cmd="ssh -i $key -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
+          ssh_cmd="ssh -i $key -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known -o HostKeyAlias=$HOST_KEY_ALIAS"
           rsync -rlt --exclude /index.html --exclude /sw.js --exclude /version.json -e "$ssh_cmd" dist/ "deploy@$DEPLOY_HOST:"
           entry=(dist/index.html)
           [ -f dist/sw.js ] && entry+=(dist/sw.js)
